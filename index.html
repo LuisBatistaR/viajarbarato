@@ -2,93 +2,177 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Znajdź najtańsze loty i hotele na Teneryfie i w całych Wyspach Kanaryjskich.">
-  <meta name="keywords" content="Teneryfa, tanie loty, Wyspy Kanaryjskie, Polska, wakacje, podróże, bilety">
-  <meta name="author" content="Luis & Dagmar" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Teneryfa po twojemu – podróżuj taniej</title>
   <link rel="icon" href="https://emojiapi.dev/api/v1/palm_tree/64.png" type="image/png" />
 
-  <!-- Redes sociales -->
-  <meta property="og:title" content="Teneryfa po twojemu – podróżuj taniej" />
-  <meta property="og:description" content="Znajdź najtańsze loty i hotele na Teneryfie i w całych Wyspach Kanaryjskich." />
-  <meta property="og:image" content="https://viajarbarato-teneryfa.vercel.app/banner.png" />
-  <meta property="og:url" content="https://luisbatistar.github.io/viajarbarato/" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Fuentes elegantes -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
 
-  <!-- Estilos -->
   <style>
     * {
       box-sizing: border-box;
     }
+
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background: #f0f4f8;
-      color: #333;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #F4FBF4;
+      color: #222;
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+      line-height: 1.6;
     }
+
     header {
-      background: linear-gradient(90deg, #00AE98, #0097cc);
+      background: linear-gradient(90deg, #64AEC1ff 0%, #00AE98 100%);
       color: white;
-      padding: 60px 20px 40px;
       text-align: center;
+      padding: 60px 20px 40px;
+      box-shadow: 0 4px 12px rgba(0, 174, 152, 0.5);
+      animation: fadeInDown 1s ease forwards;
+      font-family: 'Playfair Display', serif;
     }
+
     header h1 {
-      font-size: 2.8em;
+      font-weight: 700;
+      font-style: italic;
+      font-size: 3.5rem;
       margin: 0;
+      letter-spacing: 3px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
     }
+
     header p {
-      font-size: 1.3em;
+      font-weight: 600;
+      font-style: normal;
+      font-size: 1.4rem;
+      margin-top: 12px;
+      opacity: 0.9;
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    main {
+      flex-grow: 1;
+      max-width: 780px;
+      margin: 40px auto 60px;
+      padding: 30px 25px;
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 12px 35px rgba(100, 174, 193, 0.25);
+      animation: fadeInUp 1.2s ease forwards;
+    }
+
+    .widget-container {
+      margin-bottom: 40px;
+    }
+
+    /* Estilo para el widget de Instagram */
+    .instagram-widget {
+      text-align: center;
       margin-top: 10px;
     }
-    .section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .widget-container {
-      background: white;
-      padding: 20px;
+
+    .instagram-widget iframe {
       border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 18px rgba(100, 174, 193, 0.3);
+      width: 100%;
+      max-width: 360px;
+      height: 360px;
+      border: none;
     }
+
     footer {
       text-align: center;
       padding: 30px 20px;
-      background: #222;
-      color: #bbb;
+      background: #64AEC1ff;
+      color: white;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      box-shadow: 0 -4px 10px rgba(100, 174, 193, 0.6);
+      font-family: 'Montserrat', sans-serif;
     }
-    a {
-      color: #00AE98;
+
+    footer a {
+      color: #00f9d3;
       text-decoration: none;
+      font-weight: 700;
     }
-    @media (max-width: 600px) {
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Animaciones suaves */
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
       header h1 {
-        font-size: 2em;
+        font-size: 2.5rem;
       }
       header p {
-        font-size: 1em;
+        font-size: 1rem;
+      }
+      main {
+        margin: 20px 10px 60px;
+        padding: 20px 15px;
+      }
+      .instagram-widget iframe {
+        max-width: 100%;
+        height: 320px;
       }
     }
   </style>
 </head>
-
 <body>
+
   <header>
-    <h1>Teneryfa po twojemu 🌴</h1>
+    <h1><em>Teneryfa</em> <strong>po twojemu</strong> 🌴</h1>
     <p>Znajdź najtańsze loty i hotele, podróżuj taniej i lepiej</p>
   </header>
 
-  <section class="section">
+  <main>
     <div class="widget-container">
-      <!-- Travelpayouts Widget -->
-      <script async src="https://c111.travelpayouts.com/content?currency=pln&trs=423668&shmarker=638051&to_name=TCI&locale=pl&powered_by=true&limit=4&primary_color=00AE98&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
+      <!-- Widget de vuelos + hoteles Travelpayouts -->
+      <script async src="https://c111.travelpayouts.com/content?currency=pln&trs=423668&shmarker=638051&from_name=PL&to_name=TFS&locale=pl&powered_by=true&limit=4&primary_color=64AEC1ff&results_background_color=F4FBF4ff&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
     </div>
-  </section>
+
+    <div class="instagram-widget">
+      <h2 style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; margin-bottom: 15px; color: #333;">Instagram Dagmar0700</h2>
+      <!-- Widget Instagram público hecho con SnapWidget -->
+      <iframe src="https://snapwidget.com/embed/1085689" scrolling="no" allowtransparency="true"></iframe>
+    </div>
+  </main>
 
   <footer>
-    © 2025 Luis & Dagmar — <a href="https://www.instagram.com/" target="_blank">Síguenos en Instagram</a><br>
-    Hecho con 💚 desde Tenerife para toda Polonia 🇵🇱
+    © 2025 Luis & Dagmar — <a href="https://www.instagram.com/dagmar0700/" target="_blank" rel="noopener noreferrer">Síguenos en Instagram</a><br>
+    Hecho con 💚 desde Tenerife dla całej Polski 🇵🇱
   </footer>
+
 </body>
 </html>
