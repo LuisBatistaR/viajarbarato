@@ -2,24 +2,32 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Teneryfa na Twoją miarę – podróżuj taniej</title>
-  <link rel="icon" href="https://emojiapi.dev/api/v1/palm_tree/64.png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  
+  <title>Vuelos Tenerife - Test Widget</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #F9FAFB;
-      color: #222222;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      line-height: 1.6;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 40px;
+      background: #f4fbf4;
+      color: #064a5b;
+      text-align: center;
     }
-    
-    header {
-      position: relative;
-      height: 180px;
-      color: white;
+    h1 {
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+    #widget-container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Znajdź tanie loty na Teneryfę</h1>
+
+  <div id="widget-container">
+    <script async src="https://c111.travelpayouts.com/content?currency=pln&trs=423668&shmarker=638051&from_name=PL&to_name=TFS&locale=pl&powered_by=true&limit=4&primary_color=64AEC1&results_background_color=F4FBF4&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
+  </div>
+
+</body>
+</html>
