@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
@@ -26,33 +26,59 @@
     }
 
     header {
-      background: linear-gradient(90deg, #64AEC1ff 0%, #00AE98 100%);
+      position: relative;
       color: white;
       text-align: center;
-      padding: 60px 20px 40px;
-      box-shadow: 0 4px 12px rgba(0, 174, 152, 0.5);
-      animation: fadeInDown 1s ease forwards;
+      padding: 80px 20px 50px;
       font-family: 'Playfair Display', serif;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 174, 152, 0.5);
+    }
+
+    /* Fondo con imagen + degradado + animación */
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        linear-gradient(135deg, rgba(0, 174, 152, 0.6), rgba(100, 174, 193, 0.4)),
+        url('https://gotenerife.net/wp-content/uploads/2019/02/playa-teresitas.jpg');
+      background-size: 200% 100%;
+      background-position: 0% 50%;
+      background-repeat: no-repeat;
+      filter: brightness(0.75);
+      z-index: -1;
+      animation: panBackground 20s linear infinite;
+    }
+
+    @keyframes panBackground {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+      }
     }
 
     header h1 {
       font-weight: 700;
       font-style: italic;
-      font-size: 3.5rem;
+      font-size: 3.8rem;
       margin: 0;
       letter-spacing: 3px;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
     }
 
     header p {
       font-weight: 600;
       font-style: normal;
-      font-size: 1.4rem;
-      margin-top: 12px;
-      opacity: 0.9;
+      font-size: 1.5rem;
+      margin-top: 14px;
+      opacity: 0.95;
       font-family: 'Montserrat', sans-serif;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.8px;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
     }
 
     main {
@@ -108,17 +134,6 @@
     }
 
     /* Animaciones suaves */
-    @keyframes fadeInDown {
-      0% {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     @keyframes fadeInUp {
       0% {
         opacity: 0;
@@ -133,10 +148,10 @@
     /* Responsive */
     @media (max-width: 480px) {
       header h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
       }
       header p {
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
       main {
         margin: 20px 10px 60px;
@@ -161,18 +176,3 @@
       <!-- Widget de vuelos + hoteles Travelpayouts -->
       <script async src="https://c111.travelpayouts.com/content?currency=pln&trs=423668&shmarker=638051&from_name=PL&to_name=TFS&locale=pl&powered_by=true&limit=4&primary_color=64AEC1ff&results_background_color=F4FBF4ff&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
     </div>
-
-    <div class="instagram-widget">
-      <h2 style="font-family: 'Playfair Display', serif; font-style: italic; font-weight: 700; margin-bottom: 15px; color: #333;">Instagram Dagmar0700</h2>
-      <!-- Widget Instagram público hecho con SnapWidget -->
-      <iframe src="https://snapwidget.com/embed/1085689" scrolling="no" allowtransparency="true"></iframe>
-    </div>
-  </main>
-
-  <footer>
-    © 2025 Luis & Dagmar — <a href="https://www.instagram.com/dagmar0700/" target="_blank" rel="noopener noreferrer">Síguenos en Instagram</a><br>
-    Hecho con 💚 desde Tenerife dla całej Polski 🇵🇱
-  </footer>
-
-</body>
-</html>
