@@ -1,87 +1,123 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8" />
-<title>Vuelos Tenerife - Znajdź tanie loty</title>
-<style>
-  /* Reset básico */
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-  }
-  body, html {
-    height: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #064a5b;
-    overflow-x: hidden;
-  }
+  <meta charset="UTF-8">
+  <title>Tenerife na Twój Sposób</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Fuente Pro -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
 
-  /* Contenedor del fondo carrusel */
-  .background-carousel {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    z-index: -1;
-    overflow: hidden;
-  }
-  .background-carousel img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    filter: brightness(0.7) blur(4px);
-    transition: opacity 2s ease-in-out;
-  }
-  .background-carousel img.active {
-    opacity: 1;
-    filter: brightness(0.8) blur(2px);
-  }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  /* Contenido principal */
-  main {
-    max-width: 700px;
-    margin: 60px auto;
-    background: rgba(255 255 255 / 0.85);
-    border-radius: 15px;
-    padding: 40px 30px;
-    box-shadow: 0 0 20px rgb(0 0 0 / 0.1);
-    text-align: center;
-  }
-  h1 {
-    font-weight: 700;
-    font-size: 2.4rem;
-    margin-bottom: 20px;
-    color: #064a5b;
-  }
-  #widget-container {
-    margin-top: 30px;
-  }
-</style>
+    body, html {
+      height: 100%;
+      font-family: 'DM Sans', sans-serif;
+      color: #ffffff;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* VIDEO FONDO */
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+      filter: brightness(0.7);
+    }
+
+    /* SUPERPOSICIÓN */
+    .overlay {
+      background: linear-gradient(180deg, rgba(0, 174, 152, 0.6), rgba(100, 174, 193, 0.6));
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px 40px;
+    }
+
+    header img.logo {
+      width: 80px;
+      margin-bottom: 15px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.3em;
+      font-weight: 400;
+      font-style: italic;
+      opacity: 0.9;
+    }
+
+    .widget-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: rgba(255,255,255,0.9);
+      border-radius: 16px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .widget-container script {
+      width: 100%;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #eee;
+      padding: 30px 10px;
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="background-carousel">
-  <img src="https://gotenerife.net/wp-content/uploads/2019/02/playa-teresitas.jpg" alt="Playa Teresitas" class="active" />
-  <img src="https://guiacanarias.com/wp-content/uploads/2024/05/que-ver-en-tenerife-sur-12-destinos-imperdibles.jpg" alt="Tenerife Sur" />
-</div>
+  <!-- VIDEO DE FONDO -->
+  <video class="video-background" autoplay muted loop playsinline>
+    <source src="fondo.mp4" type="video/mp4">
+    Twoja przeglądarka nie obsługuje wideo.
+  </video>
 
-<main>
-  <h1>Znajdź tanie loty na Teneryfę</h1>
-  <div id="widget-container">
-    <script async src="https://c111.travelpayouts.com/content?currency=pln&trs=423668&shmarker=638051&from_name=PL&to_name=TFS&locale=pl&powered_by=true&limit=4&primary_color=64AEC1&results_background_color=F4FBF4&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
+  <!-- DEGRADADO SUPERPUESTO -->
+  <div class="overlay"></div>
+
+  <!-- ENCABEZADO -->
+  <header>
+    <img src="https://images.icon-icons.com/308/PNG/512/plane-icon_34103.png" alt="Logo" class="logo">
+    <h1>Tenerife na Twój Sposób</h1>
+    <p>Odkryj wyspy tak, jak lubisz – plaże, góry i słońce w jednym miejscu</p>
+  </header>
+
+  <!-- WIDGET -->
+  <div class="widget-container">
+    <script async src="https://c111.travelpayouts.com/content?currency=pln&trs=423668&shmarker=638051&from_name=PL&to_name=TFS&locale=pl&powered_by=true&limit=4&primary_color=64AEC1ff&results_background_color=F4FBF4ff&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
   </div>
-</main>
 
-<script>
-  // Carrusel automático de fondo
-  const images = document.querySelectorAll('.background-carousel img');
-  let current = 0;
-
-  setInterval(() => {
-    images[current].classList.remove('active');
-    current = (current + 1) % images.length;
-    images[current].classList.add('active');
-  }, 8000); // cambia cada 8 segundos
-</script>
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 ViajarBarato.pl – Wszystkie prawa zastrzeżone.
+  </footer>
 
 </body>
 </html>
