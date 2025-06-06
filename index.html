@@ -5,171 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Teneryfa na Twoją miarę – podróżuj taniej</title>
   <link rel="icon" href="https://emojiapi.dev/api/v1/palm_tree/64.png" type="image/png" />
-  
-  <!-- Fuente Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   
   <style>
-    * {
-      box-sizing: border-box;
-    }
-    
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background-color: #F9FAFB;
       color: #222222;
       display: flex;
-      min-height: 100vh;
       flex-direction: column;
+      min-height: 100vh;
       line-height: 1.6;
     }
     
     header {
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       height: 180px;
       color: white;
-      font-weight: 600;
-      font-size: 2.8rem;
-      letter-spacing: 0.05em;
-      padding: 0 20px;
-      overflow: hidden;
-      z-index: 1;
-    }
-    
-    /* Fondo header con imagen + animación de degradado */
-    header::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: url('https://www.cataloniahotels.com/es/blog/wp-content/uploads/2019/05/panoramica-tenerife.jpg') center center/cover no-repeat;
-      filter: brightness(0.6);
-      z-index: -2;
-      animation: slowRotate 40s linear infinite;
-      transform-origin: center center;
-    }
-    
-    /* Capa de degradado animada sobre la imagen */
-    header::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(270deg, #64AEC1, #F4FBF4, #FFFFFF, #64AEC1);
-      background-size: 800% 800%;
-      opacity: 0.5;
-      z-index: -1;
-      animation: gradientShift 30s ease infinite;
-    }
-    
-    /* Animaciones */
-    @keyframes slowRotate {
-      0% { transform: rotate(0deg) scale(1.05); }
-      50% { transform: rotate(5deg) scale(1.07); }
-      100% { transform: rotate(0deg) scale(1.05); }
-    }
-    
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    
-    /* Logo avion + texto */
-    .header-content {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      z-index: 2;
-    }
-    
-    .header-content img {
-      width: 44px;
-      height: 44px;
-      filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.4));
-    }
-    
-    main {
-      flex-grow: 1;
-      max-width: 800px;
-      margin: 40px auto 60px;
-      padding: 0 20px;
-      display: flex;
-      justify-content: center;
-    }
-    
-    .widget-container {
-      background: #F4FBF4; /* results_background_color */
-      border-radius: 10px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-      padding: 32px 25px;
-      width: 100%;
-      max-width: 800px;
-      min-height: 450px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    footer {
-      background: white;
-      text-align: center;
-      padding: 18px 20px;
-      border-top: 1px solid #E5E7EB;
-      font-size: 0.9rem;
-      color: #6B7280;
-    }
-    
-    footer a {
-      color: #3B82F6;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    
-    footer a:hover {
-      text-decoration: underline;
-    }
-    
-    /* Responsive */
-    @media (max-width: 480px) {
-      header {
-        font-size: 1.9rem;
-        height: 140px;
-      }
-      main {
-        margin: 30px 15px 50px;
-      }
-      .widget-container {
-        padding: 24px 15px;
-        min-height: 400px;
-      }
-      .header-content img {
-        width: 32px;
-        height: 32px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <div class="header-content">
-      <img src="https://images.icon-icons.com/308/PNG/512/plane-icon_34103.png" alt="Logo Avión" />
-      <span>Teneryfa na Twoją miarę</span>
-    </div>
-  </header>
-
-  <main>
-    <div class="widget-container">
-      <script async src="https://c111.travelpayouts.com/content?currency=pln&trs=423668&shmarker=638051&from_name=PL&to_name=TFS&locale=pl&powered_by=true&limit=4&primary_color=64AEC1&results_background_color=F4FBF4&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
-    </div>
-  </main>
-
-  <footer>
-    © 2025 Luis & Dagmar — <a href="https://www.instagram.com/0700dagmar/" target="_blank" rel="noopener noreferrer">Síguenos en Instagram</a>
-  </footer>
-
-</body>
-</html>
