@@ -5,74 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Odkryj Teneryfę - Przewodnik po rajskiej wyspie</title>
   <meta name="description" content="Odkryj niesamowite miejsca, plaże i atrakcje na Teneryfie. Zarezerwuj swoje wakacje już teraz!">
-  <meta name="keywords" content="Teneryfa, wakacje, plaże, atrakcje, podróże, rezerwacja">
-  <meta name="author" content="Odkryj Teneryfę">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <meta name="keywords" content="Teneryfa, wakacje, plaże, podróże, rezerwacja">
+  <meta name="author" content="Isla Mágica">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Merriweather:ital,wght@1,400&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
       height: 100%;
       font-family: 'Montserrat', sans-serif;
-      overflow-x: hidden;
       scroll-behavior: smooth;
+      background: #fff;
     }
-
-    .intro {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: black;
-      z-index: 9999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      animation: fadeOutWhite 1s ease 3s forwards;
-    }
-
-    .intro img {
-      width: 280px;
-      opacity: 0;
-      animation: logoFadeIn 1.5s ease 0.5s forwards;
-    }
-
-    .intro::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: white;
-      opacity: 0;
-      animation: whiteFadeIn 1s ease-in-out 2.5s forwards;
-      z-index: -1;
-    }
-
-    @keyframes logoFadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to   { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes whiteFadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-
-    @keyframes fadeOutWhite {
-      to { opacity: 0; visibility: hidden; }
-    }
-
-    .flash {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: white;
-      opacity: 0;
-      z-index: 9998;
-      pointer-events: none;
-      transition: opacity 1s ease;
-    }
-
-    .flash.show { opacity: 1; }
 
     .hero {
       position: relative;
@@ -98,68 +41,6 @@
       z-index: -1;
     }
 
-    .top-nav {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      background: rgba(20, 20, 20, 0.85);
-      padding: 20px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 2;
-    }
-
-    .logo img { height: 70px; }
-
-    .menu-wrapper {
-      position: relative;
-    }
-
-    .menu {
-      cursor: pointer;
-      color: white;
-      font-weight: bold;
-      user-select: none;
-    }
-
-    .book-btn {
-      background: rgba(255,255,255,0.2);
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      color: white;
-      font-weight: 600;
-    }
-
-    .book-btn:hover {
-      background: rgba(255,255,255,0.35);
-    }
-
-    .dropdown {
-      display: none;
-      position: absolute;
-      top: 40px;
-      right: 0;
-      background: rgba(0,0,0,0.95);
-      border-radius: 6px;
-      padding: 15px;
-      min-width: 160px;
-      flex-direction: column;
-      gap: 12px;
-      z-index: 3;
-    }
-
-    .dropdown a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .dropdown a:hover {
-      color: #ffd700;
-    }
-
     .hero-text {
       position: absolute;
       bottom: 20%;
@@ -175,238 +56,189 @@
       filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.5));
     }
 
-    .skip-btn {
-      position: absolute;
-      bottom: 25px;
-      width: 100%;
+    .promo-header {
+      background: #f7f7f7;
+      padding: 30px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-bottom: 1px solid #ddd;
+      transition: background 0.4s ease;
+    }
+
+    .promo-text {
+      font-size: 1.8rem;
+      line-height: 1.4;
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      padding-left: 10px;
+      transition: color 0.4s ease;
+    }
+
+    .promo-text img.icon {
+      height: 34px;
+      width: 34px;
+      transition: filter 0.4s ease;
+    }
+
+    .promo-text .modern {
+      font-weight: 600;
+    }
+
+    .promo-text .elegant {
+      font-family: 'Merriweather', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.05rem;
+      color: #333;
+      transition: color 0.4s ease;
+    }
+
+    .promo-header img.logo {
+      max-height: 120px;
+      transition: filter 0.4s ease;
+    }
+
+    .promo-header:hover {
+      background: #111;
+    }
+
+    .promo-header:hover .promo-text,
+    .promo-header:hover .promo-text .elegant {
+      color: #fff;
+    }
+
+    .promo-header:hover .promo-text img.icon,
+    .promo-header:hover img.logo {
+      filter: brightness(0) invert(1);
+    }
+
+    .widget-container {
+      padding: 50px 5%;
+      background: #fff;
       text-align: center;
     }
 
-    .skip-btn a {
-      color: white;
+    main {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    footer {
+      background: #111;
+      color: #eee;
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #fff;
       text-decoration: none;
-      font-weight: 500;
-      opacity: 0.85;
+    }
+
+    @media (max-width: 768px) {
+      .promo-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .promo-text {
+        justify-content: center;
+        padding-left: 0;
+      }
+
+      .promo-text .elegant {
+        font-size: 0.95rem;
+      }
+
+      .promo-header img.logo {
+        margin-top: 15px;
+        max-height: 100px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="intro" role="dialog" aria-label="Intro de bienvenida">
-    <img src="https://i.imgur.com/D3fNV92.png" alt="Logo de Odkryj Teneryfę">
-  </div>
-
-  <div class="flash" id="flash" aria-hidden="true"></div>
-
-  <header class="hero" id="home">
-    <video id="bgVideo" autoplay muted playsinline class="background-video" aria-hidden="true">
-      <source id="videoSource" src="https://cdn.pixabay.com/video/2020/02/19/32606-393989992_large.mp4" type="video/mp4">
+  <!-- HERO -->
+  <header class="hero">
+    <video class="background-video" autoplay muted loop playsinline>
+      <source src="https://cdn.pixabay.com/video/2020/02/19/32606-393989992_large.mp4" type="video/mp4">
     </video>
     <div class="overlay"></div>
-
-    <nav class="top-nav" role="navigation" aria-label="Nawigacja główna">
-      <div class="logo">
-        <img src="https://i.imgur.com/D3fNV92.png" alt="Logo strony">
-      </div>
-      <div class="menu-wrapper">
-        <div class="menu" onclick="toggleMenu()" aria-haspopup="true" aria-controls="dropdownMenu">MENU ☰</div>
-        <div id="dropdownMenu" class="dropdown" role="menu">
-          <a href="#home">Strona główna</a>
-          <a href="#blog">Blog</a>
-          <a href="#booking">Wyszukiwarka</a>
-          <a href="#contact">Kontakt</a>
-        </div>
-      </div>
-      <a href="#booking" class="book-btn">REZERWUJ TERAZ →</a>
-    </nav>
-
     <div class="hero-text">
-      <img src="https://i.imgur.com/e2PNeOR.png" alt="Logo główne" class="hero-logo" loading="lazy">
-    </div>
-
-    <div class="skip-btn">
-      <a href="#main" onclick="document.getElementById('main').scrollIntoView({behavior:'smooth'})">POMIŃ</a>
+      <img src="https://i.imgur.com/e2PNeOR.png" alt="Logo główne" class="hero-logo">
     </div>
   </header>
-  
-  <section id="rekomendacje-banner" style="position: relative; height: 34vh; overflow: hidden; font-family: 'Montserrat', sans-serif;">
-    <div id="banner-img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 1;">
-      <a id="banner-link" href="#" style="display: block; width: 100%; height: 100%;">
-        <img id="banner-image" src="" alt="" style="
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          filter: brightness(1.3) contrast(0.7);
-          transition: transform 6s ease, opacity 0.6s ease-in-out;
-          position: absolute;
-          top: 0;
-          left: 0;
-          z-index: 1;
-          transform: scale(1);
-        ">
-      </a>
+  <!-- 🌟 BARRA PROMOCIONAL CON LOGO E ICONO -->
+  <div class="promo-header">
+    <div class="promo-text">
+      <img src="https://cdn-icons-png.flaticon.com/512/31/31069.png" alt="Ikona samolotu" class="icon">
+      <span class="modern">Vuelos i hotele</span>
+      <span class="elegant">na Teneryfie w najlepszych cenach!</span>
     </div>
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.75); z-index: 2;"></div>
-    <div style="position: relative; z-index: 3; max-width: 960px; margin: 0 auto; padding: 10px 20px; text-align: center; top: 50%; transform: translateY(-50%); color: #111;">
-      <h2 id="banner-title" style="font-family: 'Montserrat', sans-serif; font-size: 2.4rem; font-weight: 600; margin-bottom: 8px;"></h2>
-      <p id="banner-desc" style="font-family: 'Merriweather', serif; font-size: 1.15rem; color: #333; line-height: 1.5;"></p>
+    <div>
+      <img src="https://i.imgur.com/BrgPgL9.png" alt="Logo Isla Mágica" class="logo">
     </div>
-    <button id="prevReco" aria-label="Poprzedni" style="position: absolute; top: 50%; left: 20px; transform: translateY(-50%); background: rgba(0,0,0,0.15); color: #000; border: none; font-size: 2.4rem; padding: 8px 14px; cursor: pointer; z-index: 4; border-radius: 6px;">‹</button>
-    <button id="nextReco" aria-label="Następny" style="position: absolute; top: 50%; right: 20px; transform: translateY(-50%); background: rgba(0,0,0,0.15); color: #000; border: none; font-size: 2.4rem; padding: 8px 14px; cursor: pointer; z-index: 4; border-radius: 6px;">›</button>
-    <div id="banner-dots" style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); z-index: 4; display: flex; gap: 10px;"></div>
-  </section>
-
-  <!-- 🏷 Cinta negra informativa -->
-  <div style="background: #111; color: #fff; text-align: center; padding: 16px 10px; font-size: 1.1rem; font-family: 'Montserrat', sans-serif; font-weight: 500;">
-    Szukasz tanich hoteli i lotów na Teneryfie? Szukaj tutaj
   </div>
 
-  <!-- 💡 Script del banner -->
-  <script>
-    const data = [
-      {
-        img: "https://static-resources.mirai.com/wp-content/uploads/sites/1738/20230626095434/Pueblo-de-Masca.jpg",
-        title: "Masca – ukryta perełka",
-        desc: "Malownicza wioska w górach Teneryfy, otoczona zielenią i ciszą.",
-        link: "/rekomendacje/masca"
-      },
-      {
-        img: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/680598718.jpg?k=f77b0abfc4971c94fd10cc815e7671d24f9214485e488fb46aa2487f38d2337c&o=&hp=1",
-        title: "Dream Hotel Gran Tacande",
-        desc: "Luksusowy hotel z widokiem na ocean, strefą wellness i kuchnią gourmet.",
-        link: "/rekomendacje/tacande"
-      },
-      {
-        img: "https://richiperez.com/wp-content/uploads/2024/08/que-ver-en-san-cristobal-de-la-laguna-tenerife-en-un-dia-richi-perez.jpg",
-        title: "La Laguna – kolonialna duma",
-        desc: "Zabytkowe centrum, brukowane uliczki i architektura wpisana na UNESCO.",
-        link: "/rekomendacje/laguna"
-      }
-    ];
+  <!-- 🔍 WIDGET TRAVEL PAYOUTS -->
+  <div class="widget-container">
+    <script async src="https://c111.travelpayouts.com/content?currency=pln&trs=423668&shmarker=638051&from_name=PL&to_name=TFS&locale=pl&powered_by=true&limit=4&primary_color=1E2020ff&results_background_color=ffffff&form_background_color=ffffff&promo_id=3411" charset="utf-8"></script>
+  </div>
 
-    let index = 0;
-    let interval;
-    const img = document.getElementById('banner-image');
-    const title = document.getElementById('banner-title');
-    const desc = document.getElementById('banner-desc');
-    const link = document.getElementById('banner-link');
-    const dots = document.getElementById('banner-dots');
+  <!-- 🏝️ SEKCJA REKOMENDACJI -->
+  <section id="rekomendacje" style="padding: 80px 20px; background: #fff;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 style="text-align: center; font-size: 2.3rem; margin-bottom: 50px; font-family: 'Montserrat', sans-serif;">
+        Polecane miejsca na Teneryfie
+      </h2>
 
-    function updateBanner() {
-      const reco = data[index];
-      img.style.opacity = 0;
-      img.style.transform = 'scale(1)';
-      setTimeout(() => {
-        img.src = reco.img;
-        img.alt = reco.title;
-        title.textContent = reco.title;
-        desc.textContent = reco.desc;
-        link.href = reco.link;
-        img.style.opacity = 1;
-        img.style.transform = 'scale(1.05)';
-      }, 300);
-      renderDots();
-    }
+      <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
 
-    function renderDots() {
-      dots.innerHTML = '';
-      data.forEach((_, i) => {
-        const dot = document.createElement('span');
-        dot.style.cssText = `
-          width: 12px; height: 12px;
-          border-radius: 50%;
-          background: ${i === index ? '#111' : '#ccc'};
-          cursor: pointer;
-          transition: background 0.3s;
-        `;
-        dot.addEventListener('click', () => {
-          index = i;
-          updateBanner();
-          resetInterval();
-        });
-        dots.appendChild(dot);
-      });
-    }
+        <!-- Reco 1 -->
+        <article style="background: #ffffff; border-radius: 8px; overflow: hidden; max-width: 350px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+          <img src="https://static-resources.mirai.com/wp-content/uploads/sites/1738/20230626095434/Pueblo-de-Masca.jpg" alt="Masca" style="width: 100%; height: 220px; object-fit: cover; filter: brightness(95%);">
+          <div style="padding: 20px;">
+            <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 10px;">Masca – ukryta perełka</h3>
+            <p style="font-size: 0.95rem; color: #444;">Malownicza wioska w górach Teneryfy, idealna na piesze wędrówki i odkrywanie natury.</p>
+          </div>
+        </article>
 
-    function next() {
-      index = (index + 1) % data.length;
-      updateBanner();
-    }
+        <!-- Reco 2 -->
+        <article style="background: #ffffff; border-radius: 8px; overflow: hidden; max-width: 350px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+          <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/680598718.jpg?k=f77b0abfc4971c94fd10cc815e7671d24f9214485e488fb46aa2487f38d2337c&o=&hp=1" alt="Gran Tacande" style="width: 100%; height: 220px; object-fit: cover; filter: brightness(95%);">
+          <div style="padding: 20px;">
+            <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 10px;">Dream Hotel Gran Tacande</h3>
+            <p style="font-size: 0.95rem; color: #444;">Luksusowy hotel z widokiem na ocean, SPA i restauracje gourmet w Costa Adeje.</p>
+          </div>
+        </article>
 
-    function prev() {
-      index = (index - 1 + data.length) % data.length;
-      updateBanner();
-    }
+        <!-- Reco 3 -->
+        <article style="background: #ffffff; border-radius: 8px; overflow: hidden; max-width: 350px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+          <img src="https://richiperez.com/wp-content/uploads/2024/08/que-ver-en-san-cristobal-de-la-laguna-tenerife-en-un-dia-richi-perez.jpg" alt="La Laguna" style="width: 100%; height: 220px; object-fit: cover; filter: brightness(95%);">
+          <div style="padding: 20px;">
+            <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 10px;">La Laguna – kolonialna duma</h3>
+            <p style="font-size: 0.95rem; color: #444;">Miasto wpisane na listę UNESCO, z piękną architekturą i historyczną atmosferą.</p>
+          </div>
+        </article>
 
-    function resetInterval() {
-      clearInterval(interval);
-      interval = setInterval(next, 5000);
-    }
+      </div>
+    </div>
+  </section>
 
-    document.getElementById('nextReco').addEventListener('click', () => {
-      next();
-      resetInterval();
-    });
-
-    document.getElementById('prevReco').addEventListener('click', () => {
-      prev();
-      resetInterval();
-    });
-
-    window.addEventListener('DOMContentLoaded', () => {
-      updateBanner();
-      interval = setInterval(next, 5000);
-    });
-  </script>
-
-  <main id="main" role="main">
-    <section style="padding: 60px; text-align: center;">
-      <h1>Witamy na stronie Odkryj Teneryfę</h1>
-      <p>Eksploruj najlepsze plaże, przygody i kulturę Teneryfy. Sprawdź co czeka na Ciebie!</p>
-    </section>
-  </main>
-
-  <script>
-    const videos = [
-      "https://cdn.pixabay.com/video/2020/02/19/32606-393989992_large.mp4",
-      "https://cdn.pixabay.com/video/2023/08/29/178321-860527288_large.mp4",
-      "https://cdn.pixabay.com/video/2024/05/28/214078_large.mp4"
-    ];
-
-    const video = document.getElementById('bgVideo');
-    const source = document.getElementById('videoSource');
-    const flash = document.getElementById('flash');
-    let index = 0;
-
-    function playNextVideo() {
-      flash.classList.add('show');
-      setTimeout(() => {
-        index = (index + 1) % videos.length;
-        source.src = videos[index];
-        video.load();
-      }, 300);
-    }
-
-    video.addEventListener('loadeddata', () => {
-      flash.classList.remove('show');
-    });
-
-    setInterval(() => {
-      playNextVideo();
-    }, 10000);
-
-    function toggleMenu() {
-      const dropdown = document.getElementById('dropdownMenu');
-      dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
-    }
-
-    document.addEventListener('click', function(e) {
-      const menu = document.getElementById('dropdownMenu');
-      if (!e.target.closest('.menu-wrapper')) {
-        menu.style.display = 'none';
-      }
-    });
-  </script>
+  <!-- ⚖️ FOOTER LEGAL + SOCIAL -->
+  <footer>
+    <p>&copy; 2024 Isla Mágica. Wszelkie prawa zastrzeżone.</p>
+    <p>Obserwuj nas na Instagramie: <a href="https://www.instagram.com/islamagica.pl" target="_blank">@islamagica.pl</a></p>
+  </footer>
 
 </body>
 </html>
