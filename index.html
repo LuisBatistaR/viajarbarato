@@ -7,7 +7,7 @@
   <meta name="description" content="Odkryj niesamowite miejsca, plaże i atrakcje na Teneryfie. Zarezerwuj swoje wakacje już teraz!">
   <meta name="keywords" content="Teneryfa, wakacje, plaże, atrakcje, podróże, rezerwacja">
   <meta name="author" content="Odkryj Teneryfę">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
@@ -228,6 +228,136 @@
       <a href="#main" onclick="document.getElementById('main').scrollIntoView({behavior:'smooth'})">POMIŃ</a>
     </div>
   </header>
+  
+  <section id="rekomendacje-banner" style="position: relative; height: 34vh; overflow: hidden; font-family: 'Montserrat', sans-serif;">
+    <div id="banner-img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 1;">
+      <a id="banner-link" href="#" style="display: block; width: 100%; height: 100%;">
+        <img id="banner-image" src="" alt="" style="
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          filter: brightness(1.3) contrast(0.7);
+          transition: transform 6s ease, opacity 0.6s ease-in-out;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          transform: scale(1);
+        ">
+      </a>
+    </div>
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.75); z-index: 2;"></div>
+    <div style="position: relative; z-index: 3; max-width: 960px; margin: 0 auto; padding: 10px 20px; text-align: center; top: 50%; transform: translateY(-50%); color: #111;">
+      <h2 id="banner-title" style="font-family: 'Montserrat', sans-serif; font-size: 2.4rem; font-weight: 600; margin-bottom: 8px;"></h2>
+      <p id="banner-desc" style="font-family: 'Merriweather', serif; font-size: 1.15rem; color: #333; line-height: 1.5;"></p>
+    </div>
+    <button id="prevReco" aria-label="Poprzedni" style="position: absolute; top: 50%; left: 20px; transform: translateY(-50%); background: rgba(0,0,0,0.15); color: #000; border: none; font-size: 2.4rem; padding: 8px 14px; cursor: pointer; z-index: 4; border-radius: 6px;">‹</button>
+    <button id="nextReco" aria-label="Następny" style="position: absolute; top: 50%; right: 20px; transform: translateY(-50%); background: rgba(0,0,0,0.15); color: #000; border: none; font-size: 2.4rem; padding: 8px 14px; cursor: pointer; z-index: 4; border-radius: 6px;">›</button>
+    <div id="banner-dots" style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); z-index: 4; display: flex; gap: 10px;"></div>
+  </section>
+
+  <!-- 🏷 Cinta negra informativa -->
+  <div style="background: #111; color: #fff; text-align: center; padding: 16px 10px; font-size: 1.1rem; font-family: 'Montserrat', sans-serif; font-weight: 500;">
+    Szukasz tanich hoteli i lotów na Teneryfie? Szukaj tutaj
+  </div>
+
+  <!-- 💡 Script del banner -->
+  <script>
+    const data = [
+      {
+        img: "https://static-resources.mirai.com/wp-content/uploads/sites/1738/20230626095434/Pueblo-de-Masca.jpg",
+        title: "Masca – ukryta perełka",
+        desc: "Malownicza wioska w górach Teneryfy, otoczona zielenią i ciszą.",
+        link: "/rekomendacje/masca"
+      },
+      {
+        img: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/680598718.jpg?k=f77b0abfc4971c94fd10cc815e7671d24f9214485e488fb46aa2487f38d2337c&o=&hp=1",
+        title: "Dream Hotel Gran Tacande",
+        desc: "Luksusowy hotel z widokiem na ocean, strefą wellness i kuchnią gourmet.",
+        link: "/rekomendacje/tacande"
+      },
+      {
+        img: "https://richiperez.com/wp-content/uploads/2024/08/que-ver-en-san-cristobal-de-la-laguna-tenerife-en-un-dia-richi-perez.jpg",
+        title: "La Laguna – kolonialna duma",
+        desc: "Zabytkowe centrum, brukowane uliczki i architektura wpisana na UNESCO.",
+        link: "/rekomendacje/laguna"
+      }
+    ];
+
+    let index = 0;
+    let interval;
+    const img = document.getElementById('banner-image');
+    const title = document.getElementById('banner-title');
+    const desc = document.getElementById('banner-desc');
+    const link = document.getElementById('banner-link');
+    const dots = document.getElementById('banner-dots');
+
+    function updateBanner() {
+      const reco = data[index];
+      img.style.opacity = 0;
+      img.style.transform = 'scale(1)';
+      setTimeout(() => {
+        img.src = reco.img;
+        img.alt = reco.title;
+        title.textContent = reco.title;
+        desc.textContent = reco.desc;
+        link.href = reco.link;
+        img.style.opacity = 1;
+        img.style.transform = 'scale(1.05)';
+      }, 300);
+      renderDots();
+    }
+
+    function renderDots() {
+      dots.innerHTML = '';
+      data.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.style.cssText = `
+          width: 12px; height: 12px;
+          border-radius: 50%;
+          background: ${i === index ? '#111' : '#ccc'};
+          cursor: pointer;
+          transition: background 0.3s;
+        `;
+        dot.addEventListener('click', () => {
+          index = i;
+          updateBanner();
+          resetInterval();
+        });
+        dots.appendChild(dot);
+      });
+    }
+
+    function next() {
+      index = (index + 1) % data.length;
+      updateBanner();
+    }
+
+    function prev() {
+      index = (index - 1 + data.length) % data.length;
+      updateBanner();
+    }
+
+    function resetInterval() {
+      clearInterval(interval);
+      interval = setInterval(next, 5000);
+    }
+
+    document.getElementById('nextReco').addEventListener('click', () => {
+      next();
+      resetInterval();
+    });
+
+    document.getElementById('prevReco').addEventListener('click', () => {
+      prev();
+      resetInterval();
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      updateBanner();
+      interval = setInterval(next, 5000);
+    });
+  </script>
 
   <main id="main" role="main">
     <section style="padding: 60px; text-align: center;">
@@ -270,7 +400,6 @@
       dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
     }
 
-    // Auto-cierre del menú si se hace clic fuera
     document.addEventListener('click', function(e) {
       const menu = document.getElementById('dropdownMenu');
       if (!e.target.closest('.menu-wrapper')) {
@@ -281,3 +410,4 @@
 
 </body>
 </html>
+
