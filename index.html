@@ -8,38 +8,24 @@
   <meta name="keywords" content="cheap flights, flights to Venezuela, flights to Tenerife, flight comparison, flight and hotel packages, Europe travel, budget flights, travel insurance, flight compensation, Tenerife recommendations" />
   <meta name="author" content="Luis / Dagmar Travels" />
   <link rel="canonical" href="https://your-domain.com/" />
-  
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-  
+
   <style>
-    /* Reset & Base */
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
+    /* Estilos generales omitidos por brevedad - usa los que ya tienes arriba sin cambios principales */
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background: #f9fafb;
       color: #222;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      line-height: 1.5;
     }
     a {
       text-decoration: none;
       color: #005ea5;
-      transition: color 0.3s ease;
     }
-    a:hover, a:focus {
-      color: #003f72;
-      outline: none;
-    }
-    
-    /* HEADER */
+
     header {
       position: relative;
-      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      background: url('https://fotografias.larazon.es/clipping/cmsimages02/2021/12/14/14876E42-05E7-4A24-A79C-9AB0614FBD0A/98.jpg?crop=5942,3343,x0,y170&width=1900&height=1069&optimize=low&format=webply') center/cover no-repeat;
       height: 420px;
       color: white;
       display: flex;
@@ -47,7 +33,6 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      user-select: none;
     }
     header::before {
       content: "";
@@ -60,34 +45,23 @@
       position: relative;
       z-index: 1;
       max-width: 1200px;
-      width: 100%;
       padding: 0 1.5rem;
     }
     .logo {
       position: absolute;
       top: 24px;
       left: 24px;
-      max-width: 220px;
+      max-width: 280px;
       height: auto;
       z-index: 10;
-      user-select: none;
     }
-    header h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 3.8rem;
-      margin-bottom: 0.2rem;
-      text-shadow: 0 3px 12px rgba(0,0,0,0.7);
-    }
-    header p.subtitle {
+    .subtitle {
       font-family: 'Poppins', sans-serif;
       font-weight: 600;
       font-size: 1.5rem;
       color: #ffd700;
       text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-      margin-top: 0;
     }
-    /* Animated rotating words */
     .animated-text {
       display: inline-block;
       margin-left: 0.5rem;
@@ -98,7 +72,6 @@
       position: relative;
       min-width: 120px;
       height: 1.5rem;
-      vertical-align: bottom;
     }
     .animated-text > span {
       position: absolute;
@@ -113,8 +86,6 @@
       10% { opacity: 1; }
       90% { opacity: 0; }
     }
-
-    /* NAVIGATION */
     nav {
       position: absolute;
       top: 24px;
@@ -123,384 +94,99 @@
       gap: 20px;
       font-weight: 600;
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.95rem;
-      z-index: 10;
     }
     nav a {
       color: white;
       padding: 0.4rem 0.6rem;
       border-radius: 4px;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: background 0.3s ease;
     }
-    nav a:hover, nav a:focus {
+    nav a:hover {
       background-color: #ffd700;
       color: #222;
-      outline: none;
-    }
-    
-    /* MAIN LAYOUT */
-    main {
-      max-width: 1200px;
-      margin: 2.5rem auto 4rem;
-      padding: 0 1.5rem;
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    aside {
-      flex: 1 1 260px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 12px rgb(0 0 0 / 0.1);
-      padding: 1.5rem 1.8rem;
-      font-size: 0.95rem;
-      line-height: 1.45;
-      color: #444;
-      user-select: none;
-    }
-    aside h3 {
-      margin-top: 0;
-      font-weight: 700;
-      font-size: 1.35rem;
-      border-bottom: 3px solid #ffd700;
-      padding-bottom: 0.3rem;
-      color: #222;
-      margin-bottom: 1.25rem;
-      font-family: 'Montserrat', sans-serif;
-    }
-    aside p {
-      margin-bottom: 1rem;
-    }
-    aside a {
-      color: #005ea5;
-      font-weight: 600;
-    }
-    aside a:hover, aside a:focus {
-      color: #003f72;
-      text-decoration: underline;
-    }
-    /* Central widget */
-    .central-content {
-      flex: 2 1 640px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgb(0 0 0 / 0.08);
-      padding: 2rem 2rem 2.5rem;
-      user-select: none;
-    }
-    .central-content h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 2rem;
-      margin-top: 0;
-      margin-bottom: 1.5rem;
-      text-align: center;
-      color: #222;
-    }
-
-    /* Flight Search Form */
-    form.flight-search {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-      margin-bottom: 2rem;
-    }
-    form.flight-search label {
-      display: flex;
-      flex-direction: column;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #333;
-      min-width: 130px;
-    }
-    form.flight-search input,
-    form.flight-search select {
-      margin-top: 0.3rem;
-      padding: 0.5rem 0.7rem;
-      font-size: 1rem;
-      border: 1.8px solid #ccc;
-      border-radius: 6px;
-      transition: border-color 0.3s ease;
-      font-family: inherit;
-    }
-    form.flight-search input:focus,
-    form.flight-search select:focus {
-      border-color: #ffd700;
-      outline: none;
-      box-shadow: 0 0 6px #ffd700aa;
-    }
-    form.flight-search button {
-      background: #ffd700;
-      border: none;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #222;
-      padding: 0.7rem 1.5rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      align-self: flex-end;
-      min-width: 140px;
-    }
-    form.flight-search button:hover,
-    form.flight-search button:focus {
-      background-color: #e6c200;
-      outline: none;
-    }
-
-    /* Carousel */
-    .carousel {
-      display: flex;
-      gap: 1.3rem;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      padding-bottom: 1rem;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: thin;
-      scrollbar-color: #bbb #eee;
-      user-select: none;
-    }
-    .carousel::-webkit-scrollbar {
-      height: 8px;
-    }
-    .carousel::-webkit-scrollbar-track {
-      background: #eee;
-      border-radius: 4px;
-    }
-    .carousel::-webkit-scrollbar-thumb {
-      background-color: #bbb;
-      border-radius: 4px;
-    }
-    .carousel-item {
-      flex: 0 0 280px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
-      cursor: pointer;
-      color: #222;
-      outline-offset: 3px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-    .carousel-item:hover,
-    .carousel-item:focus {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 28px rgb(0 0 0 / 0.15);
-      outline: 2px solid #ffd700;
-      outline-offset: 2px;
-    }
-    .carousel-item img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      transition: filter 0.3s ease;
-      filter: grayscale(0.1);
-      flex-shrink: 0;
-    }
-    .carousel-item:hover img,
-    .carousel-item:focus img {
-      filter: grayscale(0);
-    }
-    .carousel-item-content {
-      padding: 1rem 1.3rem 1.6rem;
-      font-weight: 600;
-      font-size: 1.1rem;
-      flex-grow: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      letter-spacing: 0.3px;
-      color: #444;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #222;
-      color: #ddd;
-      padding: 2rem 1.5rem;
-      text-align: center;
-      font-size: 0.9rem;
-      user-select: none;
-      font-family: 'Montserrat', sans-serif;
-      margin-top: 4rem;
-    }
-    footer a {
-      color: #ffd700;
-      font-weight: 600;
-    }
-    footer a:hover, footer a:focus {
-      color: #ffdd33;
-      text-decoration: underline;
-      outline: none;
-    }
-
-    /* Responsive */
-    @media (max-width: 960px) {
-      main {
-        flex-direction: column;
-        align-items: center;
-      }
-      aside, .central-content {
-        flex: 1 1 100%;
-        max-width: 600px;
-      }
-      header h1 {
-        font-size: 2.8rem;
-      }
-      header p.subtitle {
-        font-size: 1.2rem;
-      }
-      nav {
-        position: static;
-        justify-content: center;
-        margin-bottom: 1rem;
-        gap: 1rem;
-      }
-      .logo {
-        position: relative;
-        display: block;
-        margin: 0 auto 1rem;
-        max-width: 180px;
-      }
     }
   </style>
 </head>
+
 <body>
 
-<header role="banner" aria-label="Site header with logo and main title">
-  <img src="https://i.imgur.com/mVciASa.png" alt="Dagmar Travels Logo" class="logo" />
-  <nav role="navigation" aria-label="Primary navigation">
-    <a href="#flights" tabindex="0">Flights</a>
-    <a href="#packages" tabindex="0">Packages</a>
-    <a href="#recommendations" tabindex="0">Tenerife Tips</a>
-    <a href="#contact" tabindex="0">Contact</a>
-  </nav>
-  <div class="header-content">
-    <h1>Dagmar Travels</h1>
-    <p class="subtitle">Your Gateway to <span class="animated-text" aria-live="polite" aria-atomic="true" aria-relevant="text">
-      <span>Tenerife</span>
-      <span>Venezuela</span>
-      <span>Affordable Journeys</span>
-    </span></p>
-  </div>
-</header>
-
-<main role="main" aria-label="Main content area">
-  <aside aria-labelledby="aside-flights-title">
-    <h3 id="aside-flights-title">Find Cheap Flights</h3>
-    <p>Compare flights quickly from multiple airlines and travel agencies. Save time and money booking the best deals from Venezuela to Tenerife and beyond.</p>
-    <p><strong>Travel Tips:</strong></p>
-    <ul>
-      <li>Book at least 4 weeks in advance for better prices.</li>
-      <li>Use flexible dates to maximize savings.</li>
-      <li>Check flight compensation rights if delayed or canceled.</li>
-      <li>Travel insurance is recommended for international flights.</li>
-    </ul>
-    <p>Explore <a href="#recommendations" aria-describedby="aside-flights-title">Tenerife travel guides and tips</a> for an amazing trip experience.</p>
-  </aside>
-
-  <section class="central-content" aria-labelledby="flights-section-title">
-    <h2 id="flights-section-title">Search Flights & Packages</h2>
-    <form class="flight-search" aria-label="Flight and package search form" id="flightSearchForm">
-      <label for="fromInput">From</label>
-      <input type="text" id="fromInput" name="from" placeholder="City or Airport" aria-required="true" autocomplete="off" value="Venezuela" />
-      
-      <label for="toInput">To</label>
-      <input type="text" id="toInput" name="to" placeholder="City or Airport" aria-required="true" autocomplete="off" value="Tenerife" />
-      
-      <label for="departDate">Depart</label>
-      <input type="date" id="departDate" name="depart" aria-required="true" />
-      
-      <label for="returnDate">Return</label>
-      <input type="date" id="returnDate" name="return" />
-      
-      <label for="passengers">Passengers</label>
-      <select id="passengers" name="passengers" aria-required="true" aria-label="Number of passengers">
-        <option value="1" selected>1 Passenger</option>
-        <option value="2">2 Passengers</option>
-        <option value="3">3 Passengers</option>
-        <option value="4">4 Passengers</option>
-        <option value="5">5 Passengers</option>
-      </select>
-      
-      <button type="submit" aria-label="Search flights and packages">Search</button>
-    </form>
-
-    <div id="searchResults" aria-live="polite" aria-atomic="true" role="region" style="min-height: 150px; font-style: italic; color: #666;">Please fill the form and click search.</div>
-
-    <h2 id="packages" style="margin-top: 3rem; text-align: center;">Top Flight + Hotel Packages to Tenerife</h2>
-    <div class="carousel" role="list" aria-labelledby="packages">
-      <article class="carousel-item" role="listitem" tabindex="0" aria-label="Luxury hotel and flight package, 7 nights">
-        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80" alt="Luxury resort by the beach in Tenerife" />
-        <div class="carousel-item-content">Luxury Beach Resort + Flights - 7 Nights</div>
-      </article>
-      <article class="carousel-item" role="listitem" tabindex="0" aria-label="Budget hotel and flight package, 5 nights">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Comfortable hotel pool in Tenerife" />
-        <div class="carousel-item-content">Budget Hotel + Flights - 5 Nights</div>
-      </article>
-      <article class="carousel-item" role="listitem" tabindex="0" aria-label="Family-friendly hotel package with flights">
-        <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=400&q=80" alt="Family friendly hotel in Tenerife" />
-        <div class="carousel-item-content">Family Package - Hotel + Flights</div>
-      </article>
-      <article class="carousel-item" role="listitem" tabindex="0" aria-label="Romantic getaway package with flights">
-        <img src="https://images.unsplash.com/photo-1517816428104-9d75539f8fbb?auto=format&fit=crop&w=400&q=80" alt="Romantic sunset view in Tenerife" />
-        <div class="carousel-item-content">Romantic Getaway + Flights</div>
-      </article>
+  <header role="banner" aria-label="Site header with logo and main title">
+    <img src="https://i.imgur.com/mVciASa.png" alt="Dagmar Travels Logo" class="logo" />
+    <nav role="navigation" aria-label="Primary navigation">
+      <a href="#flights" tabindex="0">Flights</a>
+      <a href="#packages" tabindex="0">Packages</a>
+      <a href="#recommendations" tabindex="0">Tenerife Tips</a>
+      <a href="#contact" tabindex="0">Contact</a>
+    </nav>
+    <div class="header-content">
+      <p class="subtitle">Your Gateway to&nbsp;
+        <span class="animated-text" aria-live="polite" aria-atomic="true" aria-relevant="text">
+          <span>Tenerife</span>
+          <span>Venezuela</span>
+          <span>Adventure</span>
+        </span>
+      </p>
     </div>
-  </section>
+  </header>
 
-  <aside aria-labelledby="recommendations-title">
-    <h3 id="recommendations-title">Tenerife Recommendations</h3>
-    <p><strong>Top attractions:</strong></p>
-    <ul>
-      <li>Teide National Park - Visit the volcano & enjoy hiking.</li>
-      <li>Los Cristianos Beach - White sands and calm waters.</li>
-      <li>Masca Village - Charming mountain town with stunning views.</li>
-      <li>Loro Parque - Famous zoo and aquarium for families.</li>
-      <li>Explore the nightlife in Playa de las Americas.</li>
-    </ul>
-    <p>Need more help? <a href="#contact" aria-describedby="recommendations-title">Contact our travel experts</a> for personalized advice and trip planning.</p>
-  </aside>
-</main>
+  <main role="main" aria-label="Main content area">
+    <section class="central-content" aria-labelledby="flights-section-title" id="flights">
+      <h2 id="flights-section-title">Search Flights & Packages</h2>
+      <form class="flight-search" aria-label="Flight and package search form" id="flightSearchForm">
+        <label for="fromInput">From</label>
+        <input type="text" id="fromInput" name="from" placeholder="City or Airport" value="Venezuela" />
 
-<footer role="contentinfo">
-  &copy; 2025 Dagmar Travels. All rights reserved. &nbsp; | &nbsp; <a href="#contact">Contact Us</a> &nbsp; | &nbsp; <a href="#privacy">Privacy Policy</a>
-</footer>
+        <label for="toInput">To</label>
+        <input type="text" id="toInput" name="to" placeholder="City or Airport" value="Tenerife" />
 
-<script>
-  // Flight search form handler (dummy simulation)
-  const form = document.getElementById('flightSearchForm');
-  const results = document.getElementById('searchResults');
+        <label for="departDate">Depart</label>
+        <input type="date" id="departDate" name="depart" />
 
-  form.addEventListener('submit', e => {
-    e.preventDefault();
+        <label for="returnDate">Return</label>
+        <input type="date" id="returnDate" name="return" />
 
-    const from = form.from.value.trim();
-    const to = form.to.value.trim();
-    const depart = form.depart.value;
-    const ret = form.return.value;
-    const passengers = form.passengers.value;
+        <label for="passengers">Passengers</label>
+        <select id="passengers" name="passengers">
+          <option value="1" selected>1 Passenger</option>
+          <option value="2">2 Passengers</option>
+          <option value="3">3 Passengers</option>
+          <option value="4">4 Passengers</option>
+          <option value="5">5 Passengers</option>
+        </select>
 
-    if (!from || !to || !depart) {
-      results.textContent = 'Please fill in the From, To, and Depart date fields.';
-      return;
-    }
-    let message = `Searching flights from ${from} to ${to}, departing on ${depart}`;
-    if (ret) message += ` and returning on ${ret}`;
-    message += ` for ${passengers} passenger${passengers > 1 ? 's' : ''}.`;
-    results.textContent = message + ' Please wait...';
+        <button type="submit">Search</button>
+      </form>
 
-    // Simulate search delay
-    setTimeout(() => {
-      results.textContent = `No real search implemented. Visit Travelpayouts or airline sites to book your flights.`;
-    }, 2000);
-  });
-</script>
+      <div id="searchResults" aria-live="polite" aria-atomic="true" role="region" style="min-height: 150px;">
+        Please fill the form and click search.
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    &copy; 2025 Dagmar Travels. All rights reserved. &nbsp; | &nbsp; <a href="#contact">Contact Us</a> &nbsp; | &nbsp; <a href="#privacy">Privacy Policy</a>
+  </footer>
+
+  <script>
+    const form = document.getElementById('flightSearchForm');
+    const results = document.getElementById('searchResults');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const from = form.from.value.trim();
+      const to = form.to.value.trim();
+      const depart = form.depart.value;
+      const ret = form.return.value;
+      const passengers = form.passengers.value;
+
+      if (!from || !to || !depart) {
+        results.textContent = 'Please fill in the From, To, and Depart date fields.';
+        return;
+      }
+
+      results.innerHTML = '<script async src="https://c111.travelpayouts.com/content?currency=eur&trs=423672&shmarker=638051&from_name=PL&to_name=TFS&locale=en&powered_by=true&limit=4&primary_color=00AE98&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></' + 'script>';
+    });
+  </script>
 
 </body>
 </html>
