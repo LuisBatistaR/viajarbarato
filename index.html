@@ -1,191 +1,288 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dagmar Travels - Cheap Flights to Tenerife</title>
-  <meta name="description" content="Find the cheapest flights plus hotel packages to Tenerife. Flight comparison for Polish and Eastern European travelers." />
-  <meta name="keywords" content="cheap flights, flights to Venezuela, flights to Tenerife, flight comparison, flight and hotel packages, Europe travel, budget flights, travel insurance, flight compensation, Tenerife recommendations" />
-  <meta name="author" content="Luis / Dagmar Travels" />
-  <link rel="canonical" href="https://your-domain.com/" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dagmar Travels – The Island</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
-    /* Estilos generales omitidos por brevedad - usa los que ya tienes arriba sin cambios principales */
-    body {
-      margin: 0;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
       font-family: 'Poppins', sans-serif;
+      color: #222;
       background: #f9fafb;
+    }
+
+    .top-bar {
+      background: white;
+      padding: 24px 32px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .top-left img {
+      height: 60px;
+    }
+
+    .top-left .slogan-small {
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .top-right {
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #444;
+    }
+
+    .top-right i {
+      font-size: 1.1rem;
       color: #222;
     }
-    a {
-      text-decoration: none;
-      color: #005ea5;
+
+    .hero {
+      position: relative;
+      height: 75vh;
+      overflow: hidden;
+      text-align: center;
+      color: white;
     }
 
-    header {
+    .hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 1.5s ease;
+    }
+
+    .hero video.active {
+      opacity: 1;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: 2;
+    }
+
+    .hero .content {
       position: relative;
-      background: url('https://fotografias.larazon.es/clipping/cmsimages02/2021/12/14/14876E42-05E7-4A24-A79C-9AB0614FBD0A/98.jpg?crop=5942,3343,x0,y170&width=1900&height=1069&optimize=low&format=webply') center/cover no-repeat;
-      height: 420px;
-      color: white;
+      z-index: 3;
+      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
+      padding: 0 1rem;
     }
-    header::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
-      z-index: 0;
+
+    .hero .logo {
+      max-width: 320px;
+      width: 90%;
+      margin-bottom: 1rem;
     }
-    .header-content {
-      position: relative;
-      z-index: 1;
-      max-width: 1200px;
-      padding: 0 1.5rem;
+
+    .slogan-big {
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #f0f0f0;
+      margin-bottom: 2rem;
     }
-    .logo {
-      position: absolute;
-      top: 24px;
-      left: 24px;
-      max-width: 280px;
-      height: auto;
-      z-index: 10;
-    }
-    .subtitle {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      font-size: 1.5rem;
-      color: #ffd700;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-    }
-    .animated-text {
-      display: inline-block;
-      margin-left: 0.5rem;
+
+    .storytelling {
+      font-size: 1.1rem;
+      font-weight: 400;
       font-style: italic;
-      font-weight: 600;
-      font-family: 'Playfair Display', serif;
-      color: #ffd700;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+      min-height: 1.5em;
       position: relative;
-      min-width: 120px;
-      height: 1.5rem;
+      width: 100%;
+      max-width: 90%;
+      overflow: hidden;
+      white-space: nowrap;
     }
-    .animated-text > span {
+
+    .storytelling span {
       position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
       opacity: 0;
-      animation: fadeInOut 6s linear infinite;
+      transition: opacity 1.5s ease;
+      white-space: nowrap;
     }
-    .animated-text > span:nth-child(1) { animation-delay: 0s; }
-    .animated-text > span:nth-child(2) { animation-delay: 2s; }
-    .animated-text > span:nth-child(3) { animation-delay: 4s; }
-    @keyframes fadeInOut {
-      0%, 20%, 100% { opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 0; }
+
+    .storytelling span.active {
+      opacity: 1;
     }
-    nav {
-      position: absolute;
-      top: 24px;
-      right: 24px;
-      display: flex;
-      gap: 20px;
+
+    .widget-section, .blog-section {
+      padding: 3rem 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .blog-section h2 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
       font-weight: 600;
-      font-family: 'Montserrat', sans-serif;
     }
-    nav a {
-      color: white;
-      padding: 0.4rem 0.6rem;
-      border-radius: 4px;
-      transition: background 0.3s ease;
+
+    .blog-section article {
+      margin-bottom: 2rem;
     }
-    nav a:hover {
-      background-color: #ffd700;
-      color: #222;
+
+    .blog-section h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-section p {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    footer {
+      background: #f4f4f4;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    footer a {
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      .storytelling {
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
-
 <body>
 
-  <header role="banner" aria-label="Site header with logo and main title">
-    <img src="https://i.imgur.com/mVciASa.png" alt="Dagmar Travels Logo" class="logo" />
-    <nav role="navigation" aria-label="Primary navigation">
-      <a href="#flights" tabindex="0">Flights</a>
-      <a href="#packages" tabindex="0">Packages</a>
-      <a href="#recommendations" tabindex="0">Tenerife Tips</a>
-      <a href="#contact" tabindex="0">Contact</a>
-    </nav>
-    <div class="header-content">
-      <p class="subtitle">Your Gateway to&nbsp;
-        <span class="animated-text" aria-live="polite" aria-atomic="true" aria-relevant="text">
-          <span>Tenerife</span>
-          <span>Venezuela</span>
-          <span>Adventure</span>
-        </span>
-      </p>
+  <div class="top-bar">
+    <div class="top-left">
+      <img src="https://i.imgur.com/gfKxjRL.png" alt="Dagmar Logo Negro">
+      <div class="slogan-small">THE ISLAND BY DAGMAR</div>
     </div>
-  </header>
+    <div class="top-right">
+      <i class="fab fa-instagram"></i> <a href="https://instagram.com/0700dagmar" target="_blank">@0700dagmar</a>
+    </div>
+  </div>
 
-  <main role="main" aria-label="Main content area">
-    <section class="central-content" aria-labelledby="flights-section-title" id="flights">
-      <h2 id="flights-section-title">Search Flights & Packages</h2>
-      <form class="flight-search" aria-label="Flight and package search form" id="flightSearchForm">
-        <label for="fromInput">From</label>
-        <input type="text" id="fromInput" name="from" placeholder="City or Airport" value="Venezuela" />
+  <section class="hero">
+    <video class="active" autoplay muted loop playsinline>
+      <source src="https://cdn.pixabay.com/video/2024/06/16/216951_large.mp4" type="video/mp4">
+    </video>
+    <video autoplay muted loop playsinline>
+      <source src="https://cdn.pixabay.com/video/2024/06/07/215709_large.mp4" type="video/mp4">
+    </video>
+    <video autoplay muted loop playsinline>
+      <source src="https://cdn.pixabay.com/video/2024/05/28/214078_large.mp4" type="video/mp4">
+    </video>
+    <video autoplay muted loop playsinline>
+      <source src="https://cdn.pixabay.com/video/2024/06/10/216131_large.mp4" type="video/mp4">
+    </video>
+    <video autoplay muted loop playsinline>
+      <source src="https://cdn.pixabay.com/video/2023/03/19/155355-809860058_large.mp4" type="video/mp4">
+    </video>
+    <video autoplay muted loop playsinline>
+      <source src="https://cdn.pixabay.com/video/2019/02/01/21101-315137014_large.mp4" type="video/mp4">
+    </video>
 
-        <label for="toInput">To</label>
-        <input type="text" id="toInput" name="to" placeholder="City or Airport" value="Tenerife" />
-
-        <label for="departDate">Depart</label>
-        <input type="date" id="departDate" name="depart" />
-
-        <label for="returnDate">Return</label>
-        <input type="date" id="returnDate" name="return" />
-
-        <label for="passengers">Passengers</label>
-        <select id="passengers" name="passengers">
-          <option value="1" selected>1 Passenger</option>
-          <option value="2">2 Passengers</option>
-          <option value="3">3 Passengers</option>
-          <option value="4">4 Passengers</option>
-          <option value="5">5 Passengers</option>
-        </select>
-
-        <button type="submit">Search</button>
-      </form>
-
-      <div id="searchResults" aria-live="polite" aria-atomic="true" role="region" style="min-height: 150px;">
-        Please fill the form and click search.
+    <div class="content">
+      <img src="https://i.imgur.com/mVciASa.png" alt="Dagmar Logo Blanco" class="logo">
+      <div class="slogan-big">THE ISLAND BY DAGMAR</div>
+      <div class="storytelling" id="story">
+        <span class="active">Whispers of salt on your skin.</span>
+        <span>Where the wind moves slower.</span>
+        <span>No shoes. No stress. Just sun.</span>
+        <span>Island silence speaks loudest.</span>
+        <span>A place where time forgets itself.</span>
+        <span>Swim where lava met the sea.</span>
+        <span>Everything tastes better by the ocean.</span>
+        <span>A flight away from ordinary.</span>
+        <span>El Teide watches while you dream.</span>
+        <span>Luxury is space — and silence.</span>
+        <span>The island doesn’t ask, it invites.</span>
+        <span>This is not tourism. It’s return.</span>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer role="contentinfo">
-    &copy; 2025 Dagmar Travels. All rights reserved. &nbsp; | &nbsp; <a href="#contact">Contact Us</a> &nbsp; | &nbsp; <a href="#privacy">Privacy Policy</a>
+  <section class="widget-section">
+    <script async src="https://c111.travelpayouts.com/content?currency=eur&trs=423672&shmarker=638051&from_name=PL&to_name=TFS&locale=en&powered_by=true&limit=4&primary_color=334140ff&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
+  </section>
+
+  <section class="blog-section">
+    <h2>Tenerife Tips</h2>
+    <article>
+      <h3>El Médano al amanecer</h3>
+      <p>Disfruta del viento suave, los surfistas flotando en calma y un desayuno frente al mar sin turistas.</p>
+    </article>
+    <article>
+      <h3>Restaurantes secretos de montaña</h3>
+      <p>Explora rincones donde se mezclan papas arrugadas con vino local, entre la niebla y el silencio del interior isleño.</p>
+    </article>
+    <article>
+      <h3>Un baño en el Charco del Viento</h3>
+      <p>Las piscinas naturales del norte son joyas escondidas que los locales visitan entre semana. Agua pura, salada y mágica.</p>
+    </article>
+  </section>
+
+  <footer>
+    © 2025 Dagmar Travels · <a href="https://instagram.com/0700dagmar" target="_blank">@0700dagmar</a> · Todos los derechos reservados · <a href="#">Aviso legal</a>
   </footer>
 
   <script>
-    const form = document.getElementById('flightSearchForm');
-    const results = document.getElementById('searchResults');
+    // Storytelling
+    const lines = document.querySelectorAll('#story span');
+    let textIndex = 0;
+    setInterval(() => {
+      lines[textIndex].classList.remove('active');
+      textIndex = (textIndex + 1) % lines.length;
+      lines[textIndex].classList.add('active');
+    }, 9000);
 
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const from = form.from.value.trim();
-      const to = form.to.value.trim();
-      const depart = form.depart.value;
-      const ret = form.return.value;
-      const passengers = form.passengers.value;
-
-      if (!from || !to || !depart) {
-        results.textContent = 'Please fill in the From, To, and Depart date fields.';
-        return;
-      }
-
-      results.innerHTML = '<script async src="https://c111.travelpayouts.com/content?currency=eur&trs=423672&shmarker=638051&from_name=PL&to_name=TFS&locale=en&powered_by=true&limit=4&primary_color=00AE98&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></' + 'script>';
-    });
+    // Video carousel
+    const videos = document.querySelectorAll('.hero video');
+    let videoIndex = 0;
+    setInterval(() => {
+      videos[videoIndex].classList.remove('active');
+      videoIndex = (videoIndex + 1) % videos.length;
+      videos[videoIndex].classList.add('active');
+    }, 9000);
   </script>
 
 </body>
