@@ -7,34 +7,11 @@
   <meta name="description" content="Luxury air travel to Tenerife. Boutique island escapes, curated by Dagmar. No stress. Just sun.">
   <meta name="keywords" content="Dagmar Travels, Tenerife, vuelos boutique, viajes de lujo, isla, experiencias únicas">
   <meta name="author" content="Dagmar Team">
-  <link rel="canonical" href="https://dagmarobjects.com/" />
-  <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#000000">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Dagmar Travels – The Island by Dagmar">
-  <meta property="og:description" content="Luxury air travel to Tenerife. Boutique island escapes curated by Dagmar.">
-  <meta property="og:image" content="https://i.imgur.com/mVciASa.png">
-  <meta property="og:url" content="https://dagmarobjects.com">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="es_ES">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Dagmar Travels – The Island">
-  <meta name="twitter:description" content="Tenerife luxury flights & escapes. The island by Dagmar.">
-  <meta name="twitter:image" content="https://i.imgur.com/mVciASa.png">
-  <meta name="twitter:site" content="@0700dagmar">
-
-  <!-- Favicon -->
   <link rel="icon" href="https://i.imgur.com/gfKxjRL.png" type="image/png">
 
-  <!-- Fonts + Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
-  <!-- Analytics -->
-  <script defer data-domain="dagmarobjects.com" src="https://plausible.io/js/plausible.js"></script>
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -44,23 +21,62 @@
       color: #222;
     }
 
+    .intro {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 1;
+      transition: opacity 1.2s ease-in-out;
+    }
+
+    .intro-logo {
+      max-width: 260px;
+      width: 70%;
+      opacity: 0;
+      transform: scale(0.95);
+      animation: logoFadeIn 1.2s ease forwards 0.4s;
+    }
+
+    .intro-tagline {
+      color: #fff;
+      font-family: 'Montserrat', serif;
+      font-size: 1rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 1.2rem;
+      opacity: 0;
+      animation: taglineFadeIn 1.2s ease forwards 1s;
+    }
+
+    @keyframes logoFadeIn {
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes taglineFadeIn {
+      to { opacity: 1; }
+    }
+
     .top-bar {
       background: white;
-      padding: 20px 0;
+      padding: 16px 0;
       border-bottom: 1px solid #eee;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 40px;
+      gap: 36px;
     }
 
     .top-bar img {
-      height: 80px;
+      height: 110px;
     }
 
     .top-icons {
       display: flex;
-      gap: 24px;
+      gap: 20px;
       border-left: 1px solid #111;
       padding-left: 24px;
     }
@@ -86,7 +102,7 @@
 
     .hero {
       position: relative;
-      height: 100vh;
+      height: 70vh;
       overflow: hidden;
       text-align: center;
       color: white;
@@ -128,21 +144,21 @@
     }
 
     .hero .logo {
-      max-width: 420px;
-      width: 90%;
-      margin-bottom: 1.5rem;
+      max-width: 400px;
+      width: 95%;
+      margin-bottom: 1rem;
     }
 
     .slogan-big {
-      font-size: 1.4rem;
-      letter-spacing: 4px;
+      font-size: 1.3rem;
+      letter-spacing: 3px;
       text-transform: uppercase;
       color: #f0f0f0;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
 
     .storytelling {
-      font-size: 1.8rem;
+      font-size: 1.7rem;
       font-weight: 400;
       font-style: italic;
       text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
@@ -166,14 +182,17 @@
     .storytelling span.active {
       opacity: 1;
     }
-
-    footer, .blog-magazine, .widget-section {
-      font-family: 'Georgia', serif;
-    }
   </style>
 </head>
 <body>
 
+  <!-- Cinematic Intro -->
+  <div class="intro" id="intro">
+    <img src="https://i.imgur.com/mVciASa.png" alt="Dagmar Logo Blanco" class="intro-logo">
+    <div class="intro-tagline">THE ISLAND BY DAGMAR</div>
+  </div>
+
+  <!-- Top Bar -->
   <div class="top-bar">
     <img src="https://i.imgur.com/gfKxjRL.png" alt="Dagmar Logo">
     <div class="top-icons">
@@ -182,6 +201,7 @@
     </div>
   </div>
 
+  <!-- Hero -->
   <section class="hero">
     <video class="active" autoplay muted loop playsinline>
       <source src="https://cdn.pixabay.com/video/2023/10/13/184860-874264423_large.mp4" type="video/mp4">
@@ -212,52 +232,19 @@
       </div>
     </div>
   </section>
-  <!-- Widget -->
-  <section class="widget-section" style="padding: 3rem 1rem; background: #fff; max-width: 960px; margin: auto;">
-    <script async src="https://c111.travelpayouts.com/content?currency=eur&trs=423672&shmarker=638051&from_name=PL&to_name=TFS&locale=en&powered_by=true&limit=4&primary_color=334140ff&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
-  </section>
-
-  <!-- Tenerife Tips -->
-  <section class="blog-magazine" style="background:#f8f8f8; padding: 4rem 2rem;">
-    <div style="max-width: 960px; margin:auto;">
-      <h2 style="font-size:2rem; font-weight:700; text-transform:uppercase; margin-bottom:2rem; border-bottom:2px solid #ccc; display:inline-block;">Tenerife Tips</h2>
-
-      <article style="margin-bottom: 3rem;">
-        <h3 style="font-size:1.4rem; margin-bottom:0.5rem;">☀️ El Médano al Amanecer</h3>
-        <p style="line-height:1.8; font-size:1.1rem; color:#444;">
-          Despierta con el viento en la cara, los surfistas entrando al agua y el primer café con vistas al Atlántico. El Médano respira autenticidad sin ruido.
-        </p>
-      </article>
-
-      <article style="margin-bottom: 3rem;">
-        <h3 style="font-size:1.4rem; margin-bottom:0.5rem;">🍷 Montañas y Guachinches</h3>
-        <p style="line-height:1.8; font-size:1.1rem; color:#444;">
-          Más allá de los resorts, descubre los sabores volcánicos de la isla en restaurantes escondidos entre pinos y nubes. Vino, queso y conversación lenta.
-        </p>
-      </article>
-
-      <article style="margin-bottom: 3rem;">
-        <h3 style="font-size:1.4rem; margin-bottom:0.5rem;">🌊 Charcos del Norte</h3>
-        <p style="line-height:1.8; font-size:1.1rem; color:#444;">
-          Las piscinas naturales del norte son santuarios donde el mar entra y sale sin turistas. Bañarse allí es un acto íntimo de conexión con la isla.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer style="background:#111; color:#ccc; padding:2rem; font-size:0.9rem; font-family:'Georgia', serif;">
-    <div style="max-width:960px; margin:auto; text-align:center;">
-      <p>&copy; 2025 <strong>Dagmar Travels</strong>. Todos los derechos reservados.</p>
-      <p style="margin:0.5rem 0;">Una experiencia curada para quienes entienden que <em>menos es más</em>.</p>
-      <p><a href="https://instagram.com/0700dagmar" target="_blank" style="color:#fff; text-decoration:none;"><i class="fab fa-instagram"></i> @0700dagmar</a></p>
-      <p style="margin-top:1rem;"><a href="/aviso-legal" style="color:#999; font-size:0.85rem;">Aviso legal & política de privacidad</a></p>
-    </div>
-  </footer>
 
   <!-- Scripts -->
   <script>
-    // Storytelling rotator
+    // Intro fade
+    window.addEventListener('load', () => {
+      const intro = document.getElementById('intro');
+      setTimeout(() => {
+        intro.style.opacity = '0';
+        setTimeout(() => intro.style.display = 'none', 1200);
+      }, 2200);
+    });
+
+    // Storytelling
     const lines = document.querySelectorAll('#story span');
     let textIndex = 0;
     setInterval(() => {
@@ -278,4 +265,3 @@
 
 </body>
 </html>
-
