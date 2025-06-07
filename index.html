@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cheap Flights to Tenerife | Dagmar Travels</title>
+  <title>Cheap Flights to Venezuela and Tenerife | Dagmar Travels</title>
   <meta name="description" content="Find the cheapest flights to and from Venezuela, plus flight and hotel packages to Tenerife. Flight comparison for Polish and Eastern European travelers." />
   <meta name="keywords" content="cheap flights, flights to Venezuela, flights to Tenerife, flight comparison, flight and hotel packages, Europe travel, budget flights" />
   <meta name="author" content="Luis / Dagmar Travels" />
   <link rel="canonical" href="https://your-domain.com/" />
 
-  <!-- Google Fonts: elegant and professional -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
 
   <style>
@@ -33,11 +32,10 @@
       text-decoration: underline;
     }
 
-    /* Header */
     header {
       position: relative;
       width: 100%;
-      height: 320px;
+      height: 380px; /* un poco más alto para mostrar todo el logo */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -59,15 +57,16 @@
       transition: background-image 1s ease-in-out;
     }
     header .logo {
-      width: 240px;
-      margin-bottom: 25px;
+      width: 320px; /* logo más grande */
+      margin-bottom: 30px;
       z-index: 1;
       user-select: none;
+      object-fit: contain;
     }
     header h1 {
       font-family: 'Playfair Display', serif;
       font-weight: 700;
-      font-size: 2.6rem;
+      font-size: 2.8rem;
       margin: 0;
       position: relative;
       z-index: 1;
@@ -75,10 +74,10 @@
     }
     header .animated-text {
       display: inline-block;
-      transition: opacity 1.2s ease-in-out;
-      opacity: 1;
-      font-style: italic;
       color: #ffd700;
+      font-style: italic;
+      transition: opacity 1.8s ease-in-out;
+      opacity: 1;
     }
     header .divider {
       width: 90px;
@@ -112,7 +111,6 @@
       text-align: center;
     }
 
-    /* Destinations section */
     .destinations {
       display: flex;
       gap: 1rem;
@@ -167,7 +165,7 @@
         font-size: 1.8rem;
       }
       header .logo {
-        width: 180px;
+        width: 240px;
         margin-bottom: 15px;
       }
     }
@@ -176,7 +174,7 @@
 <body>
 
   <header>
-    <img src="https://i.imgur.com/ALBfQ8v.png" alt="Dagmar Travels Logo" class="logo" />
+    <img src="https://i.imgur.com/mVciASa.png" alt="Dagmar Travels Logo" class="logo" />
     <h1>
       Find the best <span id="changing-word" class="animated-text">flights</span> for your trip
     </h1>
@@ -220,10 +218,12 @@
         index = (index + 1) % words.length;
         span.textContent = words[index];
         span.style.opacity = 1;
-      }, 1200);
+      }, 1800); // igual duración que el fade para suavidad
     }
 
-    setInterval(changeWord, 4000);
+    setInterval(changeWord, 6000); // intervalo más largo para tranquilidad visual
   </script>
+
 </body>
 </html>
+
