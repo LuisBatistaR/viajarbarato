@@ -10,7 +10,7 @@
   <link rel="canonical" href="https://your-domain.com/" />
 
   <!-- Fuentes -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after {
@@ -60,10 +60,10 @@
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background-image: url('https://cf.bstatic.com/xdata/images/hotel/960x580/488091828.jpg?k=283faf2373cc6412987f0a45cf1030853e2d02aea2483d023260b9ca27d7bf45&o=');
+      background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/80/ef/57/gran-melia-palacio-de.jpg?w=1200&h=-1&s=1');
       background-size: cover;
       background-position: center;
-      filter: brightness(1.4) saturate(0.3) contrast(1.1) blur(2px);
+      filter: brightness(1.8) saturate(1.2) contrast(1.2) blur(2px);
       z-index: -1;
       transition: background-image 1s ease-in-out;
     }
@@ -94,9 +94,9 @@
       color: #444444;
     }
 
-    /* La palabra animada con Montserrat */
+    /* La palabra animada con Playfair Display */
     header .animated-text {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Playfair Display', serif;
       font-style: italic;
       font-weight: 600;
       transition: opacity 1.8s ease-in-out;
@@ -268,11 +268,11 @@
         <p>Los Cristianos</p>
       </article>
       <article class="carousel-item" tabindex="0" role="link" aria-label="Puerto de la Cruz">
-        <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/09/5f/34/c5.jpg" alt="Puerto de la Cruz harbor" />
+        <img src="https://sendaecoway.com/wp-content/uploads/2024/10/6197abf017d202925a23e959_turismo-en-puerto-de-la-cruz-1024x627-1.jpg.webp" alt="Puerto de la Cruz harbor" />
         <p>Puerto de la Cruz</p>
       </article>
       <article class="carousel-item" tabindex="0" role="link" aria-label="Santa Cruz de Tenerife">
-        <img src="https://www.spain.info/export/sites/spaininfo/comun/carrusel-recursos/grandes-ciudades/santa-cruz-de-tenerife/santa-cruz-de-tenerife-01.jpg_369272544.jpg" alt="Santa Cruz de Tenerife city view" />
+        <img src="https://www.guiarepsol.com/content/dam/repsol-guia/contenidos-imagenes/viajar/vamos-de-excursion/qu%C3%A9-ver-en-santa-cruz-de-tenerife/01SantaCruz.jpg" alt="Santa Cruz de Tenerife city view" />
         <p>Santa Cruz</p>
       </article>
     </section>
@@ -280,22 +280,24 @@
   </main>
 
   <footer role="contentinfo">
-    &copy; 2025 Dagmar Travels. All rights reserved.
+    <p>© 2025 Dagmar Travels — Cheap Flights to Venezuela & Tenerife. All rights reserved.</p>
   </footer>
 
   <script>
-    const words = ['flights', 'deals', 'journeys', 'adventures', 'packages', 'getaways'];
-    const changingWord = document.getElementById('changing-word');
+    // Animación simple para cambiar la palabra "flights" en el header
+    const words = ['flights', 'deals', 'destinations', 'adventures'];
     let index = 0;
-    function changeWord() {
+    const changingWord = document.getElementById('changing-word');
+
+    setInterval(() => {
+      index = (index + 1) % words.length;
+      // Fading out
       changingWord.style.opacity = 0;
       setTimeout(() => {
-        index = (index + 1) % words.length;
         changingWord.textContent = words[index];
         changingWord.style.opacity = 1;
       }, 900);
-    }
-    setInterval(changeWord, 3000);
+    }, 4000);
   </script>
 
 </body>
