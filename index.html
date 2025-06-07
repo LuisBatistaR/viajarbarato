@@ -1,142 +1,318 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Tenerife na Twój Sposób</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Dagmar Travels</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Tipografías -->
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Tipografías modernas -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 
-  <!-- Estilos -->
   <style>
-    :root {
-      --color1: #00AE98;
-      --color2: #64AEC1;
-      --bg-white: #ffffff;
-    }
-
+    /* Reset básico */
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     html, body {
       height: 100%;
-      font-family: 'DM Sans', sans-serif;
-      background: linear-gradient(180deg, rgba(0, 174, 152, 0.6), rgba(100, 174, 193, 0.6));
-      overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
+      background: 
+        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+        url('https://images.unsplash.com/photo-1597773150796-e5c14ebecbf5?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmF2eSUyMGJsdWUlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      scroll-behavior: smooth;
     }
 
     header {
-      background-color: var(--bg-white);
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+      padding: 0 20px;
+    }
+
+    /* Fondo dinámico del header */
+    .header-bg {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 1;
+      background-position: center center;
+      background-size: cover;
+      filter: brightness(40%);
+      transition: background-image 1s ease-in-out;
+      will-change: background-image;
+    }
+
+    /* Contenedor logo + texto */
+    .header-content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
       text-align: center;
-      padding: 60px 20px 40px;
+      max-width: 900px;
+      user-select: none;
     }
 
-    header img.logo {
-      width: 80px;
-      margin-bottom: 15px;
+    /* Logo imagen */
+    .logo-img {
+      width: 280px;
+      height: auto;
+      filter: drop-shadow(0 0 8px rgba(0,0,0,0.8));
+      transition: transform 0.3s ease;
+      cursor: default;
+    }
+    .logo-img:hover {
+      transform: scale(1.05);
     }
 
-    header h1 {
-      font-size: 2.8em;
-      font-family: 'Montserrat', sans-serif;
+    /* Texto dinámico */
+    #dynamic-text {
+      font-family: 'Roboto', sans-serif;
       font-weight: 700;
-      background: linear-gradient(to right, var(--color1), var(--color2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 10px;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      letter-spacing: 2px;
+      color: #f4d68a;
+      text-shadow:
+        0 0 10px rgba(244, 214, 138, 0.7),
+        0 0 15px rgba(244, 214, 138, 0.9);
+      white-space: nowrap;
+      border-right: 3px solid #f4d68a;
+      padding-right: 10px;
+      user-select: none;
+      animation: blinkCaret 1s step-end infinite;
+      max-width: 100%;
+      overflow: hidden;
     }
 
-    header p {
-      font-size: 1.2em;
-      font-style: italic;
-      color: #444;
+    @keyframes blinkCaret {
+      50% { border-color: transparent; }
     }
 
-    .widget-container {
-      max-width: 1000px;
+    /* Widgets */
+    .top-widget, .main-widget {
+      max-width: 900px;
       margin: 40px auto;
       padding: 20px;
-      background-color: rgba(255,255,255,0.9);
-      border-radius: 16px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      background-color: rgba(10, 30, 40, 0.85);
+      border-radius: 14px;
+      box-shadow: 0 0 20px rgba(244, 214, 138, 0.8);
+      user-select: none;
     }
 
-    /* Galería de fotos estilo sobrio */
-    .photo-gallery {
+    /* Galería destinos renovada */
+    .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
       max-width: 1000px;
-      margin: 0 auto 40px;
-      padding: 20px;
+      margin: 50px auto 70px;
+      padding: 0 20px;
+      user-select: none;
     }
 
-    .photo-gallery img {
+    .destination {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow:
+        0 0 15px rgba(244, 214, 138, 0.7),
+        inset 0 0 25px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: #0a1e28;
+    }
+    .destination:hover {
+      transform: scale(1.05);
+      box-shadow:
+        0 0 30px rgba(244, 214, 138, 1),
+        inset 0 0 35px rgba(0,0,0,0.7);
+      z-index: 2;
+    }
+
+    .destination img {
       width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
+      height: 180px;
+      object-fit: cover;
+      filter: brightness(70%);
+      transition: filter 0.3s ease;
+      border-radius: 18px 18px 0 0;
     }
 
-    .photo-gallery img:hover {
-      transform: scale(1.02);
+    .destination:hover img {
+      filter: brightness(40%);
     }
 
-    .photo-caption {
-      text-align: center;
-      margin-top: 8px;
-      font-family: 'Montserrat', sans-serif;
-      color: #fff;
-      font-size: 1em;
+    .destination span {
+      position: absolute;
+      bottom: 16px;
+      left: 20px;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #f4d68a;
+      text-shadow:
+        2px 2px 6px rgba(0,0,0,0.9);
+      user-select: none;
+      transition: color 0.3s ease;
     }
 
     footer {
       text-align: center;
+      color: #bbb;
+      padding: 30px 20px;
       font-size: 0.9em;
-      color: #eee;
-      padding: 30px 10px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      header {
+        height: 320px;
+      }
+      .logo-img {
+        width: 180px;
+      }
+      #dynamic-text {
+        font-size: 2rem;
+        border-right: 2px solid #f4d68a;
+      }
+      .destination img {
+        height: 140px;
+      }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- ENCABEZADO -->
   <header>
-    <img src="https://static.vecteezy.com/system/resources/thumbnails/035/861/457/small_2x/abstract-white-plane-icon-png.png" alt="Logo" class="logo">
-    <h1>Tenerife na Twój Sposób</h1>
-    <p>Odkryj wyspy tak, jak lubisz – plaże, góry i słońce w jednym miejscu</p>
+    <div class="header-bg" id="header-bg"></div>
+
+    <div class="header-content">
+      <img src="https://i.imgur.com/ALBfQ8v.png" alt="Dagmar Travels Logo" class="logo-img" />
+
+      <h1 id="dynamic-text"></h1>
+    </div>
   </header>
 
-  <!-- GALERÍA DE FOTOS -->
-  <div class="photo-gallery">
-    <div>
-      <img src="https://www.guiarepsol.com/content/dam/repsol-guia/contenidos-imagenes/viajar/vamos-de-excursion/qu%C3%A9-ver-en-santa-cruz-de-tenerife/01SantaCruz.jpg.transform/rp-rendition-md/image.jpg" alt="Santa Cruz">
-      <div class="photo-caption">Santa Cruz de Tenerife</div>
+  <div class="top-widget">
+    <script async src="https://tpwgt.com/content?currency=eur&trs=423672&shmarker=638051&locale=en&default_destination=TCI&stops=any&show_hotels=true&powered_by=true&border_radius=11&plain=true&color_button=%235A5F5Fff&color_button_text=%23FFD8D8ff&promo_id=3414&campaign_id=111" charset="utf-8"></script>
+  </div>
+
+  <div class="gallery">
+    <div class="destination" title="Mount Teide">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Teide" />
+      <span>Mount Teide</span>
     </div>
-    <div>
-      <img src="https://www.gancarczyk.com/wp-content/uploads/2024/01/teneryf-01-753x500.jpg" alt="Playa y Acantilados">
-      <div class="photo-caption">Costa y acantilados</div>
+    <div class="destination" title="Masca Village">
+      <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=800&q=80" alt="Masca" />
+      <span>Masca Village</span>
     </div>
-    <div>
-      <img src="https://static-resources-elementor.mirai.com/wp-content/uploads/sites/507/destinos-tenerife-paisajes-el-teide.jpg" alt="El Teide">
-      <div class="photo-caption">El Teide</div>
+    <div class="destination" title="Los Gigantes Cliffs">
+      <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80" alt="Los Gigantes" />
+      <span>Los Gigantes</span>
+    </div>
+    <div class="destination" title="Playa de las Teresitas">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Teresitas Beach" />
+      <span>Teresitas Beach</span>
+    </div>
+    <div class="destination" title="Santa Cruz de Tenerife">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Santa Cruz" />
+      <span>Santa Cruz</span>
+    </div>
+    <div class="destination" title="Anaga Rural Park">
+      <img src="https://images.unsplash.com/photo-1506748684942-27c1e7e4c5e9?auto=format&fit=crop&w=800&q=80" alt="Anaga" />
+      <span>Anaga Park</span>
     </div>
   </div>
 
-  <!-- WIDGET TRAVELPAYOUTS -->
-  <div class="widget-container">
-    <script async src="https://c111.travelpayouts.com/content?currency=pln&trs=423668&shmarker=638051&from_name=PL&to_name=TFS&locale=pl&powered_by=true&limit=4&primary_color=64AEC1ff&results_background_color=F4FBF4ff&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
+  <div class="main-widget">
+    <script async src="https://tpwgt.com/content?trs=423672&shmarker=638051&currency=eur&locale=en&default_destination=TCI&show_hotels=true&border_radius=11&color_button=%235A5F5Fff&color_button_text=%23FFD8D8ff" charset="utf-8"></script>
   </div>
 
-  <!-- FOOTER -->
   <footer>
-    &copy; 2025 ViajarBarato.pl – Wszystkie prawa zastrzeżone.
+    &copy; 2025 Dagmar Travels | Designed with passion
   </footer>
 
+  <script>
+    const phrases = [
+      "Another way to see Tenerife",
+      "An island your way",
+      "Explore with confidence",
+      "Discover hidden gems",
+      "Plan your perfect trip"
+    ];
+
+    const typingSpeed = 50;
+    const erasingSpeed = 30;
+    const delayBetweenPhrases = 2000;
+
+    const dynamicTextEl = document.getElementById('dynamic-text');
+
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+      const currentPhrase = phrases[phraseIndex];
+
+      if (!isDeleting) {
+        dynamicTextEl.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex === currentPhrase.length) {
+          isDeleting = true;
+          setTimeout(type, delayBetweenPhrases);
+          return;
+        }
+      } else {
+        dynamicTextEl.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+
+        if (charIndex === 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+        }
+      }
+      setTimeout(type, isDeleting ? erasingSpeed : typingSpeed);
+    }
+
+    type();
+
+    // Cambiar fondo header dinámicamente
+    const headerBg = document.getElementById('header-bg');
+    const bgImages = [
+      "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80')",
+      "url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1920&q=80')",
+      "url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1920&q=80')",
+      "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80')",
+      "url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1920&q=80')"
+    ];
+
+    let bgIndex = 0;
+    function changeBackground() {
+      bgIndex = (bgIndex + 1) % bgImages.length;
+      headerBg.style.backgroundImage = bgImages[bgIndex];
+    }
+
+    // Fondo inicial
+    headerBg.style.backgroundImage = bgImages[0];
+
+    setInterval(changeBackground, 7000);
+  </script>
 </body>
 </html>
