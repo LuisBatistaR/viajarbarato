@@ -4,9 +4,12 @@
   <meta charset="UTF-8">
   <title>Tenerife na Twój Sposób</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <!-- Fuente Pro -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon nuevo -->
+  <link rel="icon" href="https://static.vecteezy.com/system/resources/thumbnails/035/861/457/small_2x/abstract-white-plane-icon-png.png" type="image/png">
 
   <style>
     * {
@@ -23,36 +26,40 @@
       overflow-x: hidden;
     }
 
-    /* VIDEO FONDO */
-    .video-background {
+    /* GIF FONDO */
+    .gif-background {
       position: fixed;
       top: 0;
       left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      z-index: -1;
-      object-fit: cover;
-      filter: brightness(0.7);
+      width: 100%;
+      height: 100%;
+      background: url('https://i.makeagif.com/media/7-11-2017/owNM4b.gif') no-repeat center center / cover;
+      opacity: 0.15; /* 15% visible para que quede sutil */
+      z-index: -2;
+      pointer-events: none;
     }
 
     /* SUPERPOSICIÓN */
     .overlay {
-      background: linear-gradient(180deg, rgba(0, 174, 152, 0.6), rgba(100, 174, 193, 0.6));
-      position: absolute;
+      background: linear-gradient(180deg, rgba(0, 174, 152, 0.85), rgba(100, 174, 193, 0.85));
+      position: fixed;
       top: 0;
       left: 0;
       height: 100%;
       width: 100%;
       z-index: -1;
+      pointer-events: none;
     }
 
     header {
       text-align: center;
       padding: 80px 20px 40px;
+      position: relative;
+      z-index: 1;
     }
 
     header img.logo {
-      width: 80px;
+      width: 60px;
       margin-bottom: 15px;
     }
 
@@ -76,6 +83,8 @@
       background-color: rgba(255,255,255,0.9);
       border-radius: 16px;
       box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 1;
     }
 
     .widget-container script {
@@ -87,109 +96,26 @@
       font-size: 0.9em;
       color: #eee;
       padding: 30px 10px;
+      position: relative;
+      z-index: 1;
     }
-
-    /* Nuevo bloque Descubre Tenerife */
-    .descubre-tenerife {
-      background-color: rgba(255, 255, 255, 0.95);
-      color: #1F3C41;
-      max-width: 1000px;
-      margin: 40px auto;
-      border-radius: 20px;
-      padding: 2.5rem 2rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      font-family: 'DM Sans', sans-serif;
-    }
-
-    .descubre-tenerife h2 {
-      font-size: 2.4rem;
-      margin-bottom: 1rem;
-      text-align: center;
-      font-weight: 700;
-      color: #0072bc;
-    }
-
-    .descubre-tenerife p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      text-align: center;
-      color: #444;
-    }
-
-    .descubre-tenerife .imagenes {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .descubre-tenerife .imagenes img {
-      width: 32%;
-      max-width: 220px;
-      border-radius: 12px;
-      object-fit: cover;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .descubre-tenerife .imagenes img:hover {
-      transform: scale(1.05);
-    }
-
-    .descubre-tenerife .caption {
-      text-align: center;
-      font-size: 14px;
-      color: #555;
-      margin-top: 1rem;
-      font-style: italic;
-    }
-
-    @media (max-width: 720px) {
-      .descubre-tenerife .imagenes img {
-        width: 48%;
-        max-width: none;
-      }
-    }
-
-    @media (max-width: 400px) {
-      .descubre-tenerife .imagenes img {
-        width: 100%;
-      }
-    }
-
   </style>
 </head>
 
 <body>
 
-  <!-- VIDEO DE FONDO -->
-  <video class="video-background" autoplay muted loop playsinline>
-    <source src="fondo.mp4" type="video/mp4">
-    Twoja przeglądarka nie obsługuje wideo.
-  </video>
+  <!-- GIF DE FONDO -->
+  <div class="gif-background"></div>
 
   <!-- DEGRADADO SUPERPUESTO -->
   <div class="overlay"></div>
 
   <!-- ENCABEZADO -->
   <header>
-    <img src="https://images.icon-icons.com/308/PNG/512/plane-icon_34103.png" alt="Logo" class="logo">
+    <img src="https://static.vecteezy.com/system/resources/thumbnails/035/861/457/small_2x/abstract-white-plane-icon-png.png" alt="Logo" class="logo">
     <h1>Tenerife na Twój Sposób</h1>
     <p>Odkryj wyspy tak, jak lubisz – plaże, góry i słońce w jednym miejscu</p>
   </header>
-
-  <!-- BLOQUE INFORMATIVO DESCUBRE TENERIFE -->
-  <section class="descubre-tenerife" aria-label="Descubre Tenerife">
-    <h2>Descubre Tenerife</h2>
-    <p>Una experiencia única entre playas doradas, montañas volcánicas y pueblos mágicos.</p>
-    <div class="imagenes">
-      <img src="https://www.guiarepsol.com/content/dam/repsol-guia/contenidos-imagenes/viajar/vamos-de-excursion/qu%C3%A9-ver-en-santa-cruz-de-tenerife/01SantaCruz.jpg.transform/rp-rendition-md/image.jpg" alt="Santa Cruz de Tenerife">
-      <img src="https://www.gancarczyk.com/wp-content/uploads/2024/01/teneryf-01-753x500.jpg" alt="Paisaje en Tenerife">
-      <img src="https://static-resources-elementor.mirai.com/wp-content/uploads/sites/507/destinos-tenerife-paisajes-el-teide.jpg" alt="El Teide, Tenerife">
-    </div>
-    <div class="caption">Imágenes destacadas de Tenerife: Santa Cruz, sus paisajes y el majestuoso Teide.</div>
-  </section>
 
   <!-- WIDGET -->
   <div class="widget-container">
