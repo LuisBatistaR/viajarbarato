@@ -1,131 +1,377 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <title>Tenerife na Twój Sposób</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tenerife Your Way / Tenerife na Twój Sposób</title>
 
-  <!-- Fuente Pro -->
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- Favicon nuevo -->
-  <link rel="icon" href="https://static.vecteezy.com/system/resources/thumbnails/035/861/457/small_2x/abstract-white-plane-icon-png.png" type="image/png">
+  <!-- Fuente DM Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  
+  <!-- Favicon -->
+  <link
+    rel="icon"
+    href="https://static.vecteezy.com/system/resources/thumbnails/035/861/457/small_2x/abstract-white-plane-icon-png.png"
+    type="image/png"
+  />
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
+    /* Reset */
+    *, *::before, *::after {
       box-sizing: border-box;
     }
-
     body, html {
-      height: 100%;
-      font-family: 'DM Sans', sans-serif;
-      color: #ffffff;
-      position: relative;
+      margin: 0; padding: 0; height: 100%;
+      font-family: "DM Sans", sans-serif;
+      background: #000;
+      color: #fff;
       overflow-x: hidden;
+      position: relative;
+      scroll-behavior: smooth;
     }
 
-    /* GIF FONDO */
+    /* Fondo GIF y overlay degradado */
     .gif-background {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://i.makeagif.com/media/7-11-2017/owNM4b.gif') no-repeat center center / cover;
-      opacity: 0.15; /* 15% visible para que quede sutil */
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: url("https://i.makeagif.com/media/7-11-2017/owNM4b.gif") no-repeat center center / cover;
+      opacity: 0.15;
       z-index: -2;
       pointer-events: none;
     }
-
-    /* SUPERPOSICIÓN */
     .overlay {
-      background: linear-gradient(180deg, rgba(0, 174, 152, 0.85), rgba(100, 174, 193, 0.85));
       position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: linear-gradient(180deg, rgba(0,174,152,0.85), rgba(100,174,193,0.85));
       z-index: -1;
       pointer-events: none;
     }
 
+    /* Header */
     header {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px 40px;
       text-align: center;
-      padding: 80px 20px 40px;
       position: relative;
-      z-index: 1;
+      z-index: 10;
     }
-
-    header img.logo {
-      width: 60px;
-      margin-bottom: 15px;
+    header .logo {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 15px;
+      filter: drop-shadow(0 0 3px rgba(0, 174, 152, 0.7));
+      transition: transform 0.3s ease;
+      cursor: pointer;
     }
-
+    header .logo:hover {
+      transform: rotate(15deg) scale(1.1);
+    }
     header h1 {
-      font-size: 2.5em;
       font-weight: 700;
-      margin-bottom: 10px;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 0.25em;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
     }
-
     header p {
-      font-size: 1.3em;
       font-weight: 400;
       font-style: italic;
-      opacity: 0.9;
+      font-size: clamp(1rem, 3vw, 1.4rem);
+      color: #d9f0ec;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      max-width: 650px;
+      margin: 0 auto;
     }
 
-    .widget-container {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: rgba(255,255,255,0.9);
-      border-radius: 16px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    /* Botón cambiar idioma */
+    #language-toggle {
+      position: fixed;
+      top: 18px;
+      right: 20px;
+      background: rgba(0, 174, 152, 0.9);
+      border: none;
+      border-radius: 24px;
+      padding: 10px 20px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 3px 6px rgba(0, 174, 152, 0.7);
+      transition: background-color 0.3s ease;
+      z-index: 100;
+      user-select: none;
+    }
+    #language-toggle:hover {
+      background: rgba(0, 174, 152, 1);
+    }
+
+    /* Sección Descubre Tenerife */
+    section.discover-tenerife {
+      max-width: 1200px;
+      margin: 50px auto 80px;
+      background-color: #f5f5f5;
+      color: #1f3c41;
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      box-shadow: 0 8px 16px rgb(0 0 0 / 0.15);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
       position: relative;
-      z-index: 1;
+      z-index: 10;
     }
-
-    .widget-container script {
+    .discover-tenerife .text-content {
+      flex: 1 1 320px;
+    }
+    .discover-tenerife .text-content h2 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+    .discover-tenerife .text-content p {
+      font-size: 1.15rem;
+      line-height: 1.5;
+      margin-bottom: 1.2rem;
+      font-weight: 400;
+      font-family: "DM Sans", sans-serif;
+    }
+    .discover-tenerife .text-content a {
+      background-color: #00ae98;
+      color: white;
+      padding: 0.85rem 1.8rem;
+      border-radius: 10px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 8px rgba(0, 174, 152, 0.4);
+    }
+    .discover-tenerife .text-content a:hover {
+      background-color: #008d7f;
+    }
+    .discover-tenerife .images {
+      flex: 2 1 600px;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
+      height: 300px;
+      max-width: 600px;
+    }
+    .discover-tenerife .images img {
+      position: absolute;
+      top: 0; left: 0;
       width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .discover-tenerife .images img.active {
+      opacity: 1;
+      position: relative;
     }
 
+    /* Widget Travelpayouts contenedor */
+    #travelpayouts-widget {
+      max-width: 1200px;
+      margin: 0 auto 80px;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgb(0 0 0 / 0.1);
+      padding: 20px;
+      z-index: 10;
+    }
+
+    /* Footer */
     footer {
+      max-width: 1200px;
+      margin: 40px auto 40px;
       text-align: center;
-      font-size: 0.9em;
-      color: #eee;
-      padding: 30px 10px;
-      position: relative;
-      z-index: 1;
+      color: #ccc;
+      font-size: 0.9rem;
+      font-weight: 400;
+      z-index: 10;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .discover-tenerife {
+        flex-direction: column;
+        padding: 2rem 1rem;
+      }
+      .discover-tenerife .images {
+        height: 220px;
+        max-width: 100%;
+      }
+    }
+    @media (max-width: 450px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      #language-toggle {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- GIF DE FONDO -->
+  <!-- Fondo GIF y overlay degradado -->
   <div class="gif-background"></div>
-
-  <!-- DEGRADADO SUPERPUESTO -->
   <div class="overlay"></div>
 
-  <!-- ENCABEZADO -->
+  <!-- Header -->
   <header>
-    <img src="https://static.vecteezy.com/system/resources/thumbnails/035/861/457/small_2x/abstract-white-plane-icon-png.png" alt="Logo" class="logo">
-    <h1>Tenerife na Twój Sposób</h1>
-    <p>Odkryj wyspy tak, jak lubisz – plaże, góry i słońce w jednym miejscu</p>
+    <img
+      src="https://static.vecteezy.com/system/resources/thumbnails/035/861/457/small_2x/abstract-white-plane-icon-png.png"
+      alt="Logo Avión"
+      class="logo"
+      title="Tenerife Your Way"
+    />
+    <h1 data-lang="title">Tenerife Your Way</h1>
+    <h1 data-lang="title" style="display:none;">Tenerife na Twój Sposób</h1>
+    <p data-lang="subtitle">
+      Discover the best flights, hotels, and adventures to Tenerife island.
+    </p>
+    <p data-lang="subtitle" style="display:none;">
+      Odkryj najlepsze loty, hotele i przygody na wyspie Teneryfa.
+    </p>
   </header>
 
-  <!-- WIDGET -->
-  <div class="widget-container">
-    <script async src="https://c111.travelpayouts.com/content?currency=pln&trs=423668&shmarker=638051&from_name=PL&to_name=TFS&locale=pl&powered_by=true&limit=4&primary_color=64AEC1ff&results_background_color=F4FBF4ff&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
-  </div>
+  <!-- Botón cambio idioma -->
+  <button id="language-toggle" aria-label="Switch language">Polski</button>
 
-  <!-- FOOTER -->
+  <!-- Sección Descubre Tenerife -->
+  <section class="discover-tenerife">
+    <div class="text-content">
+      <h2 data-lang="section-title">Discover Tenerife</h2>
+      <h2 data-lang="section-title" style="display:none;">Odkryj Teneryfę</h2>
+
+      <p data-lang="section-desc">
+        Tenerife is a paradise for travelers. Find the cheapest flights, best hotels, and unique experiences to enjoy this beautiful island.
+      </p>
+      <p data-lang="section-desc" style="display:none;">
+        Teneryfa to raj dla podróżników. Znajdź najtańsze loty, najlepsze hotele i wyjątkowe atrakcje, aby cieszyć się tą piękną wyspą.
+      </p>
+
+      <a href="https://www.travelpayouts.com/widget-example" target="_blank" rel="noopener" data-lang="section-link">
+        Search flights & hotels
+      </a>
+      <a href="https://www.travelpayouts.com/widget-example" target="_blank" rel="noopener" data-lang="section-link" style="display:none;">
+        Wyszukaj loty i hotele
+      </a>
+    </div>
+
+    <!-- Slider imágenes -->
+    <div class="images" aria-label="Image slider Tenerife">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Beautiful beach Tenerife" class="active" />
+      <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=800&q=80" alt="Sunset Tenerife" />
+      <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=800&q=80" alt="Mount Teide" />
+      <img src="https://images.unsplash.com/photo-1526481280694-3a3a0e8ac5e9?auto=format&fit=crop&w=800&q=80" alt="Tenerife city view" />
+    </div>
+  </section>
+
+  <!-- Travelpayouts widget -->
+  <section id="travelpayouts-widget" aria-label="Flight and hotel search widget">
+    <!-- Aquí se cargará el widget Travelpayouts con JS -->
+  </section>
+
+  <!-- Footer -->
   <footer>
-    &copy; 2025 ViajarBarato.pl – Wszystkie prawa zastrzeżone.
+    &copy; 2025 Tenerife Your Way / Tenerife na Twój Sposób — All rights reserved.
   </footer>
 
-</body>
-</html>
+  <script>
+    // --- Variables para texto en ambos idiomas ---
+    const texts = {
+      en: {
+        langCode: 'en',
+        btnText: 'Polski',
+        headerTitleShow: 0,
+        sectionTitleShow: 0,
+        sectionDescShow: 0,
+        sectionLinkShow: 0,
+        travelpayoutsLocale: 'en',
+      },
+      pl: {
+        langCode: 'pl',
+        btnText: 'English',
+        headerTitleShow: 1,
+        sectionTitleShow: 1,
+        sectionDescShow: 1,
+        sectionLinkShow: 1,
+        travelpayoutsLocale: 'pl',
+      }
+    };
+
+    let currentLang = 'pl'; // Default to Polish on load, as <html lang="pl">
+
+    const toggleBtn = document.getElementById('language-toggle');
+
+    // Función para cambiar idioma mostrando/ocultando textos
+    function switchLanguage(lang) {
+      currentLang = lang;
+      // Actualizar atributo lang de html
+      document.documentElement.lang = texts[lang].langCode;
+
+      // Header title (2 h1, uno por idioma)
+      const headers = document.querySelectorAll('h1[data-lang="title"]');
+      headers.forEach((el, i) => {
+        el.style.display = (i === texts[lang].headerTitleShow) ? 'block' : 'none';
+      });
+
+      // Subtitle (2 p)
+      const subtitles = document.querySelectorAll('p[data-lang="subtitle"]');
+      subtitles.forEach((el, i) => {
+        el.style.display = (i === texts[lang].headerTitleShow) ? 'block' : 'none';
+      });
+
+      // Section titles
+      const secTitles = document.querySelectorAll('[data-lang="section-title"]');
+      secTitles.forEach((el, i) => {
+        el.style.display = (i === texts[lang].sectionTitleShow) ? 'block' : 'none';
+      });
+
+      // Section descriptions
+      const secDescs = document.querySelectorAll('[data-lang="section-desc"]');
+      secDescs.forEach((el, i) => {
+        el.style.display = (i === texts[lang].sectionDescShow) ? 'block' : 'none';
+      });
+
+      // Section links
+      const secLinks = document.querySelectorAll('[data-lang="section-link"]');
+      secLinks.forEach((el, i) => {
+        el.style.display = (i === texts[lang].sectionLinkShow) ? 'inline-block' : 'none';
+      });
+
+      // Cambiar texto del botón
+      toggleBtn.textContent = texts[lang].btnText;
+
+      // Recargar widget travelpayouts con el locale correcto
+      loadTravelpayoutsWidget(texts[lang].travelpayoutsLocale);
+    }
+
+    // Carga o recarga del widget travelpayouts con locale dinámico
+    function loadTravelpayoutsWidget(locale) {
+      const container = document.getElementById('travelpayouts-widget');
+      container.innerHTML = ''; // Limpiar
+
+      // Crear iframe o script dinámico, ejemplo widget iframe con locale
+      // Nota: Esto es ejemplo, ajusta URL real Travelpayouts si tienes otro widget
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www
