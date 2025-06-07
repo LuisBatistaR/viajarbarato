@@ -62,7 +62,8 @@
       background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/80/ef/57/gran-melia-palacio-de.jpg?w=1200&h=-1&s=1');
       background-size: cover;
       background-position: center;
-      filter: brightness(0.35) saturate(0.9) contrast(1.1);
+      /* Menos oscuro */
+      filter: brightness(0.55) saturate(0.9) contrast(1.1);
       z-index: -2;
       transition: background-image 1s ease-in-out;
     }
@@ -70,16 +71,17 @@
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0, 0, 0, 0.5);
+      /* Overlay negro menos intenso */
+      background-color: rgba(0, 0, 0, 0.3);
       z-index: -1;
     }
 
-    /* Logo arriba izquierda, grande y bien visible */
+    /* Logo más grande */
     header .logo {
       position: absolute;
       top: 20px;
       left: 20px;
-      width: 180px;
+      width: 240px;
       height: auto;
       z-index: 10;
       user-select: none;
@@ -116,7 +118,6 @@
       color: #444444;
     }
 
-    /* Contenedor solo para vuelos, sin instagram */
     .widgets-container {
       max-width: 900px;
       margin-left: auto;
@@ -224,7 +225,7 @@
         font-size: 2.4rem;
       }
       header .logo {
-        width: 140px;
+        width: 180px;
         top: 15px;
         left: 15px;
       }
@@ -264,13 +265,13 @@
         <img src="https://images.pexels.com/photos/209842/pexels-photo-209842.jpeg" alt="Puerto de la Cruz, Tenerife" />
         <p>Puerto de la Cruz</p>
       </article>
-      <article class="carousel-item" tabindex="0" role="button" aria-pressed="false" aria-label="Tenerife Santa Cruz">
-        <img src="https://images.pexels.com/photos/66997/pexels-photo-66997.jpeg" alt="Santa Cruz de Tenerife" />
-        <p>Santa Cruz</p>
+      <article class="carousel-item" tabindex="0" role="button" aria-pressed="false" aria-label="Tenerife Costa Adeje">
+        <img src="https://images.pexels.com/photos/355949/pexels-photo-355949.jpeg" alt="Costa Adeje, Tenerife" />
+        <p>Costa Adeje</p>
       </article>
-      <article class="carousel-item" tabindex="0" role="button" aria-pressed="false" aria-label="Tenerife Los Gigantes">
-        <img src="https://images.pexels.com/photos/4173440/pexels-photo-4173440.jpeg" alt="Los Gigantes cliffs, Tenerife" />
-        <p>Los Gigantes</p>
+      <article class="carousel-item" tabindex="0" role="button" aria-pressed="false" aria-label="Tenerife Los Cristianos">
+        <img src="https://images.pexels.com/photos/230263/pexels-photo-230263.jpeg" alt="Los Cristianos, Tenerife" />
+        <p>Los Cristianos</p>
       </article>
     </section>
 
@@ -281,22 +282,23 @@
   </footer>
 
   <script>
-    const words = ["flights", "cheap flights", "the best deals", "your perfect trip", "budget travel"];
-    const changingWordEl = document.getElementById('changing-word');
-    let idx = 0;
+    const words = ['flights', 'deals', 'options', 'prices', 'offers'];
+    let index = 0;
+    const changingWord = document.getElementById('changing-word');
 
-    function changeWord() {
-      idx = (idx + 1) % words.length;
-      changingWordEl.style.opacity = '0';
+    function cycleWords() {
+      index = (index + 1) % words.length;
+      // Fade out
+      changingWord.style.opacity = '0';
       setTimeout(() => {
-        changingWordEl.textContent = words[idx];
-        changingWordEl.style.opacity = '1';
-      }, 600);
+        changingWord.textContent = words[index];
+        // Fade in
+        changingWord.style.opacity = '1';
+      }, 1000);
     }
 
-    setInterval(changeWord, 4000);
+    setInterval(cycleWords, 4000);
   </script>
 
 </body>
 </html>
-
