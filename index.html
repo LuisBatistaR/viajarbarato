@@ -8,209 +8,259 @@
   <meta name="keywords" content="cheap flights, flights to Venezuela, flights to Tenerife, flight comparison, flight and hotel packages, Europe travel, budget flights, travel insurance, flight compensation, Tenerife recommendations" />
   <meta name="author" content="Luis / Dagmar Travels" />
   <link rel="canonical" href="https://your-domain.com/" />
-
-  <!-- Fuentes -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  
   <style>
+    /* Reset & Base */
     *, *::before, *::after {
       box-sizing: border-box;
     }
-
     body {
       margin: 0;
-      background: #f5f5f5;
-      color: #444444;
       font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
+      background: #f9fafb;
+      color: #222;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
     }
-
     a {
-      color: #666666;
       text-decoration: none;
+      color: #005ea5;
       transition: color 0.3s ease;
     }
-    a:hover,
-    a:focus {
-      color: #222222;
-      text-decoration: underline;
+    a:hover, a:focus {
+      color: #003f72;
       outline: none;
     }
-
+    
+    /* HEADER */
     header {
       position: relative;
-      height: 350px;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      height: 420px;
       color: white;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      overflow: hidden;
-      font-family: 'Montserrat', sans-serif;
-      padding: 0 1rem;
       user-select: none;
     }
-
-    /* Animación para el fondo que se mueve verticalmente */
-    @keyframes panBackground {
-      0% {
-        background-position: center 50%;
-      }
-      50% {
-        background-position: center 45%;
-      }
-      100% {
-        background-position: center 50%;
-      }
-    }
-
     header::before {
       content: "";
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/80/ef/57/gran-melia-palacio-de.jpg?w=1200&h=-1&s=1');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center 50%;
-      filter: brightness(0.55) saturate(0.9) contrast(1.1);
-      z-index: -2;
-      animation: panBackground 15s ease-in-out infinite;
-      transition: background-image 1s ease-in-out;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 0;
     }
-    header::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0, 0, 0, 0.3);
-      z-index: -1;
+    .header-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      width: 100%;
+      padding: 0 1.5rem;
     }
-
-    header .logo {
+    .logo {
       position: absolute;
-      top: 20px;
-      left: 20px;
-      width: 280px;
+      top: 24px;
+      left: 24px;
+      max-width: 220px;
       height: auto;
       z-index: 10;
       user-select: none;
     }
-
     header h1 {
-      font-size: 3.6rem;
-      margin: 0 0 0.4rem;
+      font-family: 'Montserrat', sans-serif;
       font-weight: 700;
-      position: relative;
-      z-index: 1;
-      color: #fff;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+      font-size: 3.8rem;
+      margin-bottom: 0.2rem;
+      text-shadow: 0 3px 12px rgba(0,0,0,0.7);
     }
-
-    header .animated-text {
-      font-family: 'Playfair Display', serif;
+    header p.subtitle {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: #ffd700;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      margin-top: 0;
+    }
+    /* Animated rotating words */
+    .animated-text {
+      display: inline-block;
+      margin-left: 0.5rem;
       font-style: italic;
       font-weight: 600;
+      font-family: 'Playfair Display', serif;
       color: #ffd700;
-      transition: opacity 1.8s ease-in-out;
-      opacity: 1;
-      display: inline-block;
-      margin-left: 0.3rem;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.6);
       position: relative;
-      z-index: 1;
+      min-width: 120px;
+      height: 1.5rem;
+      vertical-align: bottom;
+    }
+    .animated-text > span {
+      position: absolute;
+      opacity: 0;
+      animation: fadeInOut 6s linear infinite;
+    }
+    .animated-text > span:nth-child(1) { animation-delay: 0s; }
+    .animated-text > span:nth-child(2) { animation-delay: 2s; }
+    .animated-text > span:nth-child(3) { animation-delay: 4s; }
+    @keyframes fadeInOut {
+      0%, 20%, 100% { opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 0; }
     }
 
+    /* NAVIGATION */
+    nav {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      display: flex;
+      gap: 20px;
+      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      z-index: 10;
+    }
+    nav a {
+      color: white;
+      padding: 0.4rem 0.6rem;
+      border-radius: 4px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    nav a:hover, nav a:focus {
+      background-color: #ffd700;
+      color: #222;
+      outline: none;
+    }
+    
+    /* MAIN LAYOUT */
     main {
       max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      color: #444444;
+      margin: 2.5rem auto 4rem;
+      padding: 0 1.5rem;
       display: flex;
-      gap: 1rem;
+      gap: 1.5rem;
+      flex-wrap: wrap;
       justify-content: center;
     }
-
-    /* Contenedor para las columnas izquierda, central y derecha */
-    .content-wrapper {
-      display: flex;
-      width: 100%;
-      gap: 1rem;
-      align-items: flex-start;
-    }
-
-    /* Laterales */
     aside {
-      flex: 0 0 260px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      padding: 1.5rem 1.2rem;
-      font-size: 0.9rem;
-      color: #333;
+      flex: 1 1 260px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgb(0 0 0 / 0.1);
+      padding: 1.5rem 1.8rem;
+      font-size: 0.95rem;
+      line-height: 1.45;
+      color: #444;
       user-select: none;
     }
     aside h3 {
       margin-top: 0;
-      margin-bottom: 1rem;
       font-weight: 700;
-      font-size: 1.3rem;
-      color: #222;
-      border-bottom: 2px solid #ffd700;
+      font-size: 1.35rem;
+      border-bottom: 3px solid #ffd700;
       padding-bottom: 0.3rem;
+      color: #222;
+      margin-bottom: 1.25rem;
+      font-family: 'Montserrat', sans-serif;
     }
     aside p {
       margin-bottom: 1rem;
-      line-height: 1.4;
     }
     aside a {
-      color: #0077cc;
+      color: #005ea5;
       font-weight: 600;
     }
-    aside a:hover,
-    aside a:focus {
-      color: #005999;
+    aside a:hover, aside a:focus {
+      color: #003f72;
       text-decoration: underline;
     }
-
-    /* Contenido central */
-    .widgets-container {
-      flex: 1 1 auto;
-      max-width: 640px;
-    }
-
-    .flights-widget {
-      background: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 2rem 1.5rem;
-      color: #444444;
+    /* Central widget */
+    .central-content {
+      flex: 2 1 640px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgb(0 0 0 / 0.08);
+      padding: 2rem 2rem 2.5rem;
       user-select: none;
     }
-
-    .flights-widget h2 {
-      margin-top: 0;
+    .central-content h2 {
+      font-family: 'Montserrat', sans-serif;
       font-weight: 700;
       font-size: 2rem;
-      color: #333333;
+      margin-top: 0;
       margin-bottom: 1.5rem;
       text-align: center;
+      color: #222;
     }
 
+    /* Flight Search Form */
+    form.flight-search {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    form.flight-search label {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #333;
+      min-width: 130px;
+    }
+    form.flight-search input,
+    form.flight-search select {
+      margin-top: 0.3rem;
+      padding: 0.5rem 0.7rem;
+      font-size: 1rem;
+      border: 1.8px solid #ccc;
+      border-radius: 6px;
+      transition: border-color 0.3s ease;
+      font-family: inherit;
+    }
+    form.flight-search input:focus,
+    form.flight-search select:focus {
+      border-color: #ffd700;
+      outline: none;
+      box-shadow: 0 0 6px #ffd700aa;
+    }
+    form.flight-search button {
+      background: #ffd700;
+      border: none;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #222;
+      padding: 0.7rem 1.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      align-self: flex-end;
+      min-width: 140px;
+    }
+    form.flight-search button:hover,
+    form.flight-search button:focus {
+      background-color: #e6c200;
+      outline: none;
+    }
+
+    /* Carousel */
     .carousel {
       display: flex;
+      gap: 1.3rem;
       overflow-x: auto;
       scroll-behavior: smooth;
-      gap: 1rem;
       padding-bottom: 1rem;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: thin;
-      scrollbar-color: #888 #eee;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
+      scrollbar-color: #bbb #eee;
+      user-select: none;
     }
     .carousel::-webkit-scrollbar {
       height: 8px;
@@ -220,156 +270,237 @@
       border-radius: 4px;
     }
     .carousel::-webkit-scrollbar-thumb {
-      background-color: #888;
+      background-color: #bbb;
       border-radius: 4px;
     }
-
     .carousel-item {
-      flex: 0 0 auto;
-      width: 280px;
+      flex: 0 0 280px;
+      background: #fff;
       border-radius: 12px;
-      background: #fafafa;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
       cursor: pointer;
-      text-align: center;
+      color: #222;
+      outline-offset: 3px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      outline-offset: 4px;
-      color: #333333;
-      user-select: none;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
     .carousel-item:hover,
     .carousel-item:focus {
       transform: translateY(-6px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      outline: 2px solid #999999;
+      box-shadow: 0 12px 28px rgb(0 0 0 / 0.15);
+      outline: 2px solid #ffd700;
       outline-offset: 2px;
     }
     .carousel-item img {
       width: 100%;
       height: 160px;
       object-fit: cover;
-      border-radius: 12px 12px 0 0;
-      display: block;
-      filter: grayscale(0.15);
       transition: filter 0.3s ease;
+      filter: grayscale(0.1);
+      flex-shrink: 0;
     }
     .carousel-item:hover img,
     .carousel-item:focus img {
       filter: grayscale(0);
     }
-    .carousel-item p {
-      margin: 1rem 1rem 1.3rem;
+    .carousel-item-content {
+      padding: 1rem 1.3rem 1.6rem;
       font-weight: 600;
       font-size: 1.1rem;
-      letter-spacing: 0.5px;
-      color: #555555;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      letter-spacing: 0.3px;
+      color: #444;
     }
 
+    /* FOOTER */
     footer {
+      background: #222;
+      color: #ddd;
+      padding: 2rem 1.5rem;
       text-align: center;
-      padding: 1.5rem 0;
-      color: #777777;
       font-size: 0.9rem;
-      border-top: 1px solid #ddd;
-      margin-top: 3rem;
-      font-family: 'Poppins', sans-serif;
-      background: #f9f9f9;
       user-select: none;
+      font-family: 'Montserrat', sans-serif;
+      margin-top: 4rem;
+    }
+    footer a {
+      color: #ffd700;
+      font-weight: 600;
+    }
+    footer a:hover, footer a:focus {
+      color: #ffdd33;
+      text-decoration: underline;
+      outline: none;
     }
 
     /* Responsive */
-
-    @media (max-width: 1080px) {
+    @media (max-width: 960px) {
       main {
         flex-direction: column;
-        margin: 1rem auto;
-        padding: 0 1rem;
+        align-items: center;
       }
-      .content-wrapper {
-        flex-direction: column;
-        gap: 1.5rem;
+      aside, .central-content {
+        flex: 1 1 100%;
+        max-width: 600px;
       }
-      aside {
-        width: 100%;
-        flex: none;
-      }
-      .widgets-container {
-        max-width: 100%;
-      }
-    }
-
-    @media (max-width: 600px) {
       header h1 {
-        font-size: 2.4rem;
+        font-size: 2.8rem;
       }
-      header .logo {
-        width: 220px;
-        top: 15px;
-        left: 15px;
+      header p.subtitle {
+        font-size: 1.2rem;
       }
-      .carousel-item {
-        width: 220px;
+      nav {
+        position: static;
+        justify-content: center;
+        margin-bottom: 1rem;
+        gap: 1rem;
       }
-      .flights-widget {
-        padding: 1.5rem 1rem;
+      .logo {
+        position: relative;
+        display: block;
+        margin: 0 auto 1rem;
+        max-width: 180px;
       }
     }
   </style>
 </head>
 <body>
 
-  <header role="banner">
-    <img class="logo" src="https://i.imgur.com/0HMFuAN.png" alt="Dagmar Travels Logo" width="280" height="60" />
-    <h1>Dagmar Travels<span class="animated-text">Flights</span></h1>
-  </header>
+<header role="banner" aria-label="Site header with logo and main title">
+  <img src="https://i.imgur.com/mVciASa.png" alt="Dagmar Travels Logo" class="logo" />
+  <nav role="navigation" aria-label="Primary navigation">
+    <a href="#flights" tabindex="0">Flights</a>
+    <a href="#packages" tabindex="0">Packages</a>
+    <a href="#recommendations" tabindex="0">Tenerife Tips</a>
+    <a href="#contact" tabindex="0">Contact</a>
+  </nav>
+  <div class="header-content">
+    <h1>Dagmar Travels</h1>
+    <p class="subtitle">Your Gateway to <span class="animated-text" aria-live="polite" aria-atomic="true" aria-relevant="text">
+      <span>Tenerife</span>
+      <span>Venezuela</span>
+      <span>Affordable Journeys</span>
+    </span></p>
+  </div>
+</header>
 
-  <main role="main">
-    <div class="content-wrapper">
-      <aside aria-label="Travel Insurance and Flight Rights Information">
-        <h3>Travel Insurance & Flight Compensation</h3>
-        <p>Protect your trip with reliable <a href="https://www.axa-assistance.com/en/travel-insurance" target="_blank" rel="noopener noreferrer">travel insurance</a> and know your rights in case of delays or cancellations.</p>
-        <p>In the EU, you can claim compensation for delayed or cancelled flights via <a href="https://www.airhelp.com/en/" target="_blank" rel="noopener noreferrer">AirHelp</a>.</p>
-        <p>Always check airline policies before booking and consider buying insurance for peace of mind.</p>
-      </aside>
+<main role="main" aria-label="Main content area">
+  <aside aria-labelledby="aside-flights-title">
+    <h3 id="aside-flights-title">Find Cheap Flights</h3>
+    <p>Compare flights quickly from multiple airlines and travel agencies. Save time and money booking the best deals from Venezuela to Tenerife and beyond.</p>
+    <p><strong>Travel Tips:</strong></p>
+    <ul>
+      <li>Book at least 4 weeks in advance for better prices.</li>
+      <li>Use flexible dates to maximize savings.</li>
+      <li>Check flight compensation rights if delayed or canceled.</li>
+      <li>Travel insurance is recommended for international flights.</li>
+    </ul>
+    <p>Explore <a href="#recommendations" aria-describedby="aside-flights-title">Tenerife travel guides and tips</a> for an amazing trip experience.</p>
+  </aside>
 
-      <section class="widgets-container" aria-label="Flight search widget and flight deals">
-        <article class="flights-widget" aria-live="polite" aria-atomic="true">
-          <h2>Find Cheap Flights to Venezuela and Tenerife</h2>
-          <div class="carousel" role="list" aria-label="Popular flight routes">
-            <a href="https://www.skyscanner.net/transport/flights/lt2/ccs/?adultsv2=1&childrenv2=0&infants=0" class="carousel-item" role="listitem" tabindex="0" aria-describedby="desc-ccs">
-              <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=60" alt="Caracas, Venezuela" />
-              <p id="desc-ccs">Tenerife to Caracas</p>
-            </a>
-            <a href="https://www.skyscanner.net/transport/flights/ccs/lt2/?adultsv2=1&childrenv2=0&infants=0" class="carousel-item" role="listitem" tabindex="0" aria-describedby="desc-tnf">
-              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=60" alt="Tenerife, Canary Islands" />
-              <p id="desc-tnf">Caracas to Tenerife</p>
-            </a>
-            <a href="https://www.skyscanner.net/transport/flights/lt2/mad/?adultsv2=1&childrenv2=0&infants=0" class="carousel-item" role="listitem" tabindex="0" aria-describedby="desc-mad">
-              <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=400&q=60" alt="Madrid, Spain" />
-              <p id="desc-mad">Tenerife to Madrid</p>
-            </a>
-            <a href="https://www.skyscanner.net/transport/flights/lt2/waw/?adultsv2=1&childrenv2=0&infants=0" class="carousel-item" role="listitem" tabindex="0" aria-describedby="desc-waw">
-              <img src="https://images.unsplash.com/photo-1526483360610-99d92c49828d?auto=format&fit=crop&w=400&q=60" alt="Warsaw, Poland" />
-              <p id="desc-waw">Tenerife to Warsaw</p>
-            </a>
-          </div>
-        </article>
-      </section>
+  <section class="central-content" aria-labelledby="flights-section-title">
+    <h2 id="flights-section-title">Search Flights & Packages</h2>
+    <form class="flight-search" aria-label="Flight and package search form" id="flightSearchForm">
+      <label for="fromInput">From</label>
+      <input type="text" id="fromInput" name="from" placeholder="City or Airport" aria-required="true" autocomplete="off" value="Venezuela" />
+      
+      <label for="toInput">To</label>
+      <input type="text" id="toInput" name="to" placeholder="City or Airport" aria-required="true" autocomplete="off" value="Tenerife" />
+      
+      <label for="departDate">Depart</label>
+      <input type="date" id="departDate" name="depart" aria-required="true" />
+      
+      <label for="returnDate">Return</label>
+      <input type="date" id="returnDate" name="return" />
+      
+      <label for="passengers">Passengers</label>
+      <select id="passengers" name="passengers" aria-required="true" aria-label="Number of passengers">
+        <option value="1" selected>1 Passenger</option>
+        <option value="2">2 Passengers</option>
+        <option value="3">3 Passengers</option>
+        <option value="4">4 Passengers</option>
+        <option value="5">5 Passengers</option>
+      </select>
+      
+      <button type="submit" aria-label="Search flights and packages">Search</button>
+    </form>
 
-      <aside aria-label="Recommended places to visit in Tenerife">
-        <h3>Top Places to Visit in Tenerife</h3>
-        <p><strong>Teide National Park:</strong> Explore Spain’s highest peak and volcanic landscapes.</p>
-        <p><strong>Loro Parque:</strong> Family-friendly zoo with amazing wildlife shows.</p>
-        <p><strong>Los Gigantes:</strong> Dramatic cliffs and beautiful beaches.</p>
-        <p><strong>Masca Village:</strong> Charming mountain village with breathtaking views.</p>
-        <p>Discover more tips on <a href="https://www.webtenerife.com/en/" target="_blank" rel="noopener noreferrer">webtenerife.com</a>.</p>
-      </aside>
+    <div id="searchResults" aria-live="polite" aria-atomic="true" role="region" style="min-height: 150px; font-style: italic; color: #666;">Please fill the form and click search.</div>
+
+    <h2 id="packages" style="margin-top: 3rem; text-align: center;">Top Flight + Hotel Packages to Tenerife</h2>
+    <div class="carousel" role="list" aria-labelledby="packages">
+      <article class="carousel-item" role="listitem" tabindex="0" aria-label="Luxury hotel and flight package, 7 nights">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80" alt="Luxury resort by the beach in Tenerife" />
+        <div class="carousel-item-content">Luxury Beach Resort + Flights - 7 Nights</div>
+      </article>
+      <article class="carousel-item" role="listitem" tabindex="0" aria-label="Budget hotel and flight package, 5 nights">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Comfortable hotel pool in Tenerife" />
+        <div class="carousel-item-content">Budget Hotel + Flights - 5 Nights</div>
+      </article>
+      <article class="carousel-item" role="listitem" tabindex="0" aria-label="Family-friendly hotel package with flights">
+        <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=400&q=80" alt="Family friendly hotel in Tenerife" />
+        <div class="carousel-item-content">Family Package - Hotel + Flights</div>
+      </article>
+      <article class="carousel-item" role="listitem" tabindex="0" aria-label="Romantic getaway package with flights">
+        <img src="https://images.unsplash.com/photo-1517816428104-9d75539f8fbb?auto=format&fit=crop&w=400&q=80" alt="Romantic sunset view in Tenerife" />
+        <div class="carousel-item-content">Romantic Getaway + Flights</div>
+      </article>
     </div>
-  </main>
+  </section>
 
-  <footer role="contentinfo">
-    &copy; 2025 Dagmar Travels. All rights reserved.
-  </footer>
+  <aside aria-labelledby="recommendations-title">
+    <h3 id="recommendations-title">Tenerife Recommendations</h3>
+    <p><strong>Top attractions:</strong></p>
+    <ul>
+      <li>Teide National Park - Visit the volcano & enjoy hiking.</li>
+      <li>Los Cristianos Beach - White sands and calm waters.</li>
+      <li>Masca Village - Charming mountain town with stunning views.</li>
+      <li>Loro Parque - Famous zoo and aquarium for families.</li>
+      <li>Explore the nightlife in Playa de las Americas.</li>
+    </ul>
+    <p>Need more help? <a href="#contact" aria-describedby="recommendations-title">Contact our travel experts</a> for personalized advice and trip planning.</p>
+  </aside>
+</main>
+
+<footer role="contentinfo">
+  &copy; 2025 Dagmar Travels. All rights reserved. &nbsp; | &nbsp; <a href="#contact">Contact Us</a> &nbsp; | &nbsp; <a href="#privacy">Privacy Policy</a>
+</footer>
+
+<script>
+  // Flight search form handler (dummy simulation)
+  const form = document.getElementById('flightSearchForm');
+  const results = document.getElementById('searchResults');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const from = form.from.value.trim();
+    const to = form.to.value.trim();
+    const depart = form.depart.value;
+    const ret = form.return.value;
+    const passengers = form.passengers.value;
+
+    if (!from || !to || !depart) {
+      results.textContent = 'Please fill in the From, To, and Depart date fields.';
+      return;
+    }
+    let message = `Searching flights from ${from} to ${to}, departing on ${depart}`;
+    if (ret) message += ` and returning on ${ret}`;
+    message += ` for ${passengers} passenger${passengers > 1 ? 's' : ''}.`;
+    results.textContent = message + ' Please wait...';
+
+    // Simulate search delay
+    setTimeout(() => {
+      results.textContent = `No real search implemented. Visit Travelpayouts or airline sites to book your flights.`;
+    }, 2000);
+  });
+</script>
 
 </body>
 </html>
