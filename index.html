@@ -1,318 +1,214 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Dagmar Travels</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dagmar Travels - Vuelos a Tenerife</title>
 
-  <!-- Tipografías modernas -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+<!-- Fuente elegante y minimalista -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
-  <style>
-    /* Reset básico */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+  /* RESET */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body, html {
+    margin: 0; padding: 0;
+    height: 100%;
+    background-color: #0a0a0a;
+    color: #f5f5f5;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-    html, body {
-      height: 100%;
-      font-family: 'Inter', sans-serif;
-      background: 
-        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-        url('https://images.unsplash.com/photo-1597773150796-e5c14ebecbf5?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmF2eSUyMGJsdWUlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      scroll-behavior: smooth;
-    }
+  /* HEADER */
+  header {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+  }
 
-    header {
-      position: relative;
-      height: 400px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      user-select: none;
-      padding: 0 20px;
-    }
+  #header-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-size: cover;
+    background-position: center center;
+    filter: brightness(0.35);
+    transition: background-image 1.2s ease-in-out;
+    z-index: 0;
+  }
 
-    /* Fondo dinámico del header */
-    .header-bg {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      z-index: 1;
-      background-position: center center;
-      background-size: cover;
-      filter: brightness(40%);
-      transition: background-image 1s ease-in-out;
-      will-change: background-image;
-    }
+  #header-content {
+    position: relative;
+    z-index: 1;
+    max-width: 850px;
+    width: 100%;
+  }
 
-    /* Contenedor logo + texto */
-    .header-content {
-      position: relative;
-      z-index: 10;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      text-align: center;
-      max-width: 900px;
-      user-select: none;
-    }
+  #logo {
+    max-width: 180px;
+    margin-bottom: 48px;
+    filter: drop-shadow(0 0 4px rgba(255,255,255,0.15));
+  }
 
-    /* Logo imagen */
-    .logo-img {
-      width: 280px;
-      height: auto;
-      filter: drop-shadow(0 0 8px rgba(0,0,0,0.8));
-      transition: transform 0.3s ease;
-      cursor: default;
-    }
-    .logo-img:hover {
-      transform: scale(1.05);
-    }
+  #dynamic-text {
+    font-weight: 600;
+    font-size: 3.2rem;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    letter-spacing: 0.02em;
+    color: #fff;
+  }
 
-    /* Texto dinámico */
+  #subtitle {
+    font-weight: 400;
+    font-size: 1.25rem;
+    opacity: 0.7;
+    letter-spacing: 0.02em;
+  }
+
+  /* WIDGET DE VUELOS */
+  #widget-container {
+    max-width: 850px;
+    margin: 48px auto 80px;
+    background-color: #121212;
+    padding: 32px 36px;
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.9);
+  }
+
+  #widget-container h2 {
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 28px;
+    color: #e0e0e0;
+    letter-spacing: 0.03em;
+  }
+
+  /* SECCIÓN FOTOS */
+  #photos-section {
+    max-width: 850px;
+    margin: 0 auto 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap: 18px;
+  }
+
+  #photos-section img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  #photos-section img:hover {
+    transform: scale(1.05);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
     #dynamic-text {
-      font-family: 'Roboto', sans-serif;
-      font-weight: 700;
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      letter-spacing: 2px;
-      color: #f4d68a;
-      text-shadow:
-        0 0 10px rgba(244, 214, 138, 0.7),
-        0 0 15px rgba(244, 214, 138, 0.9);
-      white-space: nowrap;
-      border-right: 3px solid #f4d68a;
-      padding-right: 10px;
-      user-select: none;
-      animation: blinkCaret 1s step-end infinite;
-      max-width: 100%;
-      overflow: hidden;
+      font-size: 2rem;
     }
 
-    @keyframes blinkCaret {
-      50% { border-color: transparent; }
+    #logo {
+      max-width: 140px;
+      margin-bottom: 36px;
     }
 
-    /* Widgets */
-    .top-widget, .main-widget {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: rgba(10, 30, 40, 0.85);
-      border-radius: 14px;
-      box-shadow: 0 0 20px rgba(244, 214, 138, 0.8);
-      user-select: none;
+    #widget-container {
+      margin: 32px 16px 60px;
+      padding: 24px 20px;
     }
 
-    /* Galería destinos renovada */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      max-width: 1000px;
-      margin: 50px auto 70px;
-      padding: 0 20px;
-      user-select: none;
+    #widget-container h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
     }
-
-    .destination {
-      position: relative;
-      border-radius: 18px;
-      overflow: hidden;
-      cursor: pointer;
-      box-shadow:
-        0 0 15px rgba(244, 214, 138, 0.7),
-        inset 0 0 25px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      background-color: #0a1e28;
-    }
-    .destination:hover {
-      transform: scale(1.05);
-      box-shadow:
-        0 0 30px rgba(244, 214, 138, 1),
-        inset 0 0 35px rgba(0,0,0,0.7);
-      z-index: 2;
-    }
-
-    .destination img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      filter: brightness(70%);
-      transition: filter 0.3s ease;
-      border-radius: 18px 18px 0 0;
-    }
-
-    .destination:hover img {
-      filter: brightness(40%);
-    }
-
-    .destination span {
-      position: absolute;
-      bottom: 16px;
-      left: 20px;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #f4d68a;
-      text-shadow:
-        2px 2px 6px rgba(0,0,0,0.9);
-      user-select: none;
-      transition: color 0.3s ease;
-    }
-
-    footer {
-      text-align: center;
-      color: #bbb;
-      padding: 30px 20px;
-      font-size: 0.9em;
-      font-family: 'Inter', sans-serif;
-      font-weight: 400;
-      user-select: none;
-    }
-
-    /* Responsive */
-    @media (max-width: 700px) {
-      header {
-        height: 320px;
-      }
-      .logo-img {
-        width: 180px;
-      }
-      #dynamic-text {
-        font-size: 2rem;
-        border-right: 2px solid #f4d68a;
-      }
-      .destination img {
-        height: 140px;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
+
 <body>
 
-  <header>
-    <div class="header-bg" id="header-bg"></div>
+<header>
+  <div id="header-bg"></div>
 
-    <div class="header-content">
-      <img src="https://i.imgur.com/ALBfQ8v.png" alt="Dagmar Travels Logo" class="logo-img" />
-
-      <h1 id="dynamic-text"></h1>
-    </div>
-  </header>
-
-  <div class="top-widget">
-    <script async src="https://tpwgt.com/content?currency=eur&trs=423672&shmarker=638051&locale=en&default_destination=TCI&stops=any&show_hotels=true&powered_by=true&border_radius=11&plain=true&color_button=%235A5F5Fff&color_button_text=%23FFD8D8ff&promo_id=3414&campaign_id=111" charset="utf-8"></script>
+  <div id="header-content">
+    <img src="https://i.imgur.com/RKNC0zW.png" alt="Dagmar Travels Logo" id="logo" />
+    <div id="dynamic-text">Vuelos baratos a Tenerife, directo y sin escalas</div>
+    <div id="subtitle">Compara precios en tiempo real y reserva al mejor precio</div>
   </div>
+</header>
 
-  <div class="gallery">
-    <div class="destination" title="Mount Teide">
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Teide" />
-      <span>Mount Teide</span>
-    </div>
-    <div class="destination" title="Masca Village">
-      <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=800&q=80" alt="Masca" />
-      <span>Masca Village</span>
-    </div>
-    <div class="destination" title="Los Gigantes Cliffs">
-      <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=800&q=80" alt="Los Gigantes" />
-      <span>Los Gigantes</span>
-    </div>
-    <div class="destination" title="Playa de las Teresitas">
-      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Teresitas Beach" />
-      <span>Teresitas Beach</span>
-    </div>
-    <div class="destination" title="Santa Cruz de Tenerife">
-      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Santa Cruz" />
-      <span>Santa Cruz</span>
-    </div>
-    <div class="destination" title="Anaga Rural Park">
-      <img src="https://images.unsplash.com/photo-1506748684942-27c1e7e4c5e9?auto=format&fit=crop&w=800&q=80" alt="Anaga" />
-      <span>Anaga Park</span>
-    </div>
+<section id="widget-container" aria-label="Buscador de vuelos baratos">
+  <h2>Encuentra tu vuelo ideal</h2>
+  <div id="flight-widget">
+    <!-- Aquí pega el código del widget de búsqueda -->
+    <p style="color:#888;">(Widget de búsqueda de vuelos aquí)</p>
   </div>
+</section>
 
-  <div class="main-widget">
-    <script async src="https://tpwgt.com/content?trs=423672&shmarker=638051&currency=eur&locale=en&default_destination=TCI&show_hotels=true&border_radius=11&color_button=%235A5F5Fff&color_button_text=%23FFD8D8ff" charset="utf-8"></script>
-  </div>
+<section id="photos-section" aria-label="Galería de imágenes de Tenerife">
+  <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Playa de Tenerife al atardecer" />
+  <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=600&q=80" alt="Vista panorámica de Tenerife" />
+  <img src="https://images.unsplash.com/photo-1507537509458-b8312d27a8e9?auto=format&fit=crop&w=600&q=80" alt="Montañas de Tenerife y playa" />
+  <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Olas en la costa de Tenerife" />
+  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Arena y mar en Tenerife" />
+</section>
 
-  <footer>
-    &copy; 2025 Dagmar Travels | Designed with passion
-  </footer>
+<script>
+  const bgImages = [
+    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80",
+    "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1920&q=80",
+    "https://images.unsplash.com/photo-1507537509458-b8312d27a8e9?auto=format&fit=crop&w=1920&q=80",
+    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1920&q=80",
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80"
+  ];
 
-  <script>
-    const phrases = [
-      "Another way to see Tenerife",
-      "An island your way",
-      "Explore with confidence",
-      "Discover hidden gems",
-      "Plan your perfect trip"
-    ];
+  const phrases = [
+    "Vuelos baratos a Tenerife, directo y sin escalas",
+    "Reserva hoy y ahorra en tu próximo viaje",
+    "Compara precios en tiempo real al instante",
+    "Tu aventura en Tenerife comienza aquí",
+    "Las mejores ofertas de vuelos solo para ti"
+  ];
 
-    const typingSpeed = 50;
-    const erasingSpeed = 30;
-    const delayBetweenPhrases = 2000;
+  let currentIndex = 0;
+  const bgElem = document.getElementById('header-bg');
+  const textElem = document.getElementById('dynamic-text');
 
-    const dynamicTextEl = document.getElementById('dynamic-text');
+  function changeHeader() {
+    currentIndex = (currentIndex + 1) % bgImages.length;
+    bgElem.style.backgroundImage = `url(${bgImages[currentIndex]})`;
+    textElem.style.opacity = 0;
 
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
+    setTimeout(() => {
+      textElem.textContent = phrases[currentIndex];
+      textElem.style.opacity = 1;
+    }, 800);
+  }
 
-    function type() {
-      const currentPhrase = phrases[phraseIndex];
+  // Inicializa
+  bgElem.style.backgroundImage = `url(${bgImages[0]})`;
+  textElem.textContent = phrases[0];
 
-      if (!isDeleting) {
-        dynamicTextEl.textContent = currentPhrase.substring(0, charIndex + 1);
-        charIndex++;
+  // Cambia cada 7 segundos
+  setInterval(changeHeader, 7000);
+</script>
 
-        if (charIndex === currentPhrase.length) {
-          isDeleting = true;
-          setTimeout(type, delayBetweenPhrases);
-          return;
-        }
-      } else {
-        dynamicTextEl.textContent = currentPhrase.substring(0, charIndex - 1);
-        charIndex--;
-
-        if (charIndex === 0) {
-          isDeleting = false;
-          phraseIndex = (phraseIndex + 1) % phrases.length;
-        }
-      }
-      setTimeout(type, isDeleting ? erasingSpeed : typingSpeed);
-    }
-
-    type();
-
-    // Cambiar fondo header dinámicamente
-    const headerBg = document.getElementById('header-bg');
-    const bgImages = [
-      "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80')",
-      "url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1920&q=80')",
-      "url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1920&q=80')",
-      "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80')",
-      "url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1920&q=80')"
-    ];
-
-    let bgIndex = 0;
-    function changeBackground() {
-      bgIndex = (bgIndex + 1) % bgImages.length;
-      headerBg.style.backgroundImage = bgImages[bgIndex];
-    }
-
-    // Fondo inicial
-    headerBg.style.backgroundImage = bgImages[0];
-
-    setInterval(changeBackground, 7000);
-  </script>
 </body>
 </html>
