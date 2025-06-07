@@ -9,6 +9,7 @@
   <link rel="icon" href="https://i.imgur.com/gfKxjRL.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
@@ -17,7 +18,7 @@
       color: #222;
       scroll-behavior: smooth;
     }
-    a { text-decoration: none; }
+    a { text-decoration: none; transition: color 0.3s ease; }
 
     .intro {
       position: fixed;
@@ -47,6 +48,7 @@
       opacity: 0;
       animation: taglineFadeIn 1.2s ease forwards 1s;
     }
+
     @keyframes logoFadeIn { to { opacity: 1; transform: scale(1); } }
     @keyframes taglineFadeIn { to { opacity: 1; } }
 
@@ -56,12 +58,25 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #111;
+      border-bottom: 1px solid #eee;
       position: sticky;
       top: 0;
       z-index: 100;
+      transition: background 0.4s ease, color 0.3s ease;
     }
-    .top-bar img { height: 100px; }
+
+    .top-bar.scrolled {
+      background: #000;
+    }
+
+    .top-bar img {
+      height: 100px;
+      transition: filter 0.3s ease;
+    }
+
+    .top-bar.scrolled img {
+      filter: invert(1);
+    }
 
     .nav-menu a {
       margin-left: 24px;
@@ -70,184 +85,13 @@
       text-transform: uppercase;
       color: #111;
     }
+
+    .top-bar.scrolled .nav-menu a {
+      color: #fff;
+    }
+
     .nav-menu a:hover {
       color: #00ae98;
-    }
-
-    .hero {
-      position: relative;
-      height: 80vh;
-      overflow: hidden;
-      text-align: center;
-      color: white;
-    }
-    .hero video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      transform: translate(-50%, -50%);
-      object-fit: cover;
-      z-index: 1;
-      opacity: 0;
-      transition: opacity 1.5s ease;
-    }
-    .hero video.active { opacity: 1; }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 2;
-    }
-    .hero .content {
-      position: relative;
-      z-index: 3;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    .hero .logo {
-      max-width: 420px;
-      margin-bottom: 1.2rem;
-    }
-    .slogan-big {
-      font-size: 1.4rem;
-      font-weight: 500;
-      font-family: 'Montserrat', sans-serif;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #f0f0f0;
-      margin-bottom: 1.5rem;
-    }
-    .storytelling {
-      font-size: 1.6rem;
-      font-style: italic;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      position: relative;
-      white-space: nowrap;
-      min-height: 2em;
-      font-weight: 300;
-    }
-    .storytelling span {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0;
-      transition: opacity 1.2s ease;
-    }
-    .storytelling span.active {
-      opacity: 1;
-    }
-
-    .divider {
-      background: #000;
-      color: #fff;
-      text-align: center;
-      padding: 1.2rem;
-      font-size: 1rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      font-weight: 500;
-    }
-
-    .widget-section {
-      padding: 2rem 1rem;
-      background: #fff;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .blog-magazine {
-      background: #f8f8f8;
-      padding: 4rem 2rem;
-      font-family: 'Montserrat', sans-serif;
-    }
-
-    .blog-magazine h2 {
-      font-size: 2rem;
-      text-transform: uppercase;
-      margin-bottom: 2.5rem;
-      text-align: center;
-    }
-
-    .promo-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .promo-card {
-      display: flex;
-      flex-wrap: wrap;
-      background: #fff;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-    }
-
-    .promo-image {
-      flex: 1 1 300px;
-      background-size: cover;
-      background-position: center;
-      min-height: 240px;
-    }
-
-    .promo-content {
-      flex: 1 1 300px;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .promo-content h3 {
-      font-size: 1.4rem;
-      font-family: 'Montserrat', sans-serif;
-      margin-bottom: 0.8rem;
-    }
-
-    .promo-content p {
-      font-size: 1rem;
-      margin-bottom: 1.2rem;
-      color: #444;
-    }
-
-    .promo-content a {
-      align-self: start;
-      background: #00ae98;
-      color: white;
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
-      text-transform: uppercase;
-      font-weight: 500;
-      font-size: 0.85rem;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-
-    .promo-content a:hover {
-      background: #008b7a;
-    }
-
-    footer {
-      background: #111;
-      color: #ccc;
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-
-    footer a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 10px;
     }
   </style>
 </head>
@@ -258,7 +102,7 @@
   <div class="intro-tagline">THE ISLAND BY DAGMAR</div>
 </div>
 
-<div class="top-bar">
+<div class="top-bar" id="topBar">
   <img src="https://i.imgur.com/gfKxjRL.png" alt="Dagmar Logo" />
   <div class="nav-menu">
     <a href="#vuelos">Vuelos</a>
@@ -267,15 +111,15 @@
   </div>
 </div>
 
-<section class="hero" id="vuelos">
-  <video class="active" autoplay muted loop playsinline>
+<section class="hero" id="vuelos" style="position:relative; height:80vh; overflow:hidden;">
+  <video class="active" autoplay muted loop playsinline style="position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;transform:translate(-50%, -50%);object-fit:cover;z-index:1;opacity:1;">
     <source src="https://cdn.pixabay.com/video/2023/10/13/184860-874264423_large.mp4" type="video/mp4">
   </video>
-  <video autoplay muted loop playsinline>
+  <video autoplay muted loop playsinline style="position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;transform:translate(-50%, -50%);object-fit:cover;z-index:1;opacity:0;">
     <source src="https://cdn.pixabay.com/video/2024/06/16/216951_large.mp4" type="video/mp4">
   </video>
-  <div class="content">
-    <img src="https://i.imgur.com/mVciASa.png" alt="Dagmar Logo Blanco" class="logo">
+  <div class="content" style="position:relative;z-index:3;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;">
+    <img src="https://i.imgur.com/mVciASa.png" alt="Dagmar Logo Blanco" class="logo" style="max-width:420px;margin-bottom:1.2rem;">
     <div class="slogan-big">THE ISLAND BY DAGMAR</div>
     <div class="storytelling" id="story">
       <span class="active">Whispers of salt on your skin.</span>
@@ -296,31 +140,69 @@
 <section class="divider">Local knowledge curated by Dagmar</section>
 
 <section class="blog-magazine" id="tips">
-  <h2>The Island by Dagmar</h2>
-  <div class="promo-grid">
-    <div class="promo-card">
-      <div class="promo-image" style="background-image: url('https://source.unsplash.com/800x600/?sunrise,beach,medano');"></div>
-      <div class="promo-content">
+  <h2 style="text-align:center; font-family:'Montserrat',sans-serif; font-size:2rem; text-transform:uppercase; margin-bottom:2rem;">The Island by Dagmar</h2>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="https://source.unsplash.com/800x600/?tenerife,beach" alt="Playa en Tenerife">
         <h3>☀️ El Médano sin gente</h3>
         <p>Amanecer, viento, Atlántico. Café negro y ninguna conversación. Silencio que cura.</p>
-        <a href="#vuelos">Explorar</a>
       </div>
-    </d
-<footer id="contacto">
+      <div class="swiper-slide">
+        <img src="https://source.unsplash.com/800x600/?tenerife,vineyard" alt="Guachinche entre pinos">
+        <h3>🍷 Guachinche entre pinos</h3>
+        <p>Vino local, pan duro, mojo de verdad. No lo encontrarás en Google Maps.</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="https://source.unsplash.com/800x600/?tenerife,naturalpool" alt="Charco sin nombre">
+        <h3>🌊 Charco sin nombre</h3>
+        <p>Sigue la carretera vieja. Gira donde se acaba el asfalto. Confía en el mar.</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="https://source.unsplash.com/800x600/?tenerife,road" alt="Ruta alterna al norte">
+        <h3>🛵 Ruta alterna al norte</h3>
+        <p>Evita la autopista. Sube por Arafo. Baja por pinos y lava. Llegarás más feliz.</p>
+      </div>
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</section>
+<!-- Tarjetas Boutique -->
+<section class="divider">Viaja mejor con Dagmar</section>
+<section class="boutique-cards">
+  <div class="boutique-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1100px;margin:auto;">
+    <div class="boutique-card" style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.06);">
+      <img src="https://source.unsplash.com/400x300/?perfume" alt="Perfume" style="width:100%;height:200px;object-fit:cover;">
+      <div style="padding:1.5rem;">
+        <h3 style="font-family:'Montserrat',sans-serif;font-size:1.2rem;margin-bottom:0.5rem;">Boutique: belleza y complementos</h3>
+        <p style="font-size:0.95rem;color:#555;margin-bottom:1rem;">Mejora tu viaje con nuestra exclusiva selección de productos boutique con un 10% de descuento.</p>
+        <a href="#" style="display:inline-block;background:#00ae98;color:#fff;padding:0.5rem 1rem;border-radius:4px;font-size:0.85rem;text-transform:uppercase;text-decoration:none;">Ir a la tienda</a>
+      </div>
+    </div>
+    <div class="boutique-card" style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.06);">
+      <img src="https://source.unsplash.com/400x300/?snacks,travel" alt="Comida a bordo" style="width:100%;height:200px;object-fit:cover;">
+      <div style="padding:1.5rem;">
+        <h3 style="font-family:'Montserrat',sans-serif;font-size:1.2rem;margin-bottom:0.5rem;">Bistro: comida y bebida</h3>
+        <p style="font-size:0.95rem;color:#555;margin-bottom:1rem;">Adelántate a tu vuelo con un 10% de descuento en nuestros productos a bordo.</p>
+        <a href="#" style="display:inline-block;background:#00ae98;color:#fff;padding:0.5rem 1rem;border-radius:4px;font-size:0.85rem;text-transform:uppercase;text-decoration:none;">Ver menú</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contacto" style="background:#111;color:#ccc;padding:2rem;text-align:center;font-size:0.9rem;">
   <p>&copy; 2025 <strong>Dagmar Travels</strong>. Todos los derechos reservados.</p>
   <p>
-    <a href="https://instagram.com/0700dagmar" target="_blank" rel="noopener noreferrer">
-      <i class="fab fa-instagram"></i> @0700dagmar
-    </a>
+    <a href="https://instagram.com/0700dagmar" target="_blank" rel="noopener noreferrer" style="color:#fff;"><i class="fab fa-instagram"></i> @0700dagmar</a>
     ·
-    <a href="https://dagmarobjects.com" target="_blank" rel="noopener noreferrer">
-      <i class="fas fa-globe"></i> Web
-    </a>
+    <a href="https://dagmarobjects.com" target="_blank" rel="noopener noreferrer" style="color:#fff;"><i class="fas fa-globe"></i> Web</a>
   </p>
 </footer>
 
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
-  // Intro fade out
+  // Intro
   window.addEventListener('load', () => {
     const intro = document.getElementById('intro');
     setTimeout(() => {
@@ -329,7 +211,7 @@
     }, 2200);
   });
 
-  // Storytelling cycle
+  // Storytelling
   const lines = document.querySelectorAll('#story span');
   let textIndex = 0;
   setInterval(() => {
@@ -338,7 +220,7 @@
     lines[textIndex].classList.add('active');
   }, 7000);
 
-  // Video switcher
+  // Video switching
   const videos = document.querySelectorAll('.hero video');
   let videoIndex = 0;
   setInterval(() => {
@@ -346,6 +228,30 @@
     videoIndex = (videoIndex + 1) % videos.length;
     videos[videoIndex].classList.add('active');
   }, 9000);
+
+  // Swiper
+  var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    autoplay: {
+      delay: 6000,
+    },
+    loop: true,
+  });
+
+  // Header scroll color
+  window.addEventListener('scroll', () => {
+    const topBar = document.querySelector('.top-bar');
+    if (window.scrollY > 10) {
+      topBar.classList.add('scrolled');
+    } else {
+      topBar.classList.remove('scrolled');
+    }
+  });
 </script>
 
 </body>
