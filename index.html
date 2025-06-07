@@ -1,113 +1,97 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Tenerife na Twój Sposób</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <!-- Fuente Pro -->
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Tipografías -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
   <style>
+    :root {
+      --color1: #00AE98;
+      --color2: #64AEC1;
+      --bg-white: #ffffff;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body, html {
+    html, body {
       height: 100%;
       font-family: 'DM Sans', sans-serif;
-      color: #ffffff;
-      position: relative;
+      background: linear-gradient(180deg, rgba(0, 174, 152, 0.6), rgba(100, 174, 193, 0.6));
       overflow-x: hidden;
-      background: url('https://i.makeagif.com/media/7-11-2017/owNM4b.gif') no-repeat center center fixed;
-      background-size: cover;
-    }
-
-    /* DEGRADADO SUPERPUESTO */
-    .overlay {
-      background: linear-gradient(180deg, rgba(0, 174, 152, 0.85), rgba(100, 174, 193, 0.85));
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    /* SLIDESHOW PEQUEÑO ARRIBA */
-    #slideshow-small {
-      max-width: 400px;
-      height: 180px;
-      margin: 30px auto 0;
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 6px 18px rgba(0, 174, 152, 0.7);
-      background: rgba(255,255,255,0.3);
-      backdrop-filter: blur(5px);
-    }
-
-    #slideshow-small img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      position: absolute;
-      top: 0; left: 0;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-      border-radius: 12px;
-    }
-
-    #slideshow-small img.active {
-      opacity: 1;
-      position: relative;
     }
 
     header {
+      background-color: var(--bg-white);
       text-align: center;
-      padding: 40px 20px 40px;
-      position: relative;
-      z-index: 1;
+      padding: 60px 20px 40px;
     }
 
     header img.logo {
       width: 80px;
       margin-bottom: 15px;
-      filter: brightness(1) invert(1);
     }
 
     header h1 {
-      font-size: 2.5em;
+      font-size: 2.8em;
+      font-family: 'Montserrat', sans-serif;
       font-weight: 700;
+      background: linear-gradient(to right, var(--color1), var(--color2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       margin-bottom: 10px;
-      text-shadow: 0 0 8px rgba(0, 174, 152, 0.9);
     }
 
     header p {
-      font-size: 1.3em;
-      font-weight: 400;
+      font-size: 1.2em;
       font-style: italic;
-      opacity: 0.9;
-      text-shadow: 0 0 6px rgba(0, 174, 152, 0.8);
+      color: #444;
     }
 
     .widget-container {
       max-width: 1000px;
-      margin: 40px auto 60px;
+      margin: 40px auto;
       padding: 20px;
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: rgba(255,255,255,0.9);
       border-radius: 16px;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     }
 
-    .widget-container script {
+    /* Galería de fotos estilo sobrio */
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto 40px;
+      padding: 20px;
+    }
+
+    .photo-gallery img {
       width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .photo-gallery img:hover {
+      transform: scale(1.02);
+    }
+
+    .photo-caption {
+      text-align: center;
+      margin-top: 8px;
+      font-family: 'Montserrat', sans-serif;
+      color: #fff;
+      font-size: 1em;
     }
 
     footer {
@@ -115,33 +99,36 @@
       font-size: 0.9em;
       color: #eee;
       padding: 30px 10px;
-      position: relative;
-      z-index: 1;
-      text-shadow: 0 0 4px rgba(0, 174, 152, 0.7);
     }
   </style>
 </head>
 
 <body>
 
-  <!-- DEGRADADO SOBRE GIF DE FONDO -->
-  <div class="overlay"></div>
-
-  <!-- SLIDESHOW PEQUEÑO ARRIBA -->
-  <div id="slideshow-small">
-    <img src="https://www.guiarepsol.com/content/dam/repsol-guia/contenidos-imagenes/viajar/vamos-de-excursion/qu%C3%A9-ver-en-santa-cruz-de-tenerife/01SantaCruz.jpg.transform/rp-rendition-md/image.jpg" alt="Santa Cruz de Tenerife" class="active" />
-    <img src="https://www.gancarczyk.com/wp-content/uploads/2024/01/teneryf-01-753x500.jpg" alt="Paisaje Tenerife" />
-    <img src="https://static-resources-elementor.mirai.com/wp-content/uploads/sites/507/destinos-tenerife-paisajes-el-teide.jpg" alt="El Teide Tenerife" />
-  </div>
-
   <!-- ENCABEZADO -->
   <header>
-    <img src="https://static.vecteezy.com/system/resources/thumbnails/035/861/457/small_2x/abstract-white-plane-icon-png.png" alt="Logo" class="logo" />
+    <img src="https://static.vecteezy.com/system/resources/thumbnails/035/861/457/small_2x/abstract-white-plane-icon-png.png" alt="Logo" class="logo">
     <h1>Tenerife na Twój Sposób</h1>
     <p>Odkryj wyspy tak, jak lubisz – plaże, góry i słońce w jednym miejscu</p>
   </header>
 
-  <!-- WIDGET PRINCIPAL DE TRAVELPAYOUTS -->
+  <!-- GALERÍA DE FOTOS -->
+  <div class="photo-gallery">
+    <div>
+      <img src="https://www.guiarepsol.com/content/dam/repsol-guia/contenidos-imagenes/viajar/vamos-de-excursion/qu%C3%A9-ver-en-santa-cruz-de-tenerife/01SantaCruz.jpg.transform/rp-rendition-md/image.jpg" alt="Santa Cruz">
+      <div class="photo-caption">Santa Cruz de Tenerife</div>
+    </div>
+    <div>
+      <img src="https://www.gancarczyk.com/wp-content/uploads/2024/01/teneryf-01-753x500.jpg" alt="Playa y Acantilados">
+      <div class="photo-caption">Costa y acantilados</div>
+    </div>
+    <div>
+      <img src="https://static-resources-elementor.mirai.com/wp-content/uploads/sites/507/destinos-tenerife-paisajes-el-teide.jpg" alt="El Teide">
+      <div class="photo-caption">El Teide</div>
+    </div>
+  </div>
+
+  <!-- WIDGET TRAVELPAYOUTS -->
   <div class="widget-container">
     <script async src="https://c111.travelpayouts.com/content?currency=pln&trs=423668&shmarker=638051&from_name=PL&to_name=TFS&locale=pl&powered_by=true&limit=4&primary_color=64AEC1ff&results_background_color=F4FBF4ff&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
   </div>
@@ -151,15 +138,5 @@
     &copy; 2025 ViajarBarato.pl – Wszystkie prawa zastrzeżone.
   </footer>
 
-  <script>
-    const slideshowImages = document.querySelectorAll('#slideshow-small img');
-    let currentIndex = 0;
-
-    setInterval(() => {
-      slideshowImages[currentIndex].classList.remove('active');
-      currentIndex = (currentIndex + 1) % slideshowImages.length;
-      slideshowImages[currentIndex].classList.add('active');
-    }, 5000);
-  </script>
 </body>
 </html>
