@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dagmar Travels - Cheap Flights to Tenerife</title>
-  <meta name="description" content="Find the cheapest flights to and from Canary Islands, plus flight and hotel packages to Tenerife. Flight comparison for Polish and Eastern European travelers." />
-  <meta name="keywords" content="cheap flights, flights to Tenerife, flight comparison, flight and hotel packages, Europe travel, budget flights" />
+  <title>Dagmar Travels - Cheap Flights to Venezuela & Tenerife</title>
+  <meta name="description" content="Find the cheapest flights to and from Venezuela, plus flight and hotel packages to Tenerife. Flight comparison for Polish and Eastern European travelers." />
+  <meta name="keywords" content="cheap flights, flights to Venezuela, flights to Tenerife, flight comparison, flight and hotel packages, Europe travel, budget flights, travel insurance, flight compensation, Tenerife recommendations" />
   <meta name="author" content="Luis / Dagmar Travels" />
   <link rel="canonical" href="https://your-domain.com/" />
 
@@ -55,7 +55,7 @@
       user-select: none;
     }
 
-    /* Animación para el fondo que se mueve horizontalmente */
+    /* Animación para el fondo que se mueve verticalmente */
     @keyframes panBackground {
       0% {
         background-position: center 50%;
@@ -89,7 +89,6 @@
       z-index: -1;
     }
 
-    /* Logo más grande */
     header .logo {
       position: absolute;
       top: 20px;
@@ -129,13 +128,57 @@
       margin: 2rem auto;
       padding: 0 1rem;
       color: #444444;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
     }
 
+    /* Contenedor para las columnas izquierda, central y derecha */
+    .content-wrapper {
+      display: flex;
+      width: 100%;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    /* Laterales */
+    aside {
+      flex: 0 0 260px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 1.5rem 1.2rem;
+      font-size: 0.9rem;
+      color: #333;
+      user-select: none;
+    }
+    aside h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #222;
+      border-bottom: 2px solid #ffd700;
+      padding-bottom: 0.3rem;
+    }
+    aside p {
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+    aside a {
+      color: #0077cc;
+      font-weight: 600;
+    }
+    aside a:hover,
+    aside a:focus {
+      color: #005999;
+      text-decoration: underline;
+    }
+
+    /* Contenido central */
     .widgets-container {
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 3rem;
+      flex: 1 1 auto;
+      max-width: 640px;
     }
 
     .flights-widget {
@@ -144,6 +187,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       padding: 2rem 1.5rem;
       color: #444444;
+      user-select: none;
     }
 
     .flights-widget h2 {
@@ -233,6 +277,27 @@
       user-select: none;
     }
 
+    /* Responsive */
+
+    @media (max-width: 1080px) {
+      main {
+        flex-direction: column;
+        margin: 1rem auto;
+        padding: 0 1rem;
+      }
+      .content-wrapper {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      aside {
+        width: 100%;
+        flex: none;
+      }
+      .widgets-container {
+        max-width: 100%;
+      }
+    }
+
     @media (max-width: 600px) {
       header h1 {
         font-size: 2.4rem;
@@ -254,56 +319,57 @@
 <body>
 
   <header role="banner">
-    <img class="logo" src="https://i.imgur.com/mVciASa.png" alt="Dagmar Travels Logo" />
-    <h1>
-      Find the best <span id="changing-word" class="animated-text" aria-live="polite" aria-atomic="true">flights</span> for your trip in Tenerife
-    </h1>
+    <img class="logo" src="https://i.imgur.com/0HMFuAN.png" alt="Dagmar Travels Logo" width="280" height="60" />
+    <h1>Dagmar Travels<span class="animated-text">Flights</span></h1>
   </header>
 
   <main role="main">
+    <div class="content-wrapper">
+      <aside aria-label="Travel Insurance and Flight Rights Information">
+        <h3>Travel Insurance & Flight Compensation</h3>
+        <p>Protect your trip with reliable <a href="https://www.axa-assistance.com/en/travel-insurance" target="_blank" rel="noopener noreferrer">travel insurance</a> and know your rights in case of delays or cancellations.</p>
+        <p>In the EU, you can claim compensation for delayed or cancelled flights via <a href="https://www.airhelp.com/en/" target="_blank" rel="noopener noreferrer">AirHelp</a>.</p>
+        <p>Always check airline policies before booking and consider buying insurance for peace of mind.</p>
+      </aside>
 
-    <div class="widgets-container">
-      <section class="flights-widget" aria-label="Flight search widget">
-        <h2>Cheap Flights to Tenerife</h2>
-        <script async src="https://c111.travelpayouts.com/content?currency=pln&trs=423668&shmarker=638051&from_name=PL&to_name=TFS&locale=en&powered_by=true&limit=4&primary_color=444A48ff&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
+      <section class="widgets-container" aria-label="Flight search widget and flight deals">
+        <article class="flights-widget" aria-live="polite" aria-atomic="true">
+          <h2>Find Cheap Flights to Venezuela and Tenerife</h2>
+          <div class="carousel" role="list" aria-label="Popular flight routes">
+            <a href="https://www.skyscanner.net/transport/flights/lt2/ccs/?adultsv2=1&childrenv2=0&infants=0" class="carousel-item" role="listitem" tabindex="0" aria-describedby="desc-ccs">
+              <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=60" alt="Caracas, Venezuela" />
+              <p id="desc-ccs">Tenerife to Caracas</p>
+            </a>
+            <a href="https://www.skyscanner.net/transport/flights/ccs/lt2/?adultsv2=1&childrenv2=0&infants=0" class="carousel-item" role="listitem" tabindex="0" aria-describedby="desc-tnf">
+              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=60" alt="Tenerife, Canary Islands" />
+              <p id="desc-tnf">Caracas to Tenerife</p>
+            </a>
+            <a href="https://www.skyscanner.net/transport/flights/lt2/mad/?adultsv2=1&childrenv2=0&infants=0" class="carousel-item" role="listitem" tabindex="0" aria-describedby="desc-mad">
+              <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=400&q=60" alt="Madrid, Spain" />
+              <p id="desc-mad">Tenerife to Madrid</p>
+            </a>
+            <a href="https://www.skyscanner.net/transport/flights/lt2/waw/?adultsv2=1&childrenv2=0&infants=0" class="carousel-item" role="listitem" tabindex="0" aria-describedby="desc-waw">
+              <img src="https://images.unsplash.com/photo-1526483360610-99d92c49828d?auto=format&fit=crop&w=400&q=60" alt="Warsaw, Poland" />
+              <p id="desc-waw">Tenerife to Warsaw</p>
+            </a>
+          </div>
+        </article>
       </section>
+
+      <aside aria-label="Recommended places to visit in Tenerife">
+        <h3>Top Places to Visit in Tenerife</h3>
+        <p><strong>Teide National Park:</strong> Explore Spain’s highest peak and volcanic landscapes.</p>
+        <p><strong>Loro Parque:</strong> Family-friendly zoo with amazing wildlife shows.</p>
+        <p><strong>Los Gigantes:</strong> Dramatic cliffs and beautiful beaches.</p>
+        <p><strong>Masca Village:</strong> Charming mountain village with breathtaking views.</p>
+        <p>Discover more tips on <a href="https://www.webtenerife.com/en/" target="_blank" rel="noopener noreferrer">webtenerife.com</a>.</p>
+      </aside>
     </div>
-
-    <section class="carousel" aria-label="Tenerife destinations carousel">
-      <article class="carousel-item" tabindex="0" role="button" aria-pressed="false" aria-label="Tenerife Playa de las Américas">
-        <img src="https://images.pexels.com/photos/1001680/pexels-photo-1001680.jpeg" alt="Playa de las Américas, Tenerife" />
-        <p>Playa de las Américas</p>
-      </article>
-      <article class="carousel-item" tabindex="0" role="button" aria-pressed="false" aria-label="Tenerife Puerto de la Cruz">
-        <img src="https://images.pexels.com/photos/209842/pexels-photo-209842.jpeg" alt="Puerto de la Cruz, Tenerife" />
-        <p>Puerto de la Cruz</p>
-      </article>
-      <article class="carousel-item" tabindex="0" role="button" aria-pressed="false" aria-label="Tenerife Costa Adeje">
-        <img src="https://images.pexels.com/photos/355949/pexels-photo-355949.jpeg" alt="Costa Adeje, Tenerife" />
-        <p>Costa Adeje</p>
-      </article>
-      <article class="carousel-item" tabindex="0" role="button" aria-pressed="false" aria-label="Tenerife Los Cristianos">
-        <img src="https://images.pexels.com/photos/230263/pexels-photo-230263.jpeg" alt="Los Cristianos, Tenerife" />
-        <p>Los Cristianos</p>
-      </article>
-    </section>
-
   </main>
 
   <footer role="contentinfo">
     &copy; 2025 Dagmar Travels. All rights reserved.
   </footer>
 
-  <script>
-    const words = ['flights', 'deals', 'options', 'prices', 'offers'];
-    let index = 0;
-    const changingWord = document.getElementById('changing-word');
-
-    function cycleWords() {
-      index = (index + 1) % words.length;
-      // Fade out
-      changingWord.style.opacity = '0';
-      setTimeout(() => {
-        changingWord.textContent = words[index];
-        // Fade in
-        changingWord.style.opacity = '
+</body>
+</html>
