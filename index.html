@@ -88,6 +88,76 @@
       color: #eee;
       padding: 30px 10px;
     }
+
+    /* Nuevo bloque Descubre Tenerife */
+    .descubre-tenerife {
+      background-color: rgba(255, 255, 255, 0.95);
+      color: #1F3C41;
+      max-width: 1000px;
+      margin: 40px auto;
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .descubre-tenerife h2 {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      font-weight: 700;
+      color: #0072bc;
+    }
+
+    .descubre-tenerife p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #444;
+    }
+
+    .descubre-tenerife .imagenes {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .descubre-tenerife .imagenes img {
+      width: 32%;
+      max-width: 220px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .descubre-tenerife .imagenes img:hover {
+      transform: scale(1.05);
+    }
+
+    .descubre-tenerife .caption {
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      margin-top: 1rem;
+      font-style: italic;
+    }
+
+    @media (max-width: 720px) {
+      .descubre-tenerife .imagenes img {
+        width: 48%;
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .descubre-tenerife .imagenes img {
+        width: 100%;
+      }
+    }
+
   </style>
 </head>
 
@@ -108,6 +178,18 @@
     <h1>Tenerife na Twój Sposób</h1>
     <p>Odkryj wyspy tak, jak lubisz – plaże, góry i słońce w jednym miejscu</p>
   </header>
+
+  <!-- BLOQUE INFORMATIVO DESCUBRE TENERIFE -->
+  <section class="descubre-tenerife" aria-label="Descubre Tenerife">
+    <h2>Descubre Tenerife</h2>
+    <p>Una experiencia única entre playas doradas, montañas volcánicas y pueblos mágicos.</p>
+    <div class="imagenes">
+      <img src="https://www.guiarepsol.com/content/dam/repsol-guia/contenidos-imagenes/viajar/vamos-de-excursion/qu%C3%A9-ver-en-santa-cruz-de-tenerife/01SantaCruz.jpg.transform/rp-rendition-md/image.jpg" alt="Santa Cruz de Tenerife">
+      <img src="https://www.gancarczyk.com/wp-content/uploads/2024/01/teneryf-01-753x500.jpg" alt="Paisaje en Tenerife">
+      <img src="https://static-resources-elementor.mirai.com/wp-content/uploads/sites/507/destinos-tenerife-paisajes-el-teide.jpg" alt="El Teide, Tenerife">
+    </div>
+    <div class="caption">Imágenes destacadas de Tenerife: Santa Cruz, sus paisajes y el majestuoso Teide.</div>
+  </section>
 
   <!-- WIDGET -->
   <div class="widget-container">
