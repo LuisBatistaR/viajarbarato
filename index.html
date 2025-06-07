@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Odkryj Teneryfę</title>
+  <title>Odkryj Teneryfę - Przewodnik po rajskiej wyspie</title>
+  <meta name="description" content="Odkryj niesamowite miejsca, plaże i atrakcje na Teneryfie. Zarezerwuj swoje wakacje już teraz!">
+  <meta name="keywords" content="Teneryfa, wakacje, plaże, atrakcje, podróże, rezerwacja">
+  <meta name="author" content="Odkryj Teneryfę">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@600&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -11,6 +14,7 @@
       height: 100%;
       font-family: 'Montserrat', sans-serif;
       overflow-x: hidden;
+      scroll-behavior: smooth;
     }
 
     .intro {
@@ -26,7 +30,7 @@
     }
 
     .intro img {
-      width: 300px;
+      width: 280px;
       opacity: 0;
       animation: logoFadeIn 1.5s ease 0.5s forwards;
     }
@@ -44,7 +48,7 @@
     }
 
     @keyframes logoFadeIn {
-      from { opacity: 0; transform: scale(0.95); }
+      from { opacity: 0; transform: scale(0.9); }
       to   { opacity: 1; transform: scale(1); }
     }
 
@@ -65,7 +69,7 @@
       opacity: 0;
       z-index: 9998;
       pointer-events: none;
-      transition: opacity 1.2s ease;
+      transition: opacity 1s ease;
     }
 
     .flash.show { opacity: 1; }
@@ -84,7 +88,6 @@
       width: 100%; height: 100%;
       object-fit: cover;
       z-index: -2;
-      transition: opacity 1.2s ease;
     }
 
     .overlay {
@@ -98,9 +101,8 @@
     .top-nav {
       position: absolute;
       top: 0;
-      left: 0;
       width: 100%;
-      background-color: rgba(26, 26, 26, 0.9);
+      background: rgba(20, 20, 20, 0.85);
       padding: 20px 30px;
       display: flex;
       justify-content: space-between;
@@ -108,16 +110,18 @@
       z-index: 2;
     }
 
-    .logo img { height: 80px; }
+    .logo img { height: 70px; }
 
     .menu-wrapper {
       position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
 
-    .menu { cursor: pointer; color: white; }
+    .menu {
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+      user-select: none;
+    }
 
     .book-btn {
       background: rgba(255,255,255,0.2);
@@ -125,41 +129,36 @@
       border-radius: 5px;
       text-decoration: none;
       color: white;
-      font-weight: 500;
-      transition: background 0.3s;
+      font-weight: 600;
     }
 
     .book-btn:hover {
-      background: rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.35);
     }
 
     .dropdown {
+      display: none;
       position: absolute;
-      top: 50px;
-      background: rgba(0, 0, 0, 0.95);
-      padding: 15px 25px;
-      border-radius: 8px;
-      display: flex;
+      top: 40px;
+      right: 0;
+      background: rgba(0,0,0,0.95);
+      border-radius: 6px;
+      padding: 15px;
+      min-width: 160px;
       flex-direction: column;
-      gap: 15px;
+      gap: 12px;
       z-index: 3;
-      font-size: 1rem;
-      text-align: center;
-      min-width: 180px;
     }
 
     .dropdown a {
       color: white;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.2s;
     }
 
     .dropdown a:hover {
-      color: #ffdd57;
+      color: #ffd700;
     }
-
-    .hidden { display: none; }
 
     .hero-text {
       position: absolute;
@@ -170,15 +169,15 @@
     }
 
     .hero-logo {
-      max-width: 98%;
-      height: auto;
-      max-height: 360px;
-      filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.5));
+      max-height: 320px;
+      width: auto;
+      max-width: 95%;
+      filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.5));
     }
 
     .skip-btn {
       position: absolute;
-      bottom: 20px;
+      bottom: 25px;
       width: 100%;
       text-align: center;
     }
@@ -186,33 +185,32 @@
     .skip-btn a {
       color: white;
       text-decoration: none;
-      opacity: 0.8;
       font-weight: 500;
+      opacity: 0.85;
     }
   </style>
 </head>
 <body>
 
-  <div class="intro" id="intro">
-    <img src="https://i.imgur.com/D3fNV92.png" alt="Intro Logo" />
+  <div class="intro" role="dialog" aria-label="Intro de bienvenida">
+    <img src="https://i.imgur.com/D3fNV92.png" alt="Logo de Odkryj Teneryfę">
   </div>
 
-  <div class="flash" id="flash"></div>
+  <div class="flash" id="flash" aria-hidden="true"></div>
 
-  <header class="hero">
-    <video id="bgVideo" autoplay muted playsinline class="background-video">
+  <header class="hero" id="home">
+    <video id="bgVideo" autoplay muted playsinline class="background-video" aria-hidden="true">
       <source id="videoSource" src="https://cdn.pixabay.com/video/2020/02/19/32606-393989992_large.mp4" type="video/mp4">
     </video>
-
     <div class="overlay"></div>
 
-    <nav class="top-nav">
+    <nav class="top-nav" role="navigation" aria-label="Nawigacja główna">
       <div class="logo">
-        <img src="https://i.imgur.com/D3fNV92.png" alt="Logo">
+        <img src="https://i.imgur.com/D3fNV92.png" alt="Logo strony">
       </div>
       <div class="menu-wrapper">
-        <div class="menu" onclick="toggleMenu()">MENU ☰</div>
-        <div id="dropdownMenu" class="dropdown hidden">
+        <div class="menu" onclick="toggleMenu()" aria-haspopup="true" aria-controls="dropdownMenu">MENU ☰</div>
+        <div id="dropdownMenu" class="dropdown" role="menu">
           <a href="#home">Strona główna</a>
           <a href="#blog">Blog</a>
           <a href="#booking">Wyszukiwarka</a>
@@ -223,28 +221,26 @@
     </nav>
 
     <div class="hero-text">
-      <img src="https://i.imgur.com/e2PNeOR.png" alt="Logo Hero" class="hero-logo">
+      <img src="https://i.imgur.com/e2PNeOR.png" alt="Logo główne" class="hero-logo" loading="lazy">
     </div>
 
     <div class="skip-btn">
-      <a href="#main">POMIŃ</a>
+      <a href="#main" onclick="document.getElementById('main').scrollIntoView({behavior:'smooth'})">POMIŃ</a>
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" role="main">
     <section style="padding: 60px; text-align: center;">
-      <h2>Witamy na naszej stronie!</h2>
-      <p>Odkryj najlepsze miejsca, plaże i przygody na Teneryfie.</p>
+      <h1>Witamy na stronie Odkryj Teneryfę</h1>
+      <p>Eksploruj najlepsze plaże, przygody i kulturę Teneryfy. Sprawdź co czeka na Ciebie!</p>
     </section>
   </main>
 
   <script>
     const videos = [
       "https://cdn.pixabay.com/video/2020/02/19/32606-393989992_large.mp4",
-      "https://cdn.pixabay.com/video/2024/06/16/216951_large.mp4",
-      "https://cdn.pixabay.com/video/2024/05/28/214078_large.mp4",
       "https://cdn.pixabay.com/video/2023/08/29/178321-860527288_large.mp4",
-      "https://cdn.pixabay.com/video/2019/02/01/21101-315137014_large.mp4"
+      "https://cdn.pixabay.com/video/2024/05/28/214078_large.mp4"
     ];
 
     const video = document.getElementById('bgVideo');
@@ -258,22 +254,30 @@
         index = (index + 1) % videos.length;
         source.src = videos[index];
         video.load();
-        video.play();
-        flash.classList.remove('show');
-        setTimeout(playNextVideo, 8000);
       }, 300);
     }
 
     video.addEventListener('loadeddata', () => {
-      setTimeout(playNextVideo, 8000);
+      flash.classList.remove('show');
     });
 
+    setInterval(() => {
+      playNextVideo();
+    }, 10000);
+
     function toggleMenu() {
-      document.getElementById('dropdownMenu').classList.toggle('hidden');
+      const dropdown = document.getElementById('dropdownMenu');
+      dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
     }
+
+    // Auto-cierre del menú si se hace clic fuera
+    document.addEventListener('click', function(e) {
+      const menu = document.getElementById('dropdownMenu');
+      if (!e.target.closest('.menu-wrapper')) {
+        menu.style.display = 'none';
+      }
+    });
   </script>
 
 </body>
-</html>
-
 </html>
