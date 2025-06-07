@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cheap Flights to Venezuela and Tenerife | Dagmar Travels</title>
-  <meta name="description" content="Find the cheapest flights to and from Venezuela, plus flight and hotel packages to Tenerife. Flight comparison for Polish and Eastern European travelers." />
-  <meta name="keywords" content="cheap flights, flights to Venezuela, flights to Tenerife, flight comparison, flight and hotel packages, Europe travel, budget flights" />
+  <meta name="description" content="Find the cheapest flights to and from Tenerife, flight and hotel packages to Tenerife. Flight comparison for Polish and Eastern European travelers." />
+  <meta name="keywords" content="cheap flights, flights to Canary Islands, flights to Tenerife, flight comparison, flight and hotel packages, Europe travel, budget flights" />
   <meta name="author" content="Luis / Dagmar Travels" />
   <link rel="canonical" href="https://your-domain.com/" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after {
@@ -19,7 +19,7 @@
       margin: 0;
       background-color: #f8f9fa;
       color: #212529;
-      font-family: 'Montserrat', 'Playfair Display', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -64,13 +64,14 @@
       object-fit: contain;
     }
     header h1 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
+      font-family: 'Montserrat', sans-serif; /* cambio tipografía */
+      font-weight: 500;
       font-size: 2.8rem;
       margin: 0;
       position: relative;
       z-index: 1;
       letter-spacing: 1px;
+      color: white;
     }
     header .animated-text {
       display: inline-block;
@@ -78,6 +79,10 @@
       font-style: italic;
       transition: opacity 1.8s ease-in-out;
       opacity: 1;
+      font-family: 'Playfair Display', serif; /* amarillo con serif para elegancia */
+      font-weight: 700;
+      font-size: 2.8rem;
+      letter-spacing: 1px;
     }
     header .divider {
       width: 90px;
@@ -92,44 +97,32 @@
       max-width: 900px;
       margin: 2rem auto;
       padding: 0 1rem;
-    }
-
-    .flights-widget {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.12);
-      padding: 2rem;
-      margin-bottom: 3rem;
-      font-family: 'Montserrat', sans-serif;
-    }
-    .flights-widget h2 {
-      margin-top: 0;
-      font-weight: 700;
-      font-size: 2rem;
-      color: #003366;
-      margin-bottom: 1.5rem;
-      text-align: center;
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
     }
 
     .destinations {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.12);
+      padding: 1rem;
+      flex: 1 1 300px;
+      max-width: 350px;
       display: flex;
+      flex-direction: column;
       gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      max-width: 900px;
-      margin: 0 auto 4rem auto;
-      padding: 0 1rem;
     }
     .destination {
-      background: white;
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 3px 15px rgba(0,0,0,0.12);
-      max-width: 280px;
-      flex: 1 1 280px;
       cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       text-align: center;
+      background: white;
     }
     .destination:hover {
       transform: translateY(-7px);
@@ -141,6 +134,7 @@
       object-fit: cover;
       display: block;
       border-bottom: 2px solid #ffd700;
+      border-radius: 10px 10px 0 0;
     }
     .destination p {
       margin: 1rem;
@@ -148,6 +142,24 @@
       color: #003366;
       font-size: 1.15rem;
       letter-spacing: 0.5px;
+    }
+
+    .flights-widget {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+      padding: 2rem;
+      flex: 1 1 450px;
+      max-width: 550px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .flights-widget h2 {
+      margin-top: 0;
+      font-weight: 700;
+      font-size: 2rem;
+      color: #003366;
+      margin-bottom: 1.5rem;
+      text-align: center;
     }
 
     footer {
@@ -160,8 +172,22 @@
       font-family: 'Montserrat', sans-serif;
     }
 
+    @media (max-width: 900px) {
+      main {
+        flex-direction: column;
+        max-width: 95%;
+      }
+      .destinations, .flights-widget {
+        max-width: 100%;
+        flex: 1 1 100%;
+      }
+    }
+
     @media (max-width: 600px) {
       header h1 {
+        font-size: 1.8rem;
+      }
+      header .animated-text {
         font-size: 1.8rem;
       }
       header .logo {
@@ -182,11 +208,6 @@
   </header>
 
   <main>
-    <section class="flights-widget" aria-label="Flight search widget">
-      <h2>Search Cheap Flights</h2>
-      <script async src="https://c111.travelpayouts.com/content?currency=eur&trs=423672&shmarker=638051&to_name=TFS&locale=en&powered_by=true&limit=2&primary_color=2F3332ff&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
-    </section>
-
     <section class="destinations" aria-label="Recommended Tenerife destinations">
       <article class="destination" tabindex="0" role="link" aria-label="Santa Cruz de Tenerife">
         <img src="https://www.guiarepsol.com/content/dam/repsol-guia/contenidos-imagenes/viajar/vamos-de-excursion/qu%C3%A9-ver-en-santa-cruz-de-tenerife/01SantaCruz.jpg.transform/rp-rendition-md/image.jpg" alt="Panoramic view of Santa Cruz de Tenerife" />
@@ -200,6 +221,11 @@
         <img src="https://static-resources-elementor.mirai.com/wp-content/uploads/sites/507/destinos-tenerife-paisajes-el-teide.jpg" alt="Teide National Park in Tenerife" />
         <p>Teide National Park</p>
       </article>
+    </section>
+
+    <section class="flights-widget" aria-label="Flight search widget">
+      <h2>Search Cheap Flights</h2>
+      <script async src="https://c111.travelpayouts.com/content?currency=eur&trs=423672&shmarker=638051&to_name=TFS&locale=en&powered_by=true&limit=2&primary_color=2F3332ff&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
     </section>
   </main>
 
@@ -226,4 +252,3 @@
 
 </body>
 </html>
-
