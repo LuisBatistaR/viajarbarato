@@ -1,317 +1,345 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dagmar Travels - Vuelos a Tenerife</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Encuentra los vuelos más baratos y los mejores destinos en Tenerife. Compara precios y descubre lo mejor de la isla." />
+    <meta name="keywords" content="vuelos baratos, Tenerife, vuelos a Tenerife, vuelos desde Tenerife, turismo Tenerife, vacaciones Tenerife" />
+    <meta name="author" content="Luis" />
+    <title>Vuelos Tenerife | Encuentra vuelos baratos y destinos top</title>
 
-  <!-- Fuentes tipo aerolínea premium -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&family=Raleway:wght@300;700&display=swap" rel="stylesheet" />
+    <!-- Google Fonts: Tipos profesionales, accesibles y estilo aerolínea premium -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Raleway:wght@400;600&display=swap" rel="stylesheet" />
 
-  <style>
-    /* Reset y base */
-    * {
-      box-sizing: border-box;
-      margin: 0; padding: 0;
-    }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: url('https://images.unsplash.com/photo-1597773150796-e5c14ebecbf5?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmF2eSUyMGJsdWUlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww') no-repeat center center fixed;
-      background-size: cover;
-      color: #111;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 0 20px 40px;
-    }
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+        }
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: url('https://images.unsplash.com/photo-1597773150796-e5c14ebecbf5?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmF2eSUyMGJsdWUlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-    /* HEADER */
-    header {
-      width: 100%;
-      max-width: 1200px;
-      margin: 40px auto 30px;
-      display: flex;
-      align-items: center;
-      gap: 30px;
-      position: relative;
-      height: 140px;
-      background: rgba(255 255 255 / 0.85);
-      border-radius: 12px;
-      padding: 15px 30px;
-      box-shadow: 0 6px 15px rgb(0 0 0 / 0.12);
-    }
+        /* HEADER */
+        header {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 1s ease-in-out;
+            overflow: hidden;
+        }
 
-    /* LOGO grande a la izquierda */
-    .logo {
-      flex: 0 0 auto;
-      width: 160px;
-      height: auto;
-    }
-    .logo img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: contain;
-    }
+        /* Filtro oscuro para el header */
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 0;
+        }
 
-    /* Línea vertical minimalista */
-    .divider {
-      width: 2px;
-      height: 80px;
-      background: #222;
-      opacity: 0.3;
-      margin: 0 30px;
-      flex-shrink: 0;
-    }
+        /* Logo a la izquierda */
+        .logo {
+            z-index: 2;
+            flex: 0 0 auto;
+            max-height: 140px;
+            margin-right: 30px;
+        }
 
-    /* Contenedor frases animadas */
-    .header-text {
-      flex: 1;
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 1.8rem;
-      color: #222;
-      min-height: 48px;
-      position: relative;
-      overflow: hidden;
-      user-select: none;
-    }
+        .logo img {
+            height: 140px;
+            width: auto;
+            display: block;
+        }
 
-    .header-text .dynamic-text {
-      border-right: 3px solid #222;
-      white-space: nowrap;
-      overflow: hidden;
-      display: inline-block;
-      animation: blink-caret 0.7s step-end infinite;
-    }
+        /* Contenedor de texto con frases */
+        .header-text {
+            z-index: 2;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            user-select: none;
+            position: relative;
+        }
 
-    @keyframes blink-caret {
-      0%, 100% { border-color: transparent; }
-      50% { border-color: #222; }
-    }
+        /* Línea minimalista que divide */
+        .divider {
+            width: 3px;
+            height: 60px;
+            background: white;
+            margin-right: 20px;
+            border-radius: 2px;
+        }
 
-    /* Vuelos widget */
-    .flights-widget {
-      width: 100%;
-      max-width: 1200px;
-      background: rgba(255 255 255 / 0.95);
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgb(0 0 0 / 0.15);
-      padding: 30px 40px;
-      margin-bottom: 40px;
-      font-family: 'Raleway', sans-serif;
-    }
+        /* Texto animado */
+        .animated-text {
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: .15em solid white; /* cursor */
+            animation: blink-caret 0.75s step-end infinite;
+        }
 
-    .flights-widget h2 {
-      font-weight: 700;
-      font-size: 1.9rem;
-      color: #004080;
-      margin-bottom: 25px;
-      letter-spacing: 1.2px;
-    }
+        /* Animación caret */
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: white; }
+        }
 
-    .flights-widget form {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
+        /* SECCIÓN VUELOS */
+        .vuelos {
+            background: rgba(255,255,255,0.95);
+            color: #222;
+            padding: 30px 20px;
+            max-width: 1100px;
+            margin: 30px auto 15px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            font-family: 'Raleway', sans-serif;
+        }
 
-    .flights-widget input, .flights-widget select, .flights-widget button {
-      padding: 14px 18px;
-      font-size: 1rem;
-      border-radius: 8px;
-      border: 1.5px solid #ccc;
-      transition: border-color 0.3s ease;
-      min-width: 150px;
-    }
+        .vuelos h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #0072CE; /* color aerolínea */
+            text-align: center;
+        }
 
-    .flights-widget input:focus, .flights-widget select:focus {
-      border-color: #004080;
-      outline: none;
-    }
+        /* Aquí puedes añadir un diseño de tabla, lista o formulario simple */
+        .vuelos-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+            gap: 18px;
+        }
 
-    .flights-widget button {
-      background: #004080;
-      color: #fff;
-      font-weight: 700;
-      cursor: pointer;
-      min-width: 140px;
-      border: none;
-      letter-spacing: 1px;
-      transition: background-color 0.3s ease;
-    }
-    .flights-widget button:hover {
-      background: #002850;
-    }
+        .vuelo-item {
+            background: #0072CE;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgba(0,114,206,0.3);
+            text-align: center;
+        }
 
-    /* Widget marketing abajo estilo Roma con imágenes Tenerife */
-    .marketing-widget {
-      width: 100%;
-      max-width: 1200px;
-      display: flex;
-      gap: 20px;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 6px 18px rgb(0 0 0 / 0.14);
-      background: rgba(255 255 255 / 0.9);
-    }
+        /* WIDGET TENERIFE - tipo Roma pero minimalista */
+        .widget-tenerife {
+            max-width: 1100px;
+            margin: 15px auto 60px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 12px;
+            padding: 30px 25px;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+            font-family: 'Raleway', sans-serif;
+            color: #222;
+        }
 
-    .marketing-item {
-      flex: 1;
-      position: relative;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-      overflow: hidden;
-    }
-    .marketing-item:hover {
-      transform: scale(1.05);
-      z-index: 10;
-    }
-    .marketing-item img {
-      width: 100%;
-      height: 230px;
-      object-fit: cover;
-      filter: brightness(0.9);
-      transition: filter 0.3s ease;
-    }
-    .marketing-item:hover img {
-      filter: brightness(1);
-    }
-    .marketing-text {
-      position: absolute;
-      bottom: 14px;
-      left: 14px;
-      color: white;
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 1.3rem;
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
-    }
+        .widget-tenerife h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            color: #0072CE;
+            text-align: center;
+        }
 
-    /* Responsive */
-    @media (max-width: 900px) {
-      header {
-        flex-direction: column;
-        height: auto;
-        padding: 20px;
-        gap: 15px;
-      }
-      .divider {
-        width: 80%;
-        height: 2px;
-        margin: 15px auto 0;
-      }
-      .header-text {
-        font-size: 1.4rem;
-        text-align: center;
-        min-height: auto;
-      }
-      .marketing-widget {
-        flex-direction: column;
-      }
-      .marketing-item {
-        height: 200px;
-      }
-      .flights-widget form {
-        flex-direction: column;
-        gap: 15px;
-      }
-    }
-  </style>
+        .places-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .place-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            background: white;
+            cursor: pointer;
+            transition: transform 0.25s ease;
+        }
+
+        .place-card:hover {
+            transform: scale(1.03);
+        }
+
+        .place-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .place-info {
+            padding: 15px 20px;
+        }
+
+        .place-info h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #0072CE;
+        }
+
+        .place-info p {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.3;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                height: 180px;
+                padding: 0 15px;
+            }
+            .header-text {
+                font-size: 1.6rem;
+            }
+            .logo img {
+                height: 110px;
+            }
+            .vuelos-list {
+                grid-template-columns: 1fr;
+            }
+            .places-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-  <header>
-    <div class="logo">
-      <img src="https://i.imgur.com/ALBfQ8v.png" alt="Dagmar Travels Logo" />
-    </div>
+    <!-- HEADER -->
+    <header id="header">
+        <div class="logo">
+            <img src="https://i.imgur.com/ALBfQ8v.png" alt="Logo Vuelos Tenerife" />
+        </div>
 
-    <div class="divider"></div>
+        <div class="divider"></div>
 
-    <div class="header-text">
-      <span class="dynamic-text" id="dynamic-text"></span>
-    </div>
-  </header>
+        <div class="header-text">
+            <span class="animated-text" id="animated-text"></span>
+        </div>
+    </header>
 
-  <section class="flights-widget" aria-label="Buscador de vuelos">
-    <h2>Busca los vuelos más baratos a Tenerife</h2>
-    <form id="flights-form" aria-label="Formulario de búsqueda de vuelos">
-      <input type="text" name="origen" placeholder="Origen" required autocomplete="off" />
-      <input type="text" name="destino" placeholder="Destino" required autocomplete="off" value="Tenerife" readonly />
-      <input type="date" name="fechaIda" required />
-      <input type="date" name="fechaVuelta" />
-      <button type="submit">Buscar vuelos</button>
-    </form>
-  </section>
+    <!-- VUELOS -->
+    <section class="vuelos" aria-label="Sección de vuelos">
+        <h2>Encuentra los mejores vuelos a Tenerife</h2>
+        <div class="vuelos-list" role="list">
+            <div class="vuelo-item" role="listitem">Vuelo Madrid - Tenerife desde 35€</div>
+            <div class="vuelo-item" role="listitem">Vuelo Barcelona - Tenerife desde 40€</div>
+            <div class="vuelo-item" role="listitem">Vuelo Londres - Tenerife desde 60€</div>
+            <div class="vuelo-item" role="listitem">Vuelo Varsovia - Tenerife desde 80€</div>
+            <div class="vuelo-item" role="listitem">Vuelo París - Tenerife desde 55€</div>
+        </div>
+    </section>
 
-  <section class="marketing-widget" aria-label="Lugares recomendados en Tenerife">
-    <a href="https://www.guiarepsol.com/content/dam/repsol-guia/contenidos-imagenes/viajar/vamos-de-excursion/qu%C3%A9-ver-en-santa-cruz-de-tenerife/01SantaCruz.jpg.transform/rp-rendition-md/image.jpg" target="_blank" rel="noopener noreferrer" class="marketing-item" aria-label="Santa Cruz de Tenerife">
-      <img src="https://www.guiarepsol.com/content/dam/repsol-guia/contenidos-imagenes/viajar/vamos-de-excursion/qu%C3%A9-ver-en-santa-cruz-de-tenerife/01SantaCruz.jpg.transform/rp-rendition-md/image.jpg" alt="Santa Cruz de Tenerife" />
-      <div class="marketing-text">Santa Cruz de Tenerife</div>
-    </a>
-    <a href="https://www.gancarczyk.com/wp-content/uploads/2024/01/teneryf-01-753x500.jpg" target="_blank" rel="noopener noreferrer" class="marketing-item" aria-label="Paisajes de Tenerife">
-      <img src="https://www.gancarczyk.com/wp-content/uploads/2024/01/teneryf-01-753x500.jpg" alt="Paisajes de Tenerife" />
-      <div class="marketing-text">Paisajes increíbles</div>
-    </a>
-    <a href="https://static-resources-elementor.mirai.com/wp-content/uploads/sites/507/destinos-tenerife-paisajes-el-teide.jpg" target="_blank" rel="noopener noreferrer" class="marketing-item" aria-label="El Teide Tenerife">
-      <img src="https://static-resources-elementor.mirai.com/wp-content/uploads/sites/507/destinos-tenerife-paisajes-el-teide.jpg" alt="El Teide Tenerife" />
-      <div class="marketing-text">El Teide</div>
-    </a>
-  </section>
+    <!-- WIDGET TENERIFE -->
+    <section class="widget-tenerife" aria-label="Sitios para visitar en Tenerife">
+        <h3>Qué ver en Tenerife</h3>
+        <div class="places-grid">
+            <article class="place-card" tabindex="0" aria-label="Santa Cruz de Tenerife">
+                <img src="https://www.guiarepsol.com/content/dam/repsol-guia/contenidos-imagenes/viajar/vamos-de-excursion/qu%C3%A9-ver-en-santa-cruz-de-tenerife/01SantaCruz.jpg.transform/rp-rendition-md/image.jpg" alt="Vista de Santa Cruz de Tenerife" />
+                <div class="place-info">
+                    <h4>Santa Cruz de Tenerife</h4>
+                    <p>La capital vibrante con cultura, playas y gastronomía local.</p>
+                </div>
+            </article>
 
-  <script>
-    // Frases para el header que se van escribiendo y borrando
-    const phrases = [
-      "Encuentra vuelos baratos a Tenerife",
-      "Viaja con estilo y comodidad",
-      "Las mejores ofertas en un solo lugar",
-      "Tu aventura empieza aquí",
-    ];
-    const dynamicText = document.getElementById("dynamic-text");
+            <article class="place-card" tabindex="0" aria-label="Paisajes de Tenerife">
+                <img src="https://www.gancarczyk.com/wp-content/uploads/2024/01/teneryf-01-753x500.jpg" alt="Paisajes naturales de Tenerife" />
+                <div class="place-info">
+                    <h4>Parques y paisajes</h4>
+                    <p>Montañas, bosques y playas que enamoran a los viajeros.</p>
+                </div>
+            </article>
 
-    let currentPhraseIndex = 0;
-    let letterIndex = 0;
-    let isDeleting = false;
-    let speed = 90;
+            <article class="place-card" tabindex="0" aria-label="Parque Nacional El Teide">
+                <img src="https://static-resources-elementor.mirai.com/wp-content/uploads/sites/507/destinos-tenerife-paisajes-el-teide.jpg" alt="El Teide en Tenerife" />
+                <div class="place-info">
+                    <h4>Parque Nacional El Teide</h4>
+                    <p>El volcán más alto de España, con vistas espectaculares.</p>
+                </div>
+            </article>
+        </div>
+    </section>
 
-    function typeWriter() {
-      const currentPhrase = phrases[currentPhraseIndex];
-      if (!isDeleting) {
-        dynamicText.textContent = currentPhrase.substring(0, letterIndex + 1);
-        letterIndex++;
-        if (letterIndex === currentPhrase.length) {
-          isDeleting = true;
-          speed = 2000; // pausa larga al final
-        } else {
-          speed = 90;
+    <script>
+        // Imágenes para el fondo del header
+        const headerImages = [
+            "https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/12781403.webp?k=1bbd15b33fe173532aacd9366fae2b497e1dadd31affa4002a32795b922793b1&o=",
+            "https://images.trvl-media.com/lodging/2000000/1700000/1694100/1694082/0ce2122b.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill",
+            "https://hotelaeropuertosurtenerife.wordpress.com/wp-content/uploads/2021/10/1388119_91_b.jpg",
+            "https://nuestromapamundi.com/wp-content/uploads/2021/03/Avion-Tenerife.jpg"
+        ];
+
+        // Frases que se van escribiendo y borrando
+        const phrases = [
+            "Vuelos baratos a Tenerife",
+            "Descubre destinos únicos",
+            "Compara y ahorra",
+            "Tu aventura comienza aquí"
+        ];
+
+        let currentImageIndex = 0;
+        let currentPhraseIndex = 0;
+        const header = document.getElementById('header');
+        const animatedText = document.getElementById('animated-text');
+
+        // Cambiar fondo header cada 6 segundos
+        function changeHeaderBackground() {
+            currentImageIndex = (currentImageIndex + 1) % headerImages.length;
+            header.style.backgroundImage = `url('${headerImages[currentImageIndex]}')`;
         }
-      } else {
-        dynamicText.textContent = currentPhrase.substring(0, letterIndex - 1);
-        letterIndex--;
-        if (letterIndex === 0) {
-          isDeleting = false;
-          currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-          speed = 300;
-        } else {
-          speed = 60;
+
+        // Inicializamos fondo
+        header.style.backgroundImage = `url('${headerImages[0]}')`;
+
+        setInterval(changeHeaderBackground, 6000);
+
+        // Animación de escritura y borrado (tipo máquina de escribir)
+        function typeWriter(text, i, callback) {
+            if (i < text.length) {
+                animatedText.textContent = text.substring(0, i + 1);
+                setTimeout(() => typeWriter(text, i + 1, callback), 100);
+            } else {
+                setTimeout(callback, 2000);
+            }
         }
-      }
-      setTimeout(typeWriter, speed);
-    }
-    typeWriter();
 
-    // Placeholder: Aquí iría la integración real con API o redirección
-    const form = document.getElementById("flights-form");
-    form.addEventListener("submit", e => {
-      e.preventDefault();
-      alert("Buscando vuelos para: " + form.origen.value + " → " + form.destino.value + " desde " + form.fechaIda.value);
-    });
-  </script>
+        function deleteWriter(text, i, callback) {
+            if (i >= 0) {
+                animatedText.textContent = text.substring(0, i);
+                setTimeout(() => deleteWriter(text, i - 1, callback), 50);
+            } else {
+                callback();
+            }
+        }
 
+        function loopPhrases(index) {
+            typeWriter(phrases[index], 0, () => {
+                deleteWriter(phrases[index], phrases[index].length, () => {
+                    loopPhrases((index + 1) % phrases.length);
+                });
+            });
+        }
+
+        loopPhrases(0);
+    </script>
 </body>
-</html>
-
 </html>
