@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dagmar Travels - Cheap Flights to Venezuela & Tenerife</title>
-  <meta name="description" content="Find the cheapest flights to and from Venezuela, plus flight and hotel packages to Tenerife. Flight comparison for Polish and Eastern European travelers." />
-  <meta name="keywords" content="cheap flights, flights to Venezuela, flights to Tenerife, flight comparison, flight and hotel packages, Europe travel, budget flights" />
+  <title>Dagmar Travels - Cheap Flights to Tenerife</title>
+  <meta name="description" content="Find the cheapest flights to and from Canary Islands, plus flight and hotel packages to Tenerife. Flight comparison for Polish and Eastern European travelers." />
+  <meta name="keywords" content="cheap flights, flights to Tenerife, flight comparison, flight and hotel packages, Europe travel, budget flights" />
   <meta name="author" content="Luis / Dagmar Travels" />
   <link rel="canonical" href="https://your-domain.com/" />
 
@@ -55,23 +55,36 @@
       user-select: none;
     }
 
+    /* Animación para el fondo que se mueve horizontalmente */
+    @keyframes panBackground {
+      0% {
+        background-position: center 50%;
+      }
+      50% {
+        background-position: center 45%;
+      }
+      100% {
+        background-position: center 50%;
+      }
+    }
+
     header::before {
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
       background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/80/ef/57/gran-melia-palacio-de.jpg?w=1200&h=-1&s=1');
       background-size: cover;
-      background-position: center;
-      /* Menos oscuro */
+      background-repeat: no-repeat;
+      background-position: center 50%;
       filter: brightness(0.55) saturate(0.9) contrast(1.1);
       z-index: -2;
+      animation: panBackground 15s ease-in-out infinite;
       transition: background-image 1s ease-in-out;
     }
     header::after {
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      /* Overlay negro menos intenso */
       background-color: rgba(0, 0, 0, 0.3);
       z-index: -1;
     }
@@ -81,7 +94,7 @@
       position: absolute;
       top: 20px;
       left: 20px;
-      width: 240px;
+      width: 280px;
       height: auto;
       z-index: 10;
       user-select: none;
@@ -225,7 +238,7 @@
         font-size: 2.4rem;
       }
       header .logo {
-        width: 180px;
+        width: 220px;
         top: 15px;
         left: 15px;
       }
@@ -243,7 +256,7 @@
   <header role="banner">
     <img class="logo" src="https://i.imgur.com/mVciASa.png" alt="Dagmar Travels Logo" />
     <h1>
-      Find the best <span id="changing-word" class="animated-text" aria-live="polite" aria-atomic="true">flights</span> for your trip
+      Find the best <span id="changing-word" class="animated-text" aria-live="polite" aria-atomic="true">flights</span> for your trip in Tenerife
     </h1>
   </header>
 
@@ -251,7 +264,7 @@
 
     <div class="widgets-container">
       <section class="flights-widget" aria-label="Flight search widget">
-        <h2>Search Cheap Flights</h2>
+        <h2>Cheap Flights to Tenerife</h2>
         <script async src="https://c111.travelpayouts.com/content?currency=pln&trs=423668&shmarker=638051&from_name=PL&to_name=TFS&locale=en&powered_by=true&limit=4&primary_color=444A48ff&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
       </section>
     </div>
@@ -293,12 +306,4 @@
       setTimeout(() => {
         changingWord.textContent = words[index];
         // Fade in
-        changingWord.style.opacity = '1';
-      }, 1000);
-    }
-
-    setInterval(cycleWords, 4000);
-  </script>
-
-</body>
-</html>
+        changingWord.style.opacity = '
