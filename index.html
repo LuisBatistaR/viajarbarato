@@ -1,216 +1,213 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dagmar Travels – The Island by Dagmar</title>
-  <meta name="description" content="Luxury air travel to Tenerife. Boutique island escapes curated by Dagmar. No stress. Just sun.">
-  <meta name="theme-color" content="#000000" />
-  <link rel="icon" href="https://i.imgur.com/gfKxjRL.png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Odkryj Teneryfę</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
-      font-family: 'Poppins', sans-serif;
-      background: #f9fafb;
-      color: #222;
-      scroll-behavior: smooth;
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      background: #fff;
     }
-    a { text-decoration: none; transition: color 0.3s ease; }
 
     .intro {
       position: fixed;
-      inset: 0;
-      background: #000;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: black;
+      z-index: 9999;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      z-index: 9999;
-      opacity: 1;
-      transition: opacity 1.2s ease;
+      animation: fadeOutWhite 1s ease 3s forwards;
     }
-    .intro-logo {
-      max-width: 280px;
+
+    .intro img {
+      width: 300px;
       opacity: 0;
-      transform: scale(0.95);
-      animation: logoFadeIn 1.2s ease forwards 0.4s;
+      animation: logoFadeIn 1.5s ease 0.5s forwards;
     }
-    .intro-tagline {
-      font-family: 'Montserrat', sans-serif;
-      color: #fff;
-      font-size: 1rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-top: 1.2rem;
+
+    .intro::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: white;
       opacity: 0;
-      animation: taglineFadeIn 1.2s ease forwards 1s;
+      animation: whiteFadeIn 1s ease-in-out 2.5s forwards;
+      z-index: -1;
     }
 
-    @keyframes logoFadeIn { to { opacity: 1; transform: scale(1); } }
-    @keyframes taglineFadeIn { to { opacity: 1; } }
-
-    .top-bar {
-      background: #fff;
-      padding: 16px 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #eee;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      transition: background 0.4s ease;
+    @keyframes logoFadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to   { opacity: 1; transform: scale(1); }
     }
 
-    .top-bar img {
-      height: 100px;
+    @keyframes whiteFadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
     }
 
-    .nav-menu a {
-      margin-left: 24px;
-      font-size: 0.95rem;
+    @keyframes fadeOutWhite {
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    .flash {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: white;
+      opacity: 0;
+      z-index: 9998;
+      pointer-events: none;
+      transition: opacity 1s ease;
+    }
+
+    .flash.show { opacity: 1; }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      color: white;
+      text-align: center;
+    }
+
+    .background-video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      transition: opacity 1s ease;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    .hero-text {
+      position: absolute;
+      bottom: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+
+    .hero-logo {
+      max-width: 98%;
+      height: auto;
+      max-height: 360px;
+      filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.5));
+    }
+
+    .separator-bar {
+      width: 100%;
+      height: 60px;
+      background-color: #111;
+    }
+
+    main {
+      padding: 60px;
+      text-align: center;
+    }
+
+    .skip-btn {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .skip-btn a {
+      color: white;
+      text-decoration: none;
+      opacity: 0.8;
       font-weight: 500;
-      text-transform: uppercase;
-      color: #111;
-    }
-
-    .nav-menu a:hover {
-      color: #00ae98;
     }
   </style>
 </head>
 <body>
 
-<div class="intro" id="intro">
-  <img src="https://i.imgur.com/mVciASa.png" class="intro-logo" alt="Dagmar Logo Blanco" />
-  <div class="intro-tagline">THE ISLAND BY DAGMAR</div>
-</div>
-
-<div class="top-bar" id="topBar">
-  <img src="https://i.imgur.com/gfKxjRL.png" alt="Dagmar Logo" />
-  <div class="nav-menu">
-    <a href="#vuelos">Vuelos</a>
-    <a href="#tips">Tips</a>
-    <a href="#contacto">Contacto</a>
+  <!-- Intro -->
+  <div class="intro" id="intro">
+    <img src="https://i.imgur.com/D3fNV92.png" alt="Intro Logo" />
   </div>
-</div>
 
-<section class="hero" id="vuelos" style="position:relative; height:80vh; overflow:hidden; text-align:center; color:white;">
-  <video class="active" autoplay muted loop playsinline style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:1; opacity:1; transition:opacity 1.5s ease;">
-    <source src="https://cdn.pixabay.com/video/2023/10/13/184860-874264423_large.mp4" type="video/mp4">
-  </video>
-  <video autoplay muted loop playsinline style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:1; opacity:0; transition:opacity 1.5s ease;">
-    <source src="https://cdn.pixabay.com/video/2024/06/16/216951_large.mp4" type="video/mp4">
-  </video>
-  <div style="content:''; position:absolute; inset:0; background:rgba(0, 0, 0, 0.4); z-index:2;"></div>
-  <div class="content" style="position:relative; z-index:3; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center;">
-    <img src="https://i.imgur.com/mVciASa.png" alt="Dagmar Logo Blanco" class="logo" style="max-width:420px; margin-bottom:1.2rem;">
-    <div class="slogan-big" style="font-size:1.4rem; font-weight:500; font-family:'Montserrat',sans-serif; letter-spacing:3px; text-transform:uppercase; color:#f0f0f0; margin-bottom:1.5rem;">THE ISLAND BY DAGMAR</div>
-    <div class="storytelling" id="story" style="font-size:1.6rem; font-style:italic; text-shadow:0 2px 6px rgba(0,0,0,0.3); position:relative; white-space:nowrap; min-height:2em; font-weight:300;">
-      <span class="active">Whispers of salt on your skin.</span>
-      <span>Swim where lava met the sea.</span>
-      <span>Luxury is space — and silence.</span>
-      <span>The island doesn’t ask, it invites.</span>
-      <span>This is not tourism. It’s return.</span>
+  <!-- Flash -->
+  <div class="flash" id="flash"></div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <video id="bgVideo" autoplay muted playsinline class="background-video">
+      <source id="videoSource" src="https://cdn.pixabay.com/video/2023/08/06/174880-852541113_large.mp4" type="video/mp4">
+    </video>
+
+    <div class="overlay"></div>
+
+    <div class="hero-text">
+      <img src="https://i.imgur.com/e2PNeOR.png" alt="Logo Hero" class="hero-logo">
     </div>
-  </div>
-</section>
-<section class="divider">Encuentra vuelos y hoteles en la isla</section>
-<section class="widget-section" style="padding:2rem 1rem; background:#fff; max-width:1000px; margin:auto;">
-  <script async src="https://c111.travelpayouts.com/content?currency=eur&trs=423672&shmarker=638051&from_name=PL&to_name=TFS&locale=es&powered_by=true&limit=4&primary_color=334140ff&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
-</section>
 
-<section class="divider">Explora la isla con Dagmar</section>
-<section class="magazine-static" style="text-align:center; padding:3rem 1rem; background:#fff;">
-  <div style="max-width:960px; margin:auto;">
-    <img id="magazineImage" src="https://cdn.diariodeavisos.com/wp-content/uploads/2025/02/carnaval-santa-cruz-2-1024x597.jpg"
-         alt="Explora Tenerife" style="width:100%; max-height:500px; object-fit:cover; border-radius:12px;">
-    <div id="magazineCaption" style="margin-top:1.2rem; font-family:'Montserrat',sans-serif;">
-      <h3 style="margin-bottom:0.5rem;">🎭 Carnaval de Santa Cruz</h3>
-      <p>La isla se disfraza de alegría y colores por unos días inolvidables.</p>
+    <div class="skip-btn">
+      <a href="#main">POMIŃ</a>
     </div>
-  </div>
-</section>
+  </header>
 
-<footer id="contacto" style="background:#111;color:#ccc;padding:2rem;text-align:center;font-size:0.9rem;">
-  <p>&copy; 2025 <strong>Dagmar Travels</strong>. Todos los derechos reservados.</p>
-  <p>
-    <a href="https://instagram.com/0700dagmar" target="_blank" rel="noopener noreferrer" style="color:#fff;">
-      <i class="fab fa-instagram"></i> @0700dagmar</a>
-    ·
-    <a href="https://dagmarobjects.com" target="_blank" rel="noopener noreferrer" style="color:#fff;">
-      <i class="fas fa-globe"></i> Web</a>
-  </p>
-</footer>
+  <!-- Separator -->
+  <div class="separator-bar"></div>
 
-<script>
-  const images = [
-    {
-      src: "https://cdn.diariodeavisos.com/wp-content/uploads/2025/02/carnaval-santa-cruz-2-1024x597.jpg",
-      title: "🎭 Carnaval de Santa Cruz",
-      desc: "La isla se disfraza de alegría y colores por unos días inolvidables."
-    },
-    {
-      src: "https://www.barcelo.com/guia-turismo/wp-content/uploads/2024/09/ok-playa-de-las-teresitas.jpg",
-      title: "🏖️ Playa de Las Teresitas",
-      desc: "Kilómetros de arena dorada y el Atlántico más cristalino."
-    },
-    {
-      src: "https://www.barcelo.com/guia-turismo/wp-content/uploads/puerto-de-la-cruz-3.jpg",
-      title: "🌅 Puerto de la Cruz",
-      desc: "Atardeceres mágicos frente al Teide y el sabor a sal."
+  <!-- Main content -->
+  <main id="main">
+    <h2>Witamy na naszej stronie!</h2>
+    <p>Odkryj najlepsze miejsca, plaże i przygody na Teneryfie.</p>
+  </main>
+
+  <script>
+    const videos = [
+      "https://cdn.pixabay.com/video/2023/08/06/174880-852541113_large.mp4",
+      "https://cdn.pixabay.com/video/2024/06/03/215129_large.mp4",
+      "https://cdn.pixabay.com/video/2024/06/29/218774_large.mp4",
+      "https://cdn.pixabay.com/video/2020/01/17/31331-385863209_large.mp4",
+      "https://cdn.pixabay.com/video/2024/06/10/216102_large.mp4",
+      "https://cdn.pixabay.com/video/2024/05/22/213102_large.mp4",
+      "https://cdn.pixabay.com/video/2018/12/30/20351-308852951_large.mp4"
+    ];
+
+    const video = document.getElementById('bgVideo');
+    const source = document.getElementById('videoSource');
+    const flash = document.getElementById('flash');
+    let index = 0;
+
+    function playNextVideo() {
+      flash.classList.add('show');
+      setTimeout(() => {
+        index = (index + 1) % videos.length;
+        source.src = videos[index];
+        video.load();
+        video.play();
+        flash.classList.remove('show');
+        setTimeout(playNextVideo, 8000); // volver a llamar tras 8s
+      }, 300);
     }
-  ];
-  let index = 0;
-  setInterval(() => {
-    index = (index + 1) % images.length;
-    document.getElementById('magazineImage').src = images[index].src;
-    document.getElementById('magazineCaption').innerHTML =
-      `<h3 style="margin-bottom:0.5rem;">${images[index].title}</h3>
-       <p>${images[index].desc}</p>`;
-  }, 6000);
-</script>
 
-<script>
-  // Intro fade
-  window.addEventListener('load', () => {
-    const intro = document.getElementById('intro');
-    setTimeout(() => {
-      intro.style.opacity = '0';
-      setTimeout(() => intro.remove(), 1200);
-    }, 2200);
-  });
-
-  // Storytelling loop
-  const lines = document.querySelectorAll('#story span');
-  let textIndex = 0;
-  setInterval(() => {
-    lines[textIndex].classList.remove('active');
-    textIndex = (textIndex + 1) % lines.length;
-    lines[textIndex].classList.add('active');
-  }, 7000);
-
-  // Background video switch
-  const videos = document.querySelectorAll('.hero video');
-  let videoIndex = 0;
-  setInterval(() => {
-    videos[videoIndex].classList.remove('active');
-    videoIndex = (videoIndex + 1) % videos.length;
-    videos[videoIndex].classList.add('active');
-  }, 9000);
-
-  // Sticky header
-  window.addEventListener('scroll', () => {
-    const topBar = document.querySelector('.top-bar');
-    if (window.scrollY > 10) {
-      topBar.classList.add('scrolled');
-    } else {
-      topBar.classList.remove('scrolled');
-    }
-  });
-</script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        video.play();
+        setTimeout(playNextVideo, 8000);
+      }, 4000); // tras intro
+    });
+  </script>
 
 </body>
 </html>
