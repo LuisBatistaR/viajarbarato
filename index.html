@@ -79,15 +79,15 @@
     }
 
     .nav-menu a {
+      color: #fff !important;
       margin-left: 24px;
       font-size: 0.95rem;
       font-weight: 500;
       text-transform: uppercase;
-      color: #111;
     }
 
     .top-bar.scrolled .nav-menu a {
-      color: #fff;
+      color: #fff !important;
     }
 
     .nav-menu a:hover {
@@ -120,8 +120,8 @@
   </video>
   <div class="content" style="position:relative;z-index:3;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;">
     <img src="https://i.imgur.com/mVciASa.png" alt="Dagmar Logo Blanco" class="logo" style="max-width:420px;margin-bottom:1.2rem;">
-    <div class="slogan-big">THE ISLAND BY DAGMAR</div>
-    <div class="storytelling" id="story">
+    <div class="slogan-big" style="font-size:1.4rem;font-weight:500;font-family:'Montserrat',sans-serif;letter-spacing:3px;text-transform:uppercase;color:#f0f0f0;margin-bottom:1.5rem;">THE ISLAND BY DAGMAR</div>
+    <div class="storytelling" id="story" style="font-size:1.6rem;font-style:italic;text-shadow:0 2px 6px rgba(0,0,0,0.3);position:relative;white-space:nowrap;min-height:2em;font-weight:300;">
       <span class="active">Whispers of salt on your skin.</span>
       <span>Swim where lava met the sea.</span>
       <span>Luxury is space — and silence.</span>
@@ -131,64 +131,27 @@
   </div>
 </section>
 
-<section class="divider">Searching for flights and hotels in the island?</section>
-
-<section class="widget-section">
-  <script async src="https://c111.travelpayouts.com/content?currency=eur&trs=423672&shmarker=638051&from_name=PL&to_name=TFS&locale=en&powered_by=true&limit=4&primary_color=334140ff&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
-</section>
-
-<section class="divider">Local knowledge curated by Dagmar</section>
-
-<section class="blog-magazine" id="tips">
-  <h2 style="text-align:center; font-family:'Montserrat',sans-serif; font-size:2rem; text-transform:uppercase; margin-bottom:2rem;">The Island by Dagmar</h2>
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="https://source.unsplash.com/800x600/?tenerife,beach" alt="Playa en Tenerife">
-        <h3>☀️ El Médano sin gente</h3>
-        <p>Amanecer, viento, Atlántico. Café negro y ninguna conversación. Silencio que cura.</p>
-      </div>
-      <div class="swiper-slide">
-        <img src="https://source.unsplash.com/800x600/?tenerife,vineyard" alt="Guachinche entre pinos">
-        <h3>🍷 Guachinche entre pinos</h3>
-        <p>Vino local, pan duro, mojo de verdad. No lo encontrarás en Google Maps.</p>
-      </div>
-      <div class="swiper-slide">
-        <img src="https://source.unsplash.com/800x600/?tenerife,naturalpool" alt="Charco sin nombre">
-        <h3>🌊 Charco sin nombre</h3>
-        <p>Sigue la carretera vieja. Gira donde se acaba el asfalto. Confía en el mar.</p>
-      </div>
-      <div class="swiper-slide">
-        <img src="https://source.unsplash.com/800x600/?tenerife,road" alt="Ruta alterna al norte">
-        <h3>🛵 Ruta alterna al norte</h3>
-        <p>Evita la autopista. Sube por Arafo. Baja por pinos y lava. Llegarás más feliz.</p>
-      </div>
-    </div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+<section class="divider">Explora la isla con Dagmar</section>
+<section class="magazine-scroll" style="overflow-x: auto; white-space: nowrap; padding: 2rem 1rem; background: #fff;">
+  <div style="display: inline-block; width: 300px; margin-right: 20px;">
+    <img src="https://cdn.diariodeavisos.com/wp-content/uploads/2025/02/carnaval-santa-cruz-2-1024x597.jpg" alt="Carnaval de Santa Cruz" style="width:100%; border-radius: 12px;">
+    <h3 style="font-family:'Montserrat',sans-serif;margin-top:1rem;">🎭 Carnaval de Santa Cruz</h3>
+    <p style="font-size: 0.95rem;">La isla se disfraza de alegría y colores por unos días inolvidables.</p>
+  </div>
+  <div style="display: inline-block; width: 300px; margin-right: 20px;">
+    <img src="https://www.barcelo.com/guia-turismo/wp-content/uploads/2024/09/ok-playa-de-las-teresitas.jpg" alt="Playa de Las Teresitas" style="width:100%; border-radius: 12px;">
+    <h3 style="font-family:'Montserrat',sans-serif;margin-top:1rem;">🏖️ Playa de Las Teresitas</h3>
+    <p style="font-size: 0.95rem;">Kilómetros de arena dorada y el Atlántico más cristalino.</p>
+  </div>
+  <div style="display: inline-block; width: 300px;">
+    <img src="https://www.barcelo.com/guia-turismo/wp-content/uploads/puerto-de-la-cruz-3.jpg" alt="Puerto de la Cruz" style="width:100%; border-radius: 12px;">
+    <h3 style="font-family:'Montserrat',sans-serif;margin-top:1rem;">🌅 Puerto de la Cruz</h3>
+    <p style="font-size: 0.95rem;">Atardeceres mágicos frente al Teide y el sabor a sal.</p>
   </div>
 </section>
-<!-- Tarjetas Boutique -->
-<section class="divider">Viaja mejor con Dagmar</section>
-<section class="boutique-cards">
-  <div class="boutique-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1100px;margin:auto;">
-    <div class="boutique-card" style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.06);">
-      <img src="https://source.unsplash.com/400x300/?perfume" alt="Perfume" style="width:100%;height:200px;object-fit:cover;">
-      <div style="padding:1.5rem;">
-        <h3 style="font-family:'Montserrat',sans-serif;font-size:1.2rem;margin-bottom:0.5rem;">Boutique: belleza y complementos</h3>
-        <p style="font-size:0.95rem;color:#555;margin-bottom:1rem;">Mejora tu viaje con nuestra exclusiva selección de productos boutique con un 10% de descuento.</p>
-        <a href="#" style="display:inline-block;background:#00ae98;color:#fff;padding:0.5rem 1rem;border-radius:4px;font-size:0.85rem;text-transform:uppercase;text-decoration:none;">Ir a la tienda</a>
-      </div>
-    </div>
-    <div class="boutique-card" style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.06);">
-      <img src="https://source.unsplash.com/400x300/?snacks,travel" alt="Comida a bordo" style="width:100%;height:200px;object-fit:cover;">
-      <div style="padding:1.5rem;">
-        <h3 style="font-family:'Montserrat',sans-serif;font-size:1.2rem;margin-bottom:0.5rem;">Bistro: comida y bebida</h3>
-        <p style="font-size:0.95rem;color:#555;margin-bottom:1rem;">Adelántate a tu vuelo con un 10% de descuento en nuestros productos a bordo.</p>
-        <a href="#" style="display:inline-block;background:#00ae98;color:#fff;padding:0.5rem 1rem;border-radius:4px;font-size:0.85rem;text-transform:uppercase;text-decoration:none;">Ver menú</a>
-      </div>
-    </div>
-  </div>
+<section class="divider">Encuentra vuelos y hoteles en la isla</section>
+<section class="widget-section" style="padding:2rem 1rem; background:#fff; max-width:1000px; margin:auto;">
+  <script async src="https://c111.travelpayouts.com/content?currency=eur&trs=423672&shmarker=638051&from_name=PL&to_name=TFS&locale=es&powered_by=true&limit=4&primary_color=334140ff&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
 </section>
 
 <footer id="contacto" style="background:#111;color:#ccc;padding:2rem;text-align:center;font-size:0.9rem;">
@@ -200,9 +163,8 @@
   </p>
 </footer>
 
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
-  // Intro
+  // Intro fade
   window.addEventListener('load', () => {
     const intro = document.getElementById('intro');
     setTimeout(() => {
@@ -211,7 +173,7 @@
     }, 2200);
   });
 
-  // Storytelling
+  // Storytelling text cycle
   const lines = document.querySelectorAll('#story span');
   let textIndex = 0;
   setInterval(() => {
@@ -220,7 +182,7 @@
     lines[textIndex].classList.add('active');
   }, 7000);
 
-  // Video switching
+  // Video background switch
   const videos = document.querySelectorAll('.hero video');
   let videoIndex = 0;
   setInterval(() => {
@@ -229,21 +191,7 @@
     videos[videoIndex].classList.add('active');
   }, 9000);
 
-  // Swiper
-  var swiper = new Swiper('.swiper-container', {
-    slidesPerView: 1,
-    spaceBetween: 20,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    autoplay: {
-      delay: 6000,
-    },
-    loop: true,
-  });
-
-  // Header scroll color
+  // Sticky header color
   window.addEventListener('scroll', () => {
     const topBar = document.querySelector('.top-bar');
     if (window.scrollY > 10) {
