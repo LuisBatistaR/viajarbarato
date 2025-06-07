@@ -2,10 +2,40 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dagmar Travels – The Island</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dagmar Travels – The Island by Dagmar</title>
+  <meta name="description" content="Luxury air travel to Tenerife. Boutique island escapes, curated by Dagmar. No stress. Just sun.">
+  <meta name="keywords" content="Dagmar Travels, Tenerife, vuelos boutique, viajes de lujo, isla, experiencias únicas">
+  <meta name="author" content="Dagmar Team">
+  <link rel="canonical" href="https://dagmarobjects.com/" />
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Dagmar Travels – The Island by Dagmar">
+  <meta property="og:description" content="Luxury air travel to Tenerife. Boutique island escapes curated by Dagmar.">
+  <meta property="og:image" content="https://i.imgur.com/mVciASa.png">
+  <meta property="og:url" content="https://dagmarobjects.com">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dagmar Travels – The Island">
+  <meta name="twitter:description" content="Tenerife luxury flights & escapes. The island by Dagmar.">
+  <meta name="twitter:image" content="https://i.imgur.com/mVciASa.png">
+  <meta name="twitter:site" content="@0700dagmar">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://i.imgur.com/gfKxjRL.png" type="image/png">
+
+  <!-- Fonts + Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Plausible Analytics (replace with your domain) -->
+  <script defer data-domain="dagmarobjects.com" src="https://plausible.io/js/plausible.js"></script>
+
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
@@ -14,9 +44,54 @@
       background: #f9fafb;
     }
 
+    .intro {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 1;
+      transition: opacity 1.2s ease-in-out;
+    }
+
+    .intro-logo {
+      max-width: 220px;
+      width: 60%;
+      opacity: 0;
+      transform: scale(0.95);
+      animation: logoFadeIn 1.2s ease forwards 0.4s;
+    }
+
+    .intro-tagline {
+      color: #fff;
+      font-family: 'Montserrat', serif;
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 1rem;
+      opacity: 0;
+      animation: taglineFadeIn 1.2s ease forwards 1s;
+    }
+
+    @keyframes logoFadeIn {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes taglineFadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
     .top-bar {
       background: white;
-      padding: 24px 32px;
+      padding: 20px 32px;
       border-bottom: 1px solid #eee;
       display: flex;
       justify-content: space-between;
@@ -131,39 +206,28 @@
     .storytelling span.active {
       opacity: 1;
     }
-
-    @media (max-width: 600px) {
-      .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .top-right {
-        margin-top: 12px;
-      }
-
-      .top-right a {
-        font-size: 1.2rem;
-      }
-    }
   </style>
 </head>
 <body>
 
+  <!-- Cinematic Intro -->
+  <div class="intro" id="intro">
+    <img src="https://i.imgur.com/mVciASa.png" alt="Dagmar Intro Logo" class="intro-logo" />
+    <div class="intro-tagline">THE ISLAND BY DAGMAR</div>
+  </div>
+
+  <!-- Header -->
   <div class="top-bar" id="topBar">
     <div class="top-left">
-      <img src="https://i.imgur.com/gfKxjRL.png" alt="Dagmar Logo" id="dagmarLogo">
+      <img src="https://i.imgur.com/gfKxjRL.png" alt="Dagmar Logo">
     </div>
     <div class="top-right">
-      <a href="https://instagram.com/0700dagmar" target="_blank" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://dagmarobjects.com" target="_blank" aria-label="Website">
-        <i class="fas fa-globe"></i>
-      </a>
+      <a href="https://instagram.com/0700dagmar" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://dagmarobjects.com" target="_blank"><i class="fas fa-globe"></i></a>
     </div>
   </div>
 
+  <!-- Hero -->
   <section class="hero">
     <video class="active" autoplay muted loop playsinline>
       <source src="https://cdn.pixabay.com/video/2024/06/16/216951_large.mp4" type="video/mp4">
@@ -204,8 +268,18 @@
     </div>
   </section>
 
+  <!-- Scripts -->
   <script>
-    // Storytelling animation
+    // Intro fade out
+    window.addEventListener('load', () => {
+      const intro = document.getElementById('intro');
+      setTimeout(() => {
+        intro.style.opacity = '0';
+        setTimeout(() => intro.style.display = 'none', 1200);
+      }, 2200);
+    });
+
+    // Storytelling rotator
     const lines = document.querySelectorAll('#story span');
     let textIndex = 0;
     setInterval(() => {
@@ -214,7 +288,7 @@
       lines[textIndex].classList.add('active');
     }, 9000);
 
-    // Video background carousel
+    // Video carousel
     const videos = document.querySelectorAll('.hero video');
     let videoIndex = 0;
     setInterval(() => {
@@ -223,7 +297,7 @@
       videos[videoIndex].classList.add('active');
     }, 9000);
 
-    // Hover effect for top bar
+    // Header hover
     const topBar = document.getElementById('topBar');
     topBar.addEventListener('mouseenter', () => topBar.classList.add('hovered'));
     topBar.addEventListener('mouseleave', () => topBar.classList.remove('hovered'));
@@ -231,4 +305,3 @@
 
 </body>
 </html>
-
