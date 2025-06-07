@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cheap Flights to Venezuela and Tenerife | Dagmar Travels</title>
+  <title>Dagmar Travels - Cheap Flights to Venezuela & Tenerife</title>
   <meta name="description" content="Find the cheapest flights to and from Venezuela, plus flight and hotel packages to Tenerife. Flight comparison for Polish and Eastern European travelers." />
   <meta name="keywords" content="cheap flights, flights to Venezuela, flights to Tenerife, flight comparison, flight and hotel packages, Europe travel, budget flights" />
   <meta name="author" content="Luis / Dagmar Travels" />
@@ -19,8 +19,8 @@
 
     body {
       margin: 0;
-      background: #f5f5f5; /* fondo muy claro y neutro */
-      color: #444444; /* gris oscuro suave */
+      background: #f5f5f5;
+      color: #444444;
       font-family: 'Poppins', sans-serif;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -28,32 +28,30 @@
     }
 
     a {
-      color: #666666; /* gris neutro para links */
+      color: #666666;
       text-decoration: none;
       transition: color 0.3s ease;
     }
-
     a:hover,
     a:focus {
-      color: #222222; /* más oscuro al hover */
+      color: #222222;
       text-decoration: underline;
       outline: none;
     }
 
     header {
       position: relative;
-      width: 100%;
-      height: 420px; /* más alto para logo grande */
+      height: 350px;
+      color: white;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      color: #444444;
+      align-items: center;
       text-align: center;
       overflow: hidden;
+      font-family: 'Playfair Display', serif;
       padding: 0 1rem;
       user-select: none;
-      background: #e0e0e0; /* fallback neutro */
     }
 
     header::before {
@@ -63,54 +61,36 @@
       background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/80/ef/57/gran-melia-palacio-de.jpg?w=1200&h=-1&s=1');
       background-size: cover;
       background-position: center;
-      filter: brightness(1.8) saturate(1.2) contrast(1.2) blur(2px);
-      z-index: -1;
+      filter: brightness(1.15) saturate(1.1) contrast(1.05);
+      z-index: -2;
       transition: background-image 1s ease-in-out;
     }
-
-    header .logo {
-      width: 400px; /* logo más grande */
-      margin-bottom: 40px;
-      z-index: 1;
-      object-fit: contain;
-      filter: grayscale(0.8);
-      opacity: 0.85;
-      transition: filter 0.3s ease, opacity 0.3s ease;
-    }
-    header .logo:hover,
-    header .logo:focus {
-      filter: grayscale(0);
-      opacity: 1;
-      outline: none;
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: -1;
     }
 
     header h1 {
-      font-weight: 700;
-      font-size: 2.8rem;
-      margin: 0;
+      font-size: 3.2rem;
+      margin: 0 0 0.4rem;
+      font-weight: normal;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.7);
       position: relative;
       z-index: 1;
-      letter-spacing: 1px;
-      color: #444444;
     }
 
-    /* La palabra animada con Playfair Display */
     header .animated-text {
-      font-family: 'Playfair Display', serif;
       font-style: italic;
       font-weight: 600;
+      color: #ffd700;
       transition: opacity 1.8s ease-in-out;
       opacity: 1;
-      color: #333333;
-    }
-
-    header .divider {
-      width: 90px;
-      height: 3px;
-      background-color: #ccc;
-      margin: 15px auto 25px;
-      border-radius: 2px;
-      z-index: 1;
+      display: inline-block;
+      margin-left: 0.3rem;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.6);
     }
 
     main {
@@ -126,11 +106,9 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       padding: 2rem 1.5rem;
       margin-bottom: 3rem;
-      font-family: 'Poppins', sans-serif;
       max-width: 900px;
       margin-left: auto;
       margin-right: auto;
-      color: #444444;
     }
 
     .flights-widget h2 {
@@ -224,10 +202,6 @@
       header h1 {
         font-size: 2rem;
       }
-      header .logo {
-        width: 280px;
-        margin-bottom: 25px;
-      }
       .carousel-item {
         width: 220px;
       }
@@ -240,11 +214,9 @@
 <body>
 
   <header role="banner">
-    <img src="https://i.imgur.com/gfKxjRL.png" alt="Dagmar Travels Logo" class="logo" />
     <h1>
-      Find the best <span id="changing-word" class="animated-text" aria-live="polite">flights</span> for your trip
+      Find the best <span id="changing-word" class="animated-text" aria-live="polite" aria-atomic="true">flights</span> for your trip
     </h1>
-    <div class="divider" aria-hidden="true"></div>
   </header>
 
   <main role="main">
@@ -264,40 +236,37 @@
         <p>La Orotava</p>
       </article>
       <article class="carousel-item" tabindex="0" role="link" aria-label="Los Cristianos">
-        <img src="https://www.cestee.es/images/22/12/92212-920w.webp" alt="Beach view of Los Cristianos" />
+        <img src="https://images.adsttc.com/media/images/56de/57e3/e58e/ce41/8700/0113/newsletter/Los-Cristianos-Harbour_Tenerife_Eric-Owen-Architects-00_featured.jpg?1457410050" alt="Harbor in Los Cristianos" />
         <p>Los Cristianos</p>
       </article>
       <article class="carousel-item" tabindex="0" role="link" aria-label="Puerto de la Cruz">
-        <img src="https://sendaecoway.com/wp-content/uploads/2024/10/6197abf017d202925a23e959_turismo-en-puerto-de-la-cruz-1024x627-1.jpg.webp" alt="Puerto de la Cruz harbor" />
+        <img src="https://tenerife.spain-is.com/images/galleries/puerto-de-la-cruz-02.jpg" alt="View of Puerto de la Cruz" />
         <p>Puerto de la Cruz</p>
-      </article>
-      <article class="carousel-item" tabindex="0" role="link" aria-label="Santa Cruz de Tenerife">
-        <img src="https://www.guiarepsol.com/content/dam/repsol-guia/contenidos-imagenes/viajar/vamos-de-excursion/qu%C3%A9-ver-en-santa-cruz-de-tenerife/01SantaCruz.jpg" alt="Santa Cruz de Tenerife city view" />
-        <p>Santa Cruz</p>
       </article>
     </section>
 
   </main>
 
   <footer role="contentinfo">
-    <p>© 2025 Dagmar Travels — Cheap Flights to Venezuela & Tenerife. All rights reserved.</p>
+    &copy; 2025 Dagmar Travels. All rights reserved.
   </footer>
 
   <script>
-    // Animación simple para cambiar la palabra "flights" en el header
-    const words = ['flights', 'deals', 'destinations', 'adventures'];
+    // Palabras que se animan en el header
+    const words = ["flights", "packages", "deals", "offers", "vacations"];
     let index = 0;
     const changingWord = document.getElementById('changing-word');
 
-    setInterval(() => {
-      index = (index + 1) % words.length;
-      // Fading out
+    function changeWord() {
       changingWord.style.opacity = 0;
       setTimeout(() => {
+        index = (index + 1) % words.length;
         changingWord.textContent = words[index];
         changingWord.style.opacity = 1;
       }, 900);
-    }, 4000);
+    }
+
+    setInterval(changeWord, 4000);
   </script>
 
 </body>
