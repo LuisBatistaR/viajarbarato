@@ -1,187 +1,277 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Travel Payouts Widget Tenerife</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      margin: 0; padding: 0;
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: white;
-      display: flex;
-      justify-content: center;
-    }
+  <title>Cheap Flights to Venezuela and Tenerife | Dagmar Travels</title>
+  <meta name="description" content="Find the cheapest flights to and from Venezuela, plus flight and hotel packages to Tenerife. Flight comparison for Polish and Eastern European travelers." />
+  <meta name="keywords" content="cheap flights, flights to Venezuela, flights to Tenerife, flight comparison, flight and hotel packages, Europe travel, budget flights" />
+  <meta name="author" content="Luis / Dagmar Travels" />
+  <link rel="canonical" href="https://your-domain.com/" />
 
-    main {
-      width: 95vw;
-      max-width: 1100px;
-      margin-top: 1rem;
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #001f4d 0%, #003366 100%);
+      color: #f0e68c;
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a {
+      color: #ffd700;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover,
+    a:focus {
+      color: #fffacd;
+      text-decoration: underline;
+      outline: none;
     }
 
     header {
+      position: relative;
+      width: 100%;
+      height: 380px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1rem;
-    }
-
-    header img {
-      width: 120px;
-      height: auto;
-      margin-right: 1rem;
-    }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 2.5rem;
-      color: #ffcc00;
-      text-decoration: none;
-      margin: 0;
-    }
-
-    h1 span#changing-word {
-      opacity: 1;
-      transition: opacity 0.6s ease;
-    }
-
-    /* Carrusel container */
-    .carousel-container {
-      width: 100%;
+      color: #ffd700;
+      text-align: center;
       overflow: hidden;
+      padding: 0 1rem;
+      user-select: none;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/80/ef/57/gran-melia-palacio-de.jpg?w=1200&h=-1&s=1');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.25) saturate(1.2);
+      z-index: -1;
+      transition: background-image 1s ease-in-out;
+    }
+    header .logo {
+      width: 320px;
+      margin-bottom: 30px;
+      z-index: 1;
+      object-fit: contain;
+    }
+    header h1 {
+      font-weight: 700;
+      font-size: 2.8rem;
+      margin: 0;
+      position: relative;
+      z-index: 1;
+      letter-spacing: 1.2px;
+      color: #ffd700;
+      text-shadow: 0 0 6px rgba(255,215,0,0.7);
+    }
+    header .animated-text {
+      display: inline-block;
+      font-style: italic;
+      transition: opacity 1.8s ease-in-out;
+      opacity: 1;
+      color: #fffacd;
+      text-shadow: 0 0 8px #ffd700;
+    }
+    header .divider {
+      width: 90px;
+      height: 3px;
+      background-color: #ffd700;
+      margin: 15px auto 25px;
+      border-radius: 2px;
+      z-index: 1;
+      box-shadow: 0 0 10px #ffd700aa;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      color: #f0e68c;
+    }
+
+    .flights-widget {
+      background: #001f4d;
       border-radius: 12px;
-      margin-bottom: 2rem;
+      box-shadow: 0 4px 18px rgba(255, 215, 0, 0.35);
+      padding: 2.5rem 2rem;
+      margin-bottom: 3rem;
+      font-family: 'Montserrat', sans-serif;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #fffacd;
+    }
+    .flights-widget h2 {
+      margin-top: 0;
+      font-weight: 700;
+      font-size: 2.1rem;
+      color: #ffd700;
+      margin-bottom: 1.8rem;
+      text-align: center;
+      text-shadow: 0 0 8px #ffd700cc;
     }
 
     .carousel {
       display: flex;
-      gap: 15px;
-      animation: scroll-left 20s linear infinite;
-      will-change: transform;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap: 1.2rem;
+      padding-bottom: 1rem;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: #ffd700 #001f4d;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
     }
-
-    @keyframes scroll-left {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(calc(-250px * 8)); /* 8 imágenes x ancho aprox 250px */
-      }
+    .carousel::-webkit-scrollbar {
+      height: 8px;
     }
-
-    /* Pausa animación si foco o hover */
-    .carousel-container:hover .carousel,
-    .carousel-container:focus-within .carousel {
-      animation-play-state: paused;
+    .carousel::-webkit-scrollbar-track {
+      background: #001f4d;
+      border-radius: 4px;
+    }
+    .carousel::-webkit-scrollbar-thumb {
+      background-color: #ffd700;
+      border-radius: 4px;
     }
 
     .carousel-item {
-      flex: 0 0 250px;
-      position: relative;
-      border-radius: 10px;
-      overflow: hidden;
+      flex: 0 0 auto;
+      width: 280px;
+      border-radius: 14px;
+      box-shadow: 0 4px 22px rgba(255, 215, 0, 0.3);
+      background: #00264d;
       cursor: pointer;
-      outline: none;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      outline-offset: 4px;
+      color: #fffacd;
       user-select: none;
     }
-
+    .carousel-item:hover,
+    .carousel-item:focus {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(255, 215, 0, 0.6);
+      outline: 2px solid #ffd700;
+    }
     .carousel-item img {
       width: 100%;
-      height: 150px;
+      height: 160px;
       object-fit: cover;
-      filter: brightness(0.7);
-      transition: filter 0.3s ease;
+      border-bottom: 3px solid #ffd700;
+      border-radius: 14px 14px 0 0;
       display: block;
     }
-
-    .carousel-item:hover img,
-    .carousel-item:focus img {
-      filter: brightness(0.9);
+    .carousel-item p {
+      margin: 1rem 1rem 1.3rem;
+      font-weight: 600;
+      font-size: 1.2rem;
+      letter-spacing: 0.5px;
+      color: #ffd700;
+      text-shadow: 0 0 5px #ffd700bb;
     }
 
-    .carousel-item p {
-      position: absolute;
-      bottom: 8px;
-      left: 10px;
-      margin: 0;
-      font-weight: 600;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      color: #ffcc00;
-      text-shadow: 0 0 6px rgba(0,0,0,0.7);
+    footer {
+      text-align: center;
+      padding: 1.5rem 0;
+      color: #ccc;
+      font-size: 0.95rem;
+      border-top: 1px solid #004080;
+      margin-top: 3rem;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #001a40 0%, #00264d 100%);
       user-select: none;
     }
 
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header .logo {
+        width: 240px;
+        margin-bottom: 15px;
+      }
+      .carousel-item {
+        width: 220px;
+      }
+      .flights-widget {
+        padding: 1.8rem 1.2rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <main>
-    <header>
-      <img src="https://cdn-icons-png.flaticon.com/512/69/69524.png" alt="Travel Payouts Logo" />
-      <h1>Find the best <span id="changing-word">flights</span> here</h1>
-    </header>
 
-    <!-- Travelpayouts widget script -->
-    <script async src="https://c111.travelpayouts.com/content?currency=pln&trs=423668&shmarker=638051&from_name=PL&to_name=TFS&locale=en&powered_by=true&limit=4&primary_color=444A48ff&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
+  <header role="banner">
+    <img src="https://i.imgur.com/mVciASa.png" alt="Dagmar Travels Logo" class="logo" />
+    <h1>
+      Find the best <span id="changing-word" class="animated-text" aria-live="polite">flights</span> for your trip
+    </h1>
+    <div class="divider" aria-hidden="true"></div>
+  </header>
 
-    <section class="carousel-container" aria-label="Destinations carousel">
-      <div class="carousel" aria-live="polite" aria-atomic="true" tabindex="0" role="list">
+  <main role="main">
 
-        <article class="carousel-item" tabindex="-1" role="listitem" aria-label="La Laguna">
-          <img src="https://cdn.surfingtheplanet.com/wp-content/uploads/2023/01/calle-agustin-laguna-tenerife.jpg?strip=all&lossy=1&ssl=1" alt="Street view of La Laguna Tenerife" />
-          <p>La Laguna</p>
-        </article>
-        <article class="carousel-item" tabindex="-1" role="listitem" aria-label="La Orotava">
-          <img src="https://www.laorotava.es/sites/default/files/noticias/4.jpg" alt="View of La Orotava town" />
-          <p>La Orotava</p>
-        </article>
-        <article class="carousel-item" tabindex="-1" role="listitem" aria-label="Los Cristianos">
-          <img src="https://www.cestee.es/images/22/12/92212-920w.webp" alt="Beach view of Los Cristianos" />
-          <p>Los Cristianos</p>
-        </article>
-        <article class="carousel-item" tabindex="-1" role="listitem" aria-label="Puerto de la Cruz">
-          <img src="https://sendaecoway.com/wp-content/uploads/2024/10/6197abf017d202925a23e959_turismo-en-puerto-de-la-cruz-1024x627-1.jpg" alt="Puerto de la Cruz tourist view" />
-          <p>Puerto de la Cruz</p>
-        </article>
-        <article class="carousel-item" tabindex="-1" role="listitem" aria-label="Teide National Park">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Teide_National_Park_06-2017_img3.jpg" alt="Teide National Park Tenerife" />
-          <p>Teide National Park</p>
-        </article>
-        <article class="carousel-item" tabindex="-1" role="listitem" aria-label="Masca Village">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Masca_village_Tenerife.jpg" alt="Masca Village Tenerife" />
-          <p>Masca Village</p>
-        </article>
-        <article class="carousel-item" tabindex="-1" role="listitem" aria-label="Garachico">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Garachico_2012.JPG" alt="Garachico Tenerife" />
-          <p>Garachico</p>
-        </article>
-        <article class="carousel-item" tabindex="-1" role="listitem" aria-label="Candelaria Basilica">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Basilica_de_la_Candelaria_04-2016_img1.jpg" alt="Candelaria Basilica Tenerife" />
-          <p>Candelaria Basilica</p>
-        </article>
+    <section class="flights-widget" aria-label="Flight search widget">
+      <h2>Search Cheap Flights</h2>
+      <script async src="https://c111.travelpayouts.com/content?currency=eur&trs=423672&shmarker=638051&to_name=TFS&locale=en&powered_by=true&limit=2&primary_color=2F3332ff&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
+    </section>
 
-      </div>
+    <section class="carousel" aria-label="Tenerife destinations carousel">
+      <article class="carousel-item" tabindex="0" role="link" aria-label="La Laguna">
+        <img src="https://cdn.surfingtheplanet.com/wp-content/uploads/2023/01/calle-agustin-laguna-tenerife.jpg?strip=all&lossy=1&ssl=1" alt="Street view of La Laguna Tenerife" />
+        <p>La Laguna</p>
+      </article>
+      <article class="carousel-item" tabindex="0" role="link" aria-label="La Orotava">
+        <img src="https://www.laorotava.es/sites/default/files/noticias/4.jpg" alt="View of La Orotava town" />
+        <p>La Orotava</p>
+      </article>
+      <article class="carousel-item" tabindex="0" role="link" aria-label="Los Cristianos">
+        <img src="https://www.cestee.es/images/22/12/92212-920w.webp" alt="Beach view of Los Cristianos" />
+        <p>Los Cristianos</p>
+      </article>
+      <article class="carousel-item" tabindex="0" role="link" aria-label="Puerto de la Cruz">
+        <img src="https://sendaecoway.com/wp-content/uploads/2024/10/6197abf017d202925a23e959_turismo-en-puerto-de-la-cruz-1024x627-1.jpg" alt="Puerto de la Cruz tourist view" />
+        <p>Puerto de la Cruz</p>
+      </article>
     </section>
 
   </main>
 
-  <script>
-    // Animación texto amarillo: cambia palabras
-    const words = ['flights', 'packages', 'deals', 'destinations'];
-    const changingWord = document.getElementById('changing-word');
-    let i = 0;
+  <footer role="contentinfo">
+    &copy; 2025 Dagmar Travels. All rights reserved.
+  </footer>
 
-    setInterval(() => {
-      i = (i + 1) % words.length;
-      changingWord.style.opacity = 0;
+  <script>
+    const words = ['flights', 'trips', 'adventures', 'deals'];
+    let index = 0;
+    const span = document.getElementById('changing-word');
+
+    function changeWord() {
+      span.style.opacity = 0;
       setTimeout(() => {
-        changingWord.textContent = words[i];
-        changingWord.style.opacity = 1;
-      }, 600);
-    }, 3500);
+        index = (index + 1) % words.length;
+        span.textContent = words[index];
+        span.style.opacity = 1;
+      }, 1800);
+    }
+
+    setInterval(changeWord, 6000);
   </script>
+
 </body>
 </html>
