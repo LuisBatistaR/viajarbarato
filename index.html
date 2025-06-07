@@ -4,14 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dagmar Travels – The Island by Dagmar</title>
-  <meta name="description" content="Luxury air travel to Tenerife. Boutique island escapes, curated by Dagmar. No stress. Just sun.">
-  <meta name="keywords" content="Dagmar Travels, Tenerife, vuelos boutique, viajes de lujo, isla, experiencias únicas">
-  <meta name="author" content="Dagmar Team">
+  <meta name="description" content="Luxury air travel to Tenerife. Boutique island escapes curated by Dagmar. No stress. Just sun.">
   <meta name="theme-color" content="#000000">
   <link rel="icon" href="https://i.imgur.com/gfKxjRL.png" type="image/png">
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -19,6 +17,7 @@
       font-family: 'Poppins', sans-serif;
       background: #f9fafb;
       color: #222;
+      scroll-behavior: smooth;
     }
 
     .intro {
@@ -53,56 +52,38 @@
       animation: taglineFadeIn 1.2s ease forwards 1s;
     }
 
-    @keyframes logoFadeIn {
-      to { opacity: 1; transform: scale(1); }
-    }
-    @keyframes taglineFadeIn {
-      to { opacity: 1; }
-    }
+    @keyframes logoFadeIn { to { opacity: 1; transform: scale(1); } }
+    @keyframes taglineFadeIn { to { opacity: 1; } }
 
     .top-bar {
-      background: white;
-      padding: 16px 0;
+      background: #fff;
+      padding: 20px 32px;
       border-bottom: 1px solid #eee;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      gap: 36px;
+      position: sticky;
+      top: 0;
+      z-index: 99;
     }
 
-    .top-bar img {
-      height: 110px;
-    }
-
-    .top-icons {
-      display: flex;
-      gap: 20px;
-      border-left: 1px solid #111;
-      padding-left: 24px;
-    }
-
-    .top-icons a {
-      font-size: 1.5rem;
-      color: #000;
-      transition: color 0.3s ease;
+    .top-bar img { height: 100px; }
+    .nav-menu a {
+      margin-left: 24px;
+      font-size: 0.95rem;
       text-decoration: none;
+      color: #111;
+      text-transform: uppercase;
+      font-weight: 500;
     }
 
-    .top-bar:hover {
-      background: #000;
-    }
-
-    .top-bar:hover img {
-      filter: brightness(0) invert(1);
-    }
-
-    .top-bar:hover .top-icons a {
-      color: #fff;
+    .nav-menu a:hover {
+      color: #00ae98;
     }
 
     .hero {
       position: relative;
-      height: 70vh;
+      height: 80vh;
       overflow: hidden;
       text-align: center;
       color: white;
@@ -110,43 +91,32 @@
 
     .hero video {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       object-fit: cover;
       z-index: 1;
       opacity: 0;
       transition: opacity 1.5s ease;
     }
 
-    .hero video.active {
-      opacity: 1;
-    }
+    .hero video.active { opacity: 1; }
 
     .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.35);
-      z-index: 2;
+      content: ""; position: absolute; inset: 0;
+      background: rgba(0, 0, 0, 0.35); z-index: 2;
     }
 
     .hero .content {
-      position: relative;
-      z-index: 3;
+      position: relative; z-index: 3;
       height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
       padding: 0 1rem;
     }
 
     .hero .logo {
-      max-width: 400px;
-      width: 95%;
-      margin-bottom: 1rem;
+      max-width: 400px; width: 90%;
+      margin-bottom: 1.2rem;
     }
 
     .slogan-big {
@@ -158,74 +128,134 @@
     }
 
     .storytelling {
-      font-size: 1.7rem;
-      font-weight: 400;
+      font-size: 1.6rem;
       font-style: italic;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-      min-height: 2em;
+      font-weight: 300;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      min-height: 2.2em;
       position: relative;
-      width: 100%;
       max-width: 90%;
-      overflow: hidden;
       white-space: nowrap;
     }
 
     .storytelling span {
       position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
+      left: 50%; transform: translateX(-50%);
       opacity: 0;
-      transition: opacity 1.5s ease;
+      transition: opacity 1.2s ease;
       white-space: nowrap;
     }
 
-    .storytelling span.active {
-      opacity: 1;
+    .storytelling span.active { opacity: 1; }
+
+    .widget-section {
+      padding: 3rem 1rem;
+      background: #fff;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .blog-magazine {
+      background: #f8f8f8;
+      padding: 4rem 2rem;
+      font-family: 'Georgia', serif;
+    }
+
+    .blog-magazine h2 {
+      font-size: 2rem;
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      border-bottom: 2px solid #ccc;
+      display: inline-block;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .blog-card {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+      transition: transform 0.3s;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .blog-card img {
+      width: 100%; height: 200px; object-fit: cover;
+    }
+
+    .blog-card div {
+      padding: 1.5rem;
+    }
+
+    .blog-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .blog-card p {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    footer {
+      background: #111;
+      color: #ccc;
+      padding: 2rem;
+      font-size: 0.9rem;
+      text-align: center;
+      font-family: 'Georgia', serif;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
 
-  <!-- Cinematic Intro -->
+  <!-- Intro -->
   <div class="intro" id="intro">
-    <img src="https://i.imgur.com/mVciASa.png" alt="Dagmar Logo Blanco" class="intro-logo">
+    <img src="https://i.imgur.com/mVciASa.png" class="intro-logo" alt="Dagmar Logo Blanco" />
     <div class="intro-tagline">THE ISLAND BY DAGMAR</div>
   </div>
 
-  <!-- Top Bar -->
+  <!-- Header -->
   <div class="top-bar">
     <img src="https://i.imgur.com/gfKxjRL.png" alt="Dagmar Logo">
-    <div class="top-icons">
-      <a href="https://instagram.com/0700dagmar" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://dagmarobjects.com" target="_blank"><i class="fas fa-globe"></i></a>
+    <div class="nav-menu">
+      <a href="#vuelos">Vuelos</a>
+      <a href="#tips">Tips</a>
+      <a href="#contacto">Contacto</a>
     </div>
   </div>
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero" id="vuelos">
     <video class="active" autoplay muted loop playsinline>
       <source src="https://cdn.pixabay.com/video/2023/10/13/184860-874264423_large.mp4" type="video/mp4">
     </video>
     <video autoplay muted loop playsinline>
       <source src="https://cdn.pixabay.com/video/2024/06/16/216951_large.mp4" type="video/mp4">
     </video>
-    <video autoplay muted loop playsinline>
-      <source src="https://cdn.pixabay.com/video/2024/06/07/215709_large.mp4" type="video/mp4">
-    </video>
-
     <div class="content">
       <img src="https://i.imgur.com/mVciASa.png" alt="Dagmar Logo Blanco" class="logo">
       <div class="slogan-big">THE ISLAND BY DAGMAR</div>
       <div class="storytelling" id="story">
         <span class="active">Whispers of salt on your skin.</span>
-        <span>Where the wind moves slower.</span>
-        <span>No shoes. No stress. Just sun.</span>
-        <span>Island silence speaks loudest.</span>
-        <span>A place where time forgets itself.</span>
         <span>Swim where lava met the sea.</span>
-        <span>Everything tastes better by the ocean.</span>
-        <span>A flight away from ordinary.</span>
-        <span>El Teide watches while you dream.</span>
         <span>Luxury is space — and silence.</span>
         <span>The island doesn’t ask, it invites.</span>
         <span>This is not tourism. It’s return.</span>
@@ -233,14 +263,60 @@
     </div>
   </section>
 
+  <!-- Widget -->
+  <section class="widget-section">
+    <script async src="https://c111.travelpayouts.com/content?currency=eur&trs=423672&shmarker=638051&from_name=PL&to_name=TFS&locale=en&powered_by=true&limit=4&primary_color=334140ff&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
+  </section>
+
+  <!-- Blog Tips -->
+  <section class="blog-magazine" id="tips">
+    <h2>The Island by Dagmar</h2>
+    <div class="blog-grid">
+      <article class="blog-card">
+        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be" alt="">
+        <div>
+          <h3>☀️ El Médano sin gente</h3>
+          <p>Amanecer, viento, Atlántico. Café negro y ninguna conversación. Silencio que cura.</p>
+        </div>
+      </article>
+      <article class="blog-card">
+        <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919" alt="">
+        <div>
+          <h3>🍷 Guachinche entre pinos</h3>
+          <p>Vino local, pan duro, mojo de verdad. No lo encontrarás en Google Maps.</p>
+        </div>
+      </article>
+      <article class="blog-card">
+        <img src="https://images.unsplash.com/photo-1545259742-2f9d712e3f3c" alt="">
+        <div>
+          <h3>🌊 Charco sin nombre</h3>
+          <p>Sigue la carretera vieja. Gira donde se acaba el asfalto. Confía en el mar.</p>
+        </div>
+      </article>
+      <article class="blog-card">
+        <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2" alt="">
+        <div>
+          <h3>🛵 Ruta alterna al norte</h3>
+          <p>Evita la autopista. Sube por Arafo. Baja por pinos y lava. Vas a llegar más feliz.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contacto">
+    <p>&copy; 2025 <strong>Dagmar Travels</strong> – Todos los derechos reservados.</p>
+    <p><a href="https://instagram.com/0700dagmar" target="_blank">@0700dagmar</a> · <a href="/aviso-legal">Aviso legal</a></p>
+  </footer>
+
   <!-- Scripts -->
   <script>
-    // Intro fade
+    // Intro
     window.addEventListener('load', () => {
       const intro = document.getElementById('intro');
       setTimeout(() => {
         intro.style.opacity = '0';
-        setTimeout(() => intro.style.display = 'none', 1200);
+        setTimeout(() => intro.remove(), 1200);
       }, 2200);
     });
 
@@ -251,7 +327,7 @@
       lines[textIndex].classList.remove('active');
       textIndex = (textIndex + 1) % lines.length;
       lines[textIndex].classList.add('active');
-    }, 9000);
+    }, 7000);
 
     // Video carousel
     const videos = document.querySelectorAll('.hero video');
@@ -262,6 +338,5 @@
       videos[videoIndex].classList.add('active');
     }, 9000);
   </script>
-
 </body>
 </html>
