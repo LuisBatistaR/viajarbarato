@@ -4,16 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Odkryj Teneryfę - Przewodnik po rajskiej wyspie</title>
-  <meta name="description" content="Odkryj niesamowite miejsca, plaże i atrakcje na Teneryfie. Zarezerwuj swoje wakacje już teraz!">
-  <meta name="keywords" content="Teneryfa, wakacje, plaże, podróże, rezerwacja">
+  <meta name="description" content="Odkryj najpiękniejsze miejsca, plaże i atrakcje Teneryfy. Zarezerwuj już teraz.">
   <meta name="author" content="Isla Mágica">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Merriweather:ital,wght@1,400&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body {
-      font-family: 'Montserrat', sans-serif;
-      background: #fff;
-    }
+    html, body { font-family: 'Montserrat', sans-serif; background: #fff; }
+
     .hero {
       position: relative;
       height: 100vh;
@@ -21,6 +18,7 @@
       color: white;
       text-align: center;
     }
+
     .background-video {
       position: absolute;
       top: 0; left: 0;
@@ -28,13 +26,15 @@
       object-fit: cover;
       z-index: -2;
     }
+
     .overlay {
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0,0,0,0.5);
       z-index: -1;
     }
+
     .hero-text {
       position: absolute;
       bottom: 20%;
@@ -42,6 +42,7 @@
       transform: translateX(-50%);
       z-index: 2;
     }
+
     .hero-logo {
       max-height: 320px;
       width: auto;
@@ -60,6 +61,7 @@
       border-bottom: 1px solid #ddd;
       transition: background 0.4s ease;
     }
+
     .promo-text {
       font-size: 1.8rem;
       display: flex;
@@ -69,14 +71,15 @@
       padding-left: 10px;
       transition: color 0.4s ease;
     }
+
     .promo-text img.icon {
       height: 34px;
       width: 34px;
       transition: filter 0.4s ease;
     }
-    .promo-text .modern {
-      font-weight: 600;
-    }
+
+    .promo-text .modern { font-weight: 600; }
+
     .promo-text .elegant {
       font-family: 'Merriweather', serif;
       font-style: italic;
@@ -84,17 +87,21 @@
       color: #333;
       transition: color 0.4s ease;
     }
+
     .promo-header img.logo {
       max-height: 120px;
       transition: filter 0.4s ease;
     }
+
     .promo-header:hover {
       background: #111;
     }
+
     .promo-header:hover .promo-text,
     .promo-header:hover .promo-text .elegant {
       color: #fff;
     }
+
     .promo-header:hover .promo-text img.icon,
     .promo-header:hover img.logo {
       filter: brightness(0) invert(1);
@@ -110,18 +117,21 @@
       padding: 80px 20px;
       background: #fff;
     }
+
     section#rekomendacje h2 {
       text-align: center;
       font-size: 2.3rem;
       margin-bottom: 50px;
       font-family: 'Montserrat', sans-serif;
     }
+
     .reco-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 30px;
       justify-content: center;
     }
+
     .reco-grid article {
       background: #fff;
       border-radius: 8px;
@@ -129,12 +139,14 @@
       max-width: 350px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
+
     .reco-grid img {
       width: 100%;
       height: 220px;
       object-fit: cover;
       filter: brightness(95%);
     }
+
     .reco-grid div {
       padding: 20px;
     }
@@ -146,24 +158,40 @@
       padding: 30px 10px;
       font-size: 0.9rem;
     }
+
     footer a {
       color: #fff;
       text-decoration: none;
     }
+
+    .flash {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: white;
+      opacity: 0;
+      z-index: 9998;
+      pointer-events: none;
+      transition: opacity 1s ease;
+    }
+
+    .flash.show { opacity: 1; }
   </style>
 </head>
 <body>
 
   <!-- HERO -->
   <header class="hero">
-    <video class="background-video" autoplay muted loop playsinline>
-      <source src="https://cdn.pixabay.com/video/2020/02/19/32606-393989992_large.mp4" type="video/mp4">
+    <video id="bgVideo" autoplay muted playsinline class="background-video">
+      <source id="videoSource" src="https://cdn.pixabay.com/video/2020/02/19/32606-393989992_large.mp4" type="video/mp4">
     </video>
     <div class="overlay"></div>
     <div class="hero-text">
       <img src="https://i.imgur.com/e2PNeOR.png" alt="Logo główne" class="hero-logo">
     </div>
   </header>
+
+  <div class="flash" id="flash"></div>
 
   <!-- BARRA PROMOCIONAL -->
   <div class="promo-header">
@@ -215,6 +243,35 @@
     <p>&copy; 2024 Isla Mágica. Wszelkie prawa zastrzeżone.</p>
     <p>Obserwuj nas na Instagramie: <a href="https://www.instagram.com/islamagica.pl" target="_blank">@islamagica.pl</a></p>
   </footer>
+
+  <!-- SCRIPT DE VIDEO ROTATOR -->
+  <script>
+    const videos = [
+      "https://cdn.pixabay.com/video/2020/02/19/32606-393989992_large.mp4",
+      "https://cdn.pixabay.com/video/2023/08/29/178321-860527288_large.mp4",
+      "https://cdn.pixabay.com/video/2024/05/28/214078_large.mp4"
+    ];
+    const video = document.getElementById('bgVideo');
+    const source = document.getElementById('videoSource');
+    const flash = document.getElementById('flash');
+    let index = 0;
+
+    function playNextVideo() {
+      flash.classList.add('show');
+      setTimeout(() => {
+        index = (index + 1) % videos.length;
+        source.src = videos[index];
+        video.load();
+        flash.classList.remove('show');
+      }, 300);
+    }
+
+    video.addEventListener('loadeddata', () => {
+      setTimeout(playNextVideo, 10000);
+    });
+
+    setInterval(playNextVideo, 10000);
+  </script>
 
 </body>
 </html>
