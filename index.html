@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dagmar Travels – The Island</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
@@ -21,36 +21,32 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      transition: background-color 0.4s ease;
     }
 
-    .top-left {
-      display: flex;
-      align-items: center;
-      gap: 16px;
+    .top-bar.hovered {
+      background: #000;
     }
 
     .top-left img {
-      height: 60px;
+      height: 80px;
+      transition: filter 0.4s ease;
     }
 
-    .top-left .slogan-small {
-      font-size: 0.65rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #888;
+    .top-bar.hovered .top-left img {
+      filter: brightness(0) invert(1);
     }
 
-    .top-right {
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #444;
+    .top-right a {
+      font-size: 1.3rem;
+      color: #000;
+      margin-left: 20px;
+      transition: color 0.3s ease;
+      text-decoration: none;
     }
 
-    .top-right i {
-      font-size: 1.1rem;
-      color: #222;
+    .top-bar.hovered .top-right a {
+      color: #fff;
     }
 
     .hero {
@@ -136,68 +132,35 @@
       opacity: 1;
     }
 
-    .widget-section, .blog-section {
-      padding: 3rem 1.5rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .blog-section h2 {
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-
-    .blog-section article {
-      margin-bottom: 2rem;
-    }
-
-    .blog-section h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .blog-section p {
-      color: #555;
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    footer {
-      background: #f4f4f4;
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.85rem;
-      color: #555;
-    }
-
-    footer a {
-      color: #000;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
     @media (max-width: 600px) {
       .top-bar {
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.5rem;
       }
-      .storytelling {
-        font-size: 0.95rem;
+
+      .top-right {
+        margin-top: 12px;
+      }
+
+      .top-right a {
+        font-size: 1.2rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="top-bar">
+  <div class="top-bar" id="topBar">
     <div class="top-left">
-      <img src="https://i.imgur.com/gfKxjRL.png" alt="Dagmar Logo Negro">
-      <div class="slogan-small">THE ISLAND BY DAGMAR</div>
+      <img src="https://i.imgur.com/gfKxjRL.png" alt="Dagmar Logo" id="dagmarLogo">
     </div>
     <div class="top-right">
-      <i class="fab fa-instagram"></i> <a href="https://instagram.com/0700dagmar" target="_blank">@0700dagmar</a>
+      <a href="https://instagram.com/0700dagmar" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://dagmarobjects.com" target="_blank" aria-label="Website">
+        <i class="fas fa-globe"></i>
+      </a>
     </div>
   </div>
 
@@ -241,32 +204,8 @@
     </div>
   </section>
 
-  <section class="widget-section">
-    <script async src="https://c111.travelpayouts.com/content?currency=eur&trs=423672&shmarker=638051&from_name=PL&to_name=TFS&locale=en&powered_by=true&limit=4&primary_color=334140ff&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
-  </section>
-
-  <section class="blog-section">
-    <h2>Tenerife Tips</h2>
-    <article>
-      <h3>El Médano al amanecer</h3>
-      <p>Disfruta del viento suave, los surfistas flotando en calma y un desayuno frente al mar sin turistas.</p>
-    </article>
-    <article>
-      <h3>Restaurantes secretos de montaña</h3>
-      <p>Explora rincones donde se mezclan papas arrugadas con vino local, entre la niebla y el silencio del interior isleño.</p>
-    </article>
-    <article>
-      <h3>Un baño en el Charco del Viento</h3>
-      <p>Las piscinas naturales del norte son joyas escondidas que los locales visitan entre semana. Agua pura, salada y mágica.</p>
-    </article>
-  </section>
-
-  <footer>
-    © 2025 Dagmar Travels · <a href="https://instagram.com/0700dagmar" target="_blank">@0700dagmar</a> · Todos los derechos reservados · <a href="#">Aviso legal</a>
-  </footer>
-
   <script>
-    // Storytelling
+    // Storytelling animation
     const lines = document.querySelectorAll('#story span');
     let textIndex = 0;
     setInterval(() => {
@@ -275,7 +214,7 @@
       lines[textIndex].classList.add('active');
     }, 9000);
 
-    // Video carousel
+    // Video background carousel
     const videos = document.querySelectorAll('.hero video');
     let videoIndex = 0;
     setInterval(() => {
@@ -283,7 +222,13 @@
       videoIndex = (videoIndex + 1) % videos.length;
       videos[videoIndex].classList.add('active');
     }, 9000);
+
+    // Hover effect for top bar
+    const topBar = document.getElementById('topBar');
+    topBar.addEventListener('mouseenter', () => topBar.classList.add('hovered'));
+    topBar.addEventListener('mouseleave', () => topBar.classList.remove('hovered'));
   </script>
 
 </body>
 </html>
+
