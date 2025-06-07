@@ -11,12 +11,9 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
-      height: 100%;
       font-family: 'Montserrat', sans-serif;
-      scroll-behavior: smooth;
       background: #fff;
     }
-
     .hero {
       position: relative;
       height: 100vh;
@@ -24,7 +21,6 @@
       color: white;
       text-align: center;
     }
-
     .background-video {
       position: absolute;
       top: 0; left: 0;
@@ -32,7 +28,6 @@
       object-fit: cover;
       z-index: -2;
     }
-
     .overlay {
       position: absolute;
       top: 0; left: 0;
@@ -40,7 +35,6 @@
       background: rgba(0, 0, 0, 0.5);
       z-index: -1;
     }
-
     .hero-text {
       position: absolute;
       bottom: 20%;
@@ -48,7 +42,6 @@
       transform: translateX(-50%);
       z-index: 2;
     }
-
     .hero-logo {
       max-height: 320px;
       width: auto;
@@ -67,53 +60,41 @@
       border-bottom: 1px solid #ddd;
       transition: background 0.4s ease;
     }
-
     .promo-text {
       font-size: 1.8rem;
-      line-height: 1.4;
-      color: #1a1a1a;
       display: flex;
       align-items: center;
       gap: 14px;
       flex-wrap: wrap;
-      justify-content: flex-start;
       padding-left: 10px;
       transition: color 0.4s ease;
     }
-
     .promo-text img.icon {
       height: 34px;
       width: 34px;
       transition: filter 0.4s ease;
     }
-
     .promo-text .modern {
       font-weight: 600;
     }
-
     .promo-text .elegant {
       font-family: 'Merriweather', serif;
       font-style: italic;
-      font-weight: 400;
       font-size: 1.05rem;
       color: #333;
       transition: color 0.4s ease;
     }
-
     .promo-header img.logo {
       max-height: 120px;
       transition: filter 0.4s ease;
     }
-
     .promo-header:hover {
       background: #111;
     }
-
     .promo-header:hover .promo-text,
     .promo-header:hover .promo-text .elegant {
       color: #fff;
     }
-
     .promo-header:hover .promo-text img.icon,
     .promo-header:hover img.logo {
       filter: brightness(0) invert(1);
@@ -125,9 +106,37 @@
       text-align: center;
     }
 
-    main {
-      padding: 60px 20px;
+    section#rekomendacje {
+      padding: 80px 20px;
+      background: #fff;
+    }
+    section#rekomendacje h2 {
       text-align: center;
+      font-size: 2.3rem;
+      margin-bottom: 50px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .reco-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+    .reco-grid article {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      max-width: 350px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .reco-grid img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      filter: brightness(95%);
+    }
+    .reco-grid div {
+      padding: 20px;
     }
 
     footer {
@@ -137,31 +146,9 @@
       padding: 30px 10px;
       font-size: 0.9rem;
     }
-
     footer a {
       color: #fff;
       text-decoration: none;
-    }
-
-    @media (max-width: 768px) {
-      .promo-header {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .promo-text {
-        justify-content: center;
-        padding-left: 0;
-      }
-
-      .promo-text .elegant {
-        font-size: 0.95rem;
-      }
-
-      .promo-header img.logo {
-        margin-top: 15px;
-        max-height: 100px;
-      }
     }
   </style>
 </head>
@@ -177,7 +164,8 @@
       <img src="https://i.imgur.com/e2PNeOR.png" alt="Logo główne" class="hero-logo">
     </div>
   </header>
-  <!-- 🌟 BARRA PROMOCIONAL CON LOGO E ICONO -->
+
+  <!-- BARRA PROMOCIONAL -->
   <div class="promo-header">
     <div class="promo-text">
       <img src="https://cdn-icons-png.flaticon.com/512/31/31069.png" alt="Ikona samolotu" class="icon">
@@ -189,52 +177,40 @@
     </div>
   </div>
 
-  <!-- 🔍 WIDGET TRAVEL PAYOUTS -->
+  <!-- WIDGET -->
   <div class="widget-container">
     <script async src="https://c111.travelpayouts.com/content?currency=pln&trs=423668&shmarker=638051&from_name=PL&to_name=TFS&locale=pl&powered_by=true&limit=4&primary_color=1E2020ff&results_background_color=ffffff&form_background_color=ffffff&promo_id=3411" charset="utf-8"></script>
   </div>
 
-  <!-- 🏝️ SEKCJA REKOMENDACJI -->
-  <section id="rekomendacje" style="padding: 80px 20px; background: #fff;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <h2 style="text-align: center; font-size: 2.3rem; margin-bottom: 50px; font-family: 'Montserrat', sans-serif;">
-        Polecane miejsca na Teneryfie
-      </h2>
-
-      <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
-
-        <!-- Reco 1 -->
-        <article style="background: #ffffff; border-radius: 8px; overflow: hidden; max-width: 350px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-          <img src="https://static-resources.mirai.com/wp-content/uploads/sites/1738/20230626095434/Pueblo-de-Masca.jpg" alt="Masca" style="width: 100%; height: 220px; object-fit: cover; filter: brightness(95%);">
-          <div style="padding: 20px;">
-            <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 10px;">Masca – ukryta perełka</h3>
-            <p style="font-size: 0.95rem; color: #444;">Malownicza wioska w górach Teneryfy, idealna na piesze wędrówki i odkrywanie natury.</p>
-          </div>
-        </article>
-
-        <!-- Reco 2 -->
-        <article style="background: #ffffff; border-radius: 8px; overflow: hidden; max-width: 350px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-          <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/680598718.jpg?k=f77b0abfc4971c94fd10cc815e7671d24f9214485e488fb46aa2487f38d2337c&o=&hp=1" alt="Gran Tacande" style="width: 100%; height: 220px; object-fit: cover; filter: brightness(95%);">
-          <div style="padding: 20px;">
-            <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 10px;">Dream Hotel Gran Tacande</h3>
-            <p style="font-size: 0.95rem; color: #444;">Luksusowy hotel z widokiem na ocean, SPA i restauracje gourmet w Costa Adeje.</p>
-          </div>
-        </article>
-
-        <!-- Reco 3 -->
-        <article style="background: #ffffff; border-radius: 8px; overflow: hidden; max-width: 350px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-          <img src="https://richiperez.com/wp-content/uploads/2024/08/que-ver-en-san-cristobal-de-la-laguna-tenerife-en-un-dia-richi-perez.jpg" alt="La Laguna" style="width: 100%; height: 220px; object-fit: cover; filter: brightness(95%);">
-          <div style="padding: 20px;">
-            <h3 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 10px;">La Laguna – kolonialna duma</h3>
-            <p style="font-size: 0.95rem; color: #444;">Miasto wpisane na listę UNESCO, z piękną architekturą i historyczną atmosferą.</p>
-          </div>
-        </article>
-
-      </div>
+  <!-- REKOMENDACJE -->
+  <section id="rekomendacje">
+    <h2>Polecane miejsca na Teneryfie</h2>
+    <div class="reco-grid">
+      <article>
+        <img src="https://static-resources.mirai.com/wp-content/uploads/sites/1738/20230626095434/Pueblo-de-Masca.jpg" alt="Masca">
+        <div>
+          <h3>Masca – ukryta perełka</h3>
+          <p>Malownicza wioska w górach Teneryfy, idealna na piesze wędrówki i odkrywanie natury.</p>
+        </div>
+      </article>
+      <article>
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/680598718.jpg?k=f77b0abfc4971c94fd10cc815e7671d24f9214485e488fb46aa2487f38d2337c&o=&hp=1" alt="Gran Tacande">
+        <div>
+          <h3>Dream Hotel Gran Tacande</h3>
+          <p>Luksusowy hotel z widokiem na ocean, SPA i restauracje gourmet w Costa Adeje.</p>
+        </div>
+      </article>
+      <article>
+        <img src="https://richiperez.com/wp-content/uploads/2024/08/que-ver-en-san-cristobal-de-la-laguna-tenerife-en-un-dia-richi-perez.jpg" alt="La Laguna">
+        <div>
+          <h3>La Laguna – kolonialna duma</h3>
+          <p>Miasto wpisane na listę UNESCO, z piękną architekturą i historyczną atmosferą.</p>
+        </div>
+      </article>
     </div>
   </section>
 
-  <!-- ⚖️ FOOTER LEGAL + SOCIAL -->
+  <!-- FOOTER -->
   <footer>
     <p>&copy; 2024 Isla Mágica. Wszelkie prawa zastrzeżone.</p>
     <p>Obserwuj nas na Instagramie: <a href="https://www.instagram.com/islamagica.pl" target="_blank">@islamagica.pl</a></p>
@@ -242,4 +218,3 @@
 
 </body>
 </html>
-
