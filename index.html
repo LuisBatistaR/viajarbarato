@@ -1,28 +1,27 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vuelos baratos a Venezuela y Tenerife | Dagmar Travels</title>
-  <meta name="description" content="Encuentra los vuelos más baratos desde y hacia Venezuela, así como paquetes de vuelo y hotel en Tenerife. Comparador de vuelos para polacos y viajeros de Europa del Este." />
-  <meta name="keywords" content="vuelos baratos, vuelos a Venezuela, vuelos a Tenerife, comparador de vuelos, paquetes vuelo hotel, viajes Europa, vuelos económicos" />
+  <title>Cheap Flights to Tenerife | Dagmar Travels</title>
+  <meta name="description" content="Find the cheapest flights to and from Venezuela, plus flight and hotel packages to Tenerife. Flight comparison for Polish and Eastern European travelers." />
+  <meta name="keywords" content="cheap flights, flights to Venezuela, flights to Tenerife, flight comparison, flight and hotel packages, Europe travel, budget flights" />
   <meta name="author" content="Luis / Dagmar Travels" />
-  <link rel="canonical" href="https://tu-dominio.com/" />
+  <link rel="canonical" href="https://your-domain.com/" />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Google Fonts: elegant and professional -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
 
   <style>
-    /* Reset y básico */
     *, *::before, *::after {
       box-sizing: border-box;
     }
     body {
       margin: 0;
-      background-color: #f8f9fa; /* gris clarito */
+      background-color: #f8f9fa;
       color: #212529;
-      font-family: 'Roboto', 'Open Sans', Arial, sans-serif;
-      line-height: 1.5;
+      font-family: 'Montserrat', 'Playfair Display', sans-serif;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -38,7 +37,7 @@
     header {
       position: relative;
       width: 100%;
-      height: 300px;
+      height: 320px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -52,41 +51,44 @@
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background-image: url('https://img.hdctravel.com/images/hdcuk/newsletter/solslide.gif');
+      background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/80/ef/57/gran-melia-palacio-de.jpg?w=1200&h=-1&s=1');
       background-size: cover;
       background-position: center;
-      filter: brightness(0.4);
+      filter: brightness(0.35);
       z-index: -1;
       transition: background-image 1s ease-in-out;
     }
     header .logo {
-      width: 180px;
-      margin-bottom: 20px;
+      width: 240px;
+      margin-bottom: 25px;
       z-index: 1;
+      user-select: none;
     }
     header h1 {
-      font-family: 'Open Sans', sans-serif;
-      font-weight: 600;
-      font-size: 2rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 2.6rem;
       margin: 0;
       position: relative;
       z-index: 1;
+      letter-spacing: 1px;
     }
     header .animated-text {
       display: inline-block;
-      transition: opacity 1s ease-in-out;
+      transition: opacity 1.2s ease-in-out;
       opacity: 1;
+      font-style: italic;
+      color: #ffd700;
     }
-    /* Línea divisoria */
     header .divider {
-      width: 80px;
-      height: 2px;
+      width: 90px;
+      height: 3px;
       background-color: white;
-      margin: 12px auto 20px;
+      margin: 15px auto 25px;
+      border-radius: 2px;
       z-index: 1;
     }
 
-    /* Contenedor vuelos */
     main {
       max-width: 900px;
       margin: 2rem auto;
@@ -95,96 +97,61 @@
 
     .flights-widget {
       background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      font-family: 'Roboto', sans-serif;
+      border-radius: 10px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+      padding: 2rem;
+      margin-bottom: 3rem;
+      font-family: 'Montserrat', sans-serif;
     }
     .flights-widget h2 {
       margin-top: 0;
       font-weight: 700;
-      font-size: 1.8rem;
+      font-size: 2rem;
       color: #003366;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       text-align: center;
     }
-    .flights-widget form {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-    .flights-widget input,
-    .flights-widget select,
-    .flights-widget button {
-      padding: 0.75rem 1rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-      flex: 1 1 200px;
-      min-width: 160px;
-      max-width: 300px;
-      transition: border-color 0.3s ease;
-    }
-    .flights-widget input:focus,
-    .flights-widget select:focus {
-      border-color: #007bff;
-      outline: none;
-    }
-    .flights-widget button {
-      background-color: #007bff;
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-weight: 700;
-      max-width: 150px;
-      flex-shrink: 0;
-      transition: background-color 0.3s ease;
-    }
-    .flights-widget button:hover {
-      background-color: #0056b3;
-    }
 
-    /* Sección destinos Tenerife */
+    /* Destinations section */
     .destinations {
       display: flex;
       gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
       max-width: 900px;
-      margin: 0 auto 3rem auto;
+      margin: 0 auto 4rem auto;
       padding: 0 1rem;
     }
     .destination {
       background: white;
-      border-radius: 8px;
+      border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 3px 15px rgba(0,0,0,0.12);
       max-width: 280px;
       flex: 1 1 280px;
       cursor: pointer;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       text-align: center;
     }
     .destination:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      transform: translateY(-7px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.18);
     }
     .destination img {
       width: 100%;
       height: 160px;
       object-fit: cover;
       display: block;
+      border-bottom: 2px solid #ffd700;
     }
     .destination p {
-      margin: 0.75rem 1rem 1rem;
+      margin: 1rem;
       font-weight: 600;
       color: #003366;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
+      letter-spacing: 0.5px;
     }
 
-    /* Footer simple */
     footer {
       text-align: center;
       padding: 1rem 0;
@@ -192,19 +159,16 @@
       font-size: 0.9rem;
       border-top: 1px solid #ddd;
       margin-top: 3rem;
+      font-family: 'Montserrat', sans-serif;
     }
 
-    /* Responsive */
     @media (max-width: 600px) {
       header h1 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
       }
-      .flights-widget form {
-        flex-direction: column;
-      }
-      .flights-widget button {
-        max-width: 100%;
-        flex-shrink: 1;
+      header .logo {
+        width: 180px;
+        margin-bottom: 15px;
       }
     }
   </style>
@@ -214,49 +178,39 @@
   <header>
     <img src="https://i.imgur.com/ALBfQ8v.png" alt="Dagmar Travels Logo" class="logo" />
     <h1>
-      Encuentra los mejores <span id="changing-word" class="animated-text">vuelos</span> para tu viaje
+      Find the best <span id="changing-word" class="animated-text">flights</span> for your trip
     </h1>
     <div class="divider"></div>
   </header>
 
   <main>
-    <!-- Widget vuelos -->
-    <section class="flights-widget" aria-label="Buscador de vuelos">
-      <h2>Busca vuelos baratos</h2>
-      <form action="#" method="get" aria-describedby="flight-search-desc">
-        <p id="flight-search-desc" class="visually-hidden">Formulario para buscar vuelos desde y hacia Venezuela y Tenerife</p>
-        <input type="text" name="origen" placeholder="Origen (ej. Caracas)" required aria-label="Origen del vuelo" />
-        <input type="text" name="destino" placeholder="Destino (ej. Tenerife)" required aria-label="Destino del vuelo" />
-        <input type="date" name="fechaIda" aria-label="Fecha de ida" required />
-        <input type="date" name="fechaVuelta" aria-label="Fecha de vuelta (opcional)" />
-        <button type="submit">Buscar</button>
-      </form>
+    <section class="flights-widget" aria-label="Flight search widget">
+      <h2>Search Cheap Flights</h2>
+      <script async src="https://c111.travelpayouts.com/content?currency=eur&trs=423672&shmarker=638051&to_name=TFS&locale=en&powered_by=true&limit=2&primary_color=2F3332ff&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
     </section>
 
-    <!-- Destinos Tenerife -->
-    <section class="destinations" aria-label="Destinos recomendados en Tenerife">
+    <section class="destinations" aria-label="Recommended Tenerife destinations">
       <article class="destination" tabindex="0" role="link" aria-label="Santa Cruz de Tenerife">
-        <img src="https://www.guiarepsol.com/content/dam/repsol-guia/contenidos-imagenes/viajar/vamos-de-excursion/qu%C3%A9-ver-en-santa-cruz-de-tenerife/01SantaCruz.jpg.transform/rp-rendition-md/image.jpg" alt="Vista panorámica de Santa Cruz de Tenerife" />
+        <img src="https://www.guiarepsol.com/content/dam/repsol-guia/contenidos-imagenes/viajar/vamos-de-excursion/qu%C3%A9-ver-en-santa-cruz-de-tenerife/01SantaCruz.jpg.transform/rp-rendition-md/image.jpg" alt="Panoramic view of Santa Cruz de Tenerife" />
         <p>Santa Cruz de Tenerife</p>
       </article>
-      <article class="destination" tabindex="0" role="link" aria-label="Paisaje de Tenerife">
-        <img src="https://www.gancarczyk.com/wp-content/uploads/2024/01/teneryf-01-753x500.jpg" alt="Paisaje natural de Tenerife" />
-        <p>Paisajes Naturales</p>
+      <article class="destination" tabindex="0" role="link" aria-label="Tenerife Landscapes">
+        <img src="https://www.gancarczyk.com/wp-content/uploads/2024/01/teneryf-01-753x500.jpg" alt="Natural landscapes of Tenerife" />
+        <p>Natural Landscapes</p>
       </article>
-      <article class="destination" tabindex="0" role="link" aria-label="Parque Nacional del Teide">
-        <img src="https://static-resources-elementor.mirai.com/wp-content/uploads/sites/507/destinos-tenerife-paisajes-el-teide.jpg" alt="Parque Nacional del Teide en Tenerife" />
-        <p>Parque Nacional del Teide</p>
+      <article class="destination" tabindex="0" role="link" aria-label="Teide National Park">
+        <img src="https://static-resources-elementor.mirai.com/wp-content/uploads/sites/507/destinos-tenerife-paisajes-el-teide.jpg" alt="Teide National Park in Tenerife" />
+        <p>Teide National Park</p>
       </article>
     </section>
   </main>
 
   <footer>
-    &copy; 2025 Dagmar Travels. Todos los derechos reservados.
+    &copy; 2025 Dagmar Travels. All rights reserved.
   </footer>
 
   <script>
-    // Texto animado con fundido suave y cambio lento
-    const words = ['vuelos', 'viajes', 'aventuras', 'ofertas'];
+    const words = ['flights', 'trips', 'adventures', 'deals'];
     let index = 0;
     const span = document.getElementById('changing-word');
 
@@ -266,14 +220,10 @@
         index = (index + 1) % words.length;
         span.textContent = words[index];
         span.style.opacity = 1;
-      }, 1000);
+      }, 1200);
     }
 
     setInterval(changeWord, 4000);
-
-    // Inicializar opacidad
-    span.style.transition = 'opacity 1s ease-in-out';
-    span.style.opacity = 1;
   </script>
 </body>
 </html>
