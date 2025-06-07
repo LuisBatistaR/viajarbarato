@@ -92,7 +92,11 @@
 
     .hero video {
       position: absolute;
-      width: 100%; height: 100%;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
       object-fit: cover;
       z-index: 1;
       opacity: 0;
@@ -281,28 +285,28 @@
   <h2>The Island by Dagmar</h2>
   <div class="blog-grid">
     <article class="blog-card">
-      <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be" alt="">
+      <img src="https://source.unsplash.com/800x600/?sunrise,beach,medano" alt="Amanecer en El Médano">
       <div>
         <h3>☀️ El Médano sin gente</h3>
         <p>Amanecer, viento, Atlántico. Café negro y ninguna conversación. Silencio que cura.</p>
       </div>
     </article>
     <article class="blog-card">
-      <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919" alt="">
+      <img src="https://source.unsplash.com/800x600/?vineyard,tenerife" alt="Guachinche entre pinos">
       <div>
         <h3>🍷 Guachinche entre pinos</h3>
         <p>Vino local, pan duro, mojo de verdad. No lo encontrarás en Google Maps.</p>
       </div>
     </article>
     <article class="blog-card">
-      <img src="https://images.unsplash.com/photo-1545259742-2f9d712e3f3c" alt="">
+      <img src="https://source.unsplash.com/800x600/?natural-pool,tenerife" alt="Charco sin nombre">
       <div>
         <h3>🌊 Charco sin nombre</h3>
         <p>Sigue la carretera vieja. Gira donde se acaba el asfalto. Confía en el mar.</p>
       </div>
     </article>
     <article class="blog-card">
-      <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2" alt="">
+      <img src="https://source.unsplash.com/800x600/?mountain-road,tenerife" alt="Ruta alterna al norte">
       <div>
         <h3>🛵 Ruta alterna al norte</h3>
         <p>Evita la autopista. Sube por Arafo. Baja por pinos y lava. Llegarás más feliz.</p>
@@ -313,7 +317,15 @@
 
 <footer id="contacto">
   <p>&copy; 2025 <strong>Dagmar Travels</strong>. Todos los derechos reservados.</p>
-  <p><a href="https://instagram.com/0700dagmar" target="_blank"><i class="fab fa-instagram"></i> @0700dagmar</a> · <a href="https://dagmarobjects.com" target="_blank"><i class="fas fa-globe"></i> Web</a></p>
+  <p>
+    <a href="https://instagram.com/0700dagmar" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-instagram"></i> @0700dagmar
+    </a>
+    ·
+    <a href="https://dagmarobjects.com" target="_blank" rel="noopener noreferrer">
+      <i class="fas fa-globe"></i> Web
+    </a>
+  </p>
 </footer>
 
 <script>
@@ -344,5 +356,6 @@
     videos[videoIndex].classList.add('active');
   }, 9000);
 </script>
+
 </body>
 </html>
