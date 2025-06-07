@@ -11,6 +11,7 @@
 
   <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after {
@@ -49,7 +50,7 @@
       align-items: center;
       text-align: center;
       overflow: hidden;
-      font-family: 'Playfair Display', serif;
+      font-family: 'Montserrat', sans-serif; /* Cambiado a Montserrat */
       padding: 0 1rem;
       user-select: none;
     }
@@ -61,7 +62,7 @@
       background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/80/ef/57/gran-melia-palacio-de.jpg?w=1200&h=-1&s=1');
       background-size: cover;
       background-position: center;
-      filter: brightness(1.15) saturate(1.1) contrast(1.05);
+      filter: brightness(3.15) saturate(1.1) contrast(1.05);
       z-index: -2;
       transition: background-image 1s ease-in-out;
     }
@@ -73,16 +74,28 @@
       z-index: -1;
     }
 
+    /* Logo arriba izquierda */
+    header .logo {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      width: 130px;
+      height: auto;
+      z-index: 10;
+      user-select: none;
+    }
+
     header h1 {
       font-size: 3.2rem;
       margin: 0 0 0.4rem;
-      font-weight: normal;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+      font-weight: 700;
       position: relative;
       z-index: 1;
+      /* Montserrat ya asignado en header */
     }
 
     header .animated-text {
+      font-family: 'Playfair Display', serif;
       font-style: italic;
       font-weight: 600;
       color: #ffd700;
@@ -91,6 +104,8 @@
       display: inline-block;
       margin-left: 0.3rem;
       text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+      position: relative;
+      z-index: 1;
     }
 
     main {
@@ -100,15 +115,26 @@
       color: #444444;
     }
 
-    .flights-widget {
+    /* Contenedor flexible para vuelos + insta */
+    .widgets-container {
+      display: flex;
+      gap: 2rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .flights-widget, .instagram-widget {
       background: #ffffff;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       padding: 2rem 1.5rem;
-      margin-bottom: 3rem;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+      flex: 1 1 400px;
+      min-width: 280px;
+      color: #444444;
     }
 
     .flights-widget h2 {
@@ -118,6 +144,10 @@
       color: #333333;
       margin-bottom: 1.5rem;
       text-align: center;
+    }
+
+    .instagram-widget {
+      padding: 0; /* Para que el widget ocupe todo el espacio sin padding extra */
     }
 
     .carousel {
@@ -205,8 +235,12 @@
       .carousel-item {
         width: 220px;
       }
-      .flights-widget {
-        padding: 1.5rem 1rem;
+      .flights-widget, .instagram-widget {
+        flex: 1 1 100%;
+        min-width: auto;
+      }
+      .widgets-container {
+        gap: 1rem;
       }
     }
   </style>
@@ -214,6 +248,7 @@
 <body>
 
   <header role="banner">
+    <img class="logo" src="https://i.imgur.com/gfKxjRL.png" alt="Dagmar Travels Logo" />
     <h1>
       Find the best <span id="changing-word" class="animated-text" aria-live="polite" aria-atomic="true">flights</span> for your trip
     </h1>
@@ -221,53 +256,59 @@
 
   <main role="main">
 
-    <section class="flights-widget" aria-label="Flight search widget">
-      <h2>Search Cheap Flights</h2>
-      <script async src="https://c111.travelpayouts.com/content?currency=pln&trs=423668&shmarker=638051&from_name=PL&to_name=TFS&locale=en&powered_by=true&limit=4&primary_color=444A48ff&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
-    </section>
+    <div class="widgets-container">
+      <section class="flights-widget" aria-label="Flight search widget">
+        <h2>Search Cheap Flights</h2>
+        <script async src="https://c111.travelpayouts.com/content?currency=pln&trs=423668&shmarker=638051&from_name=PL&to_name=TFS&locale=en&powered_by=true&limit=4&primary_color=444A48ff&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
+      </section>
+
+      <section class="instagram-widget" aria-label="Instagram feed widget">
+        <!-- Elfsight Instagram Feed -->
+        <script src="https://static.elfsight.com/platform/platform.js" async></script>
+        <div class="elfsight-app-78f0f081-6f6e-4d64-aa97-a527db372b0f" data-elfsight-app-lazy></div>
+      </section>
+    </div>
 
     <section class="carousel" aria-label="Tenerife destinations carousel">
-      <article class="carousel-item" tabindex="0" role="link" aria-label="La Laguna">
-        <img src="https://cdn.surfingtheplanet.com/wp-content/uploads/2023/01/calle-agustin-laguna-tenerife.jpg?strip=all&lossy=1&ssl=1" alt="Street view of La Laguna Tenerife" />
-        <p>La Laguna</p>
+      <article class="carousel-item" tabindex="0" role="button" aria-pressed="false" aria-label="Tenerife Playa de las Américas">
+        <img src="https://images.pexels.com/photos/1001680/pexels-photo-1001680.jpeg" alt="Playa de las Américas, Tenerife" />
+        <p>Playa de las Américas</p>
       </article>
-      <article class="carousel-item" tabindex="0" role="link" aria-label="La Orotava">
-        <img src="https://www.laorotava.es/sites/default/files/noticias/4.jpg" alt="View of La Orotava town" />
-        <p>La Orotava</p>
-      </article>
-      <article class="carousel-item" tabindex="0" role="link" aria-label="Los Cristianos">
-        <img src="https://images.adsttc.com/media/images/56de/57e3/e58e/ce41/8700/0113/newsletter/Los-Cristianos-Harbour_Tenerife_Eric-Owen-Architects-00_featured.jpg?1457410050" alt="Harbor in Los Cristianos" />
-        <p>Los Cristianos</p>
-      </article>
-      <article class="carousel-item" tabindex="0" role="link" aria-label="Puerto de la Cruz">
-        <img src="https://tenerife.spain-is.com/images/galleries/puerto-de-la-cruz-02.jpg" alt="View of Puerto de la Cruz" />
+      <article class="carousel-item" tabindex="0" role="button" aria-pressed="false" aria-label="Tenerife Puerto de la Cruz">
+        <img src="https://images.pexels.com/photos/209842/pexels-photo-209842.jpeg" alt="Puerto de la Cruz, Tenerife" />
         <p>Puerto de la Cruz</p>
+      </article>
+      <article class="carousel-item" tabindex="0" role="button" aria-pressed="false" aria-label="Tenerife Santa Cruz">
+        <img src="https://images.pexels.com/photos/66997/pexels-photo-66997.jpeg" alt="Santa Cruz de Tenerife" />
+        <p>Santa Cruz</p>
+      </article>
+      <article class="carousel-item" tabindex="0" role="button" aria-pressed="false" aria-label="Tenerife Los Gigantes">
+        <img src="https://images.pexels.com/photos/4173440/pexels-photo-4173440.jpeg" alt="Los Gigantes cliffs, Tenerife" />
+        <p>Los Gigantes</p>
       </article>
     </section>
 
   </main>
 
-  <footer role="contentinfo">
-    &copy; 2025 Dagmar Travels. All rights reserved.
+  <footer>
+    &copy; 2025 Dagmar Travels - All rights reserved.
   </footer>
 
   <script>
-    // Palabras que se animan en el header
-    const words = ["flights", "packages", "deals", "offers", "vacations"];
-    let index = 0;
-    const changingWord = document.getElementById('changing-word');
+    // Animación palabras cambiantes en header
+    const words = ['flights', 'trips', 'adventures', 'deals', 'journeys', 'vacations'];
+    let idx = 0;
+    const wordSpan = document.getElementById('changing-word');
 
     function changeWord() {
-      changingWord.style.opacity = 0;
+      idx = (idx + 1) % words.length;
+      wordSpan.style.opacity = '0';
       setTimeout(() => {
-        index = (index + 1) % words.length;
-        changingWord.textContent = words[index];
-        changingWord.style.opacity = 1;
-      }, 900);
+        wordSpan.textContent = words[idx];
+        wordSpan.style.opacity = '1';
+      }, 1000);
     }
-
-    setInterval(changeWord, 4000);
+    setInterval(changeWord, 5000);
   </script>
-
 </body>
 </html>
