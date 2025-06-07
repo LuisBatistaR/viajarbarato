@@ -50,7 +50,7 @@
       align-items: center;
       text-align: center;
       overflow: hidden;
-      font-family: 'Montserrat', sans-serif; /* Cambiado a Montserrat */
+      font-family: 'Montserrat', sans-serif;
       padding: 0 1rem;
       user-select: none;
     }
@@ -62,7 +62,7 @@
       background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/17/80/ef/57/gran-melia-palacio-de.jpg?w=1200&h=-1&s=1');
       background-size: cover;
       background-position: center;
-      filter: brightness(3.15) saturate(1.1) contrast(1.05);
+      filter: brightness(0.35) saturate(0.9) contrast(1.1);
       z-index: -2;
       transition: background-image 1s ease-in-out;
     }
@@ -70,28 +70,29 @@
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0, 0, 0, 0.3);
+      background-color: rgba(0, 0, 0, 0.5);
       z-index: -1;
     }
 
-    /* Logo arriba izquierda */
+    /* Logo arriba izquierda, grande y bien visible */
     header .logo {
       position: absolute;
-      top: 15px;
-      left: 15px;
-      width: 130px;
+      top: 20px;
+      left: 20px;
+      width: 180px;
       height: auto;
       z-index: 10;
       user-select: none;
     }
 
     header h1 {
-      font-size: 3.2rem;
+      font-size: 3.6rem;
       margin: 0 0 0.4rem;
       font-weight: 700;
       position: relative;
       z-index: 1;
-      /* Montserrat ya asignado en header */
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
     }
 
     header .animated-text {
@@ -115,25 +116,19 @@
       color: #444444;
     }
 
-    /* Contenedor flexible para vuelos + insta */
+    /* Contenedor solo para vuelos, sin instagram */
     .widgets-container {
-      display: flex;
-      gap: 2rem;
       max-width: 900px;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 3rem;
-      flex-wrap: wrap;
-      justify-content: center;
     }
 
-    .flights-widget, .instagram-widget {
+    .flights-widget {
       background: #ffffff;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       padding: 2rem 1.5rem;
-      flex: 1 1 400px;
-      min-width: 280px;
       color: #444444;
     }
 
@@ -144,10 +139,6 @@
       color: #333333;
       margin-bottom: 1.5rem;
       text-align: center;
-    }
-
-    .instagram-widget {
-      padding: 0; /* Para que el widget ocupe todo el espacio sin padding extra */
     }
 
     .carousel {
@@ -230,17 +221,18 @@
 
     @media (max-width: 600px) {
       header h1 {
-        font-size: 2rem;
+        font-size: 2.4rem;
+      }
+      header .logo {
+        width: 140px;
+        top: 15px;
+        left: 15px;
       }
       .carousel-item {
         width: 220px;
       }
-      .flights-widget, .instagram-widget {
-        flex: 1 1 100%;
-        min-width: auto;
-      }
-      .widgets-container {
-        gap: 1rem;
+      .flights-widget {
+        padding: 1.5rem 1rem;
       }
     }
   </style>
@@ -248,7 +240,7 @@
 <body>
 
   <header role="banner">
-    <img class="logo" src="https://i.imgur.com/gfKxjRL.png" alt="Dagmar Travels Logo" />
+    <img class="logo" src="https://i.imgur.com/mVciASa.png" alt="Dagmar Travels Logo" />
     <h1>
       Find the best <span id="changing-word" class="animated-text" aria-live="polite" aria-atomic="true">flights</span> for your trip
     </h1>
@@ -260,12 +252,6 @@
       <section class="flights-widget" aria-label="Flight search widget">
         <h2>Search Cheap Flights</h2>
         <script async src="https://c111.travelpayouts.com/content?currency=pln&trs=423668&shmarker=638051&from_name=PL&to_name=TFS&locale=en&powered_by=true&limit=4&primary_color=444A48ff&results_background_color=FFFFFF&form_background_color=FFFFFF&promo_id=3411" charset="utf-8"></script>
-      </section>
-
-      <section class="instagram-widget" aria-label="Instagram feed widget">
-        <!-- Elfsight Instagram Feed -->
-        <script src="https://static.elfsight.com/platform/platform.js" async></script>
-        <div class="elfsight-app-78f0f081-6f6e-4d64-aa97-a527db372b0f" data-elfsight-app-lazy></div>
       </section>
     </div>
 
@@ -290,25 +276,27 @@
 
   </main>
 
-  <footer>
-    &copy; 2025 Dagmar Travels - All rights reserved.
+  <footer role="contentinfo">
+    &copy; 2025 Dagmar Travels. All rights reserved.
   </footer>
 
   <script>
-    // Animación palabras cambiantes en header
-    const words = ['flights', 'trips', 'adventures', 'deals', 'journeys', 'vacations'];
+    const words = ["flights", "cheap flights", "the best deals", "your perfect trip", "budget travel"];
+    const changingWordEl = document.getElementById('changing-word');
     let idx = 0;
-    const wordSpan = document.getElementById('changing-word');
 
     function changeWord() {
       idx = (idx + 1) % words.length;
-      wordSpan.style.opacity = '0';
+      changingWordEl.style.opacity = '0';
       setTimeout(() => {
-        wordSpan.textContent = words[idx];
-        wordSpan.style.opacity = '1';
-      }, 1000);
+        changingWordEl.textContent = words[idx];
+        changingWordEl.style.opacity = '1';
+      }, 600);
     }
-    setInterval(changeWord, 5000);
+
+    setInterval(changeWord, 4000);
   </script>
+
 </body>
 </html>
+
