@@ -1,381 +1,172 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Odkryj Teneryfę - Przewodnik po rajskiej wyspie</title>
-  <meta name="description" content="Odkryj niesamowite miejsca, plaże i atrakcje na Teneryfie. Zarezerwuj swoje wakacje już teraz!">
-  <meta name="keywords" content="Teneryfa, wakacje, plaże, atrakcje, podróże, rezerwacja">
-  <meta name="author" content="Odkryj Teneryfę">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Luis DJ Mix – Reproductor Automático</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body {
-      height: 100%;
-      font-family: 'Montserrat', sans-serif;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
-
-    .intro {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: black;
-      z-index: 9999;
+    body {
+      margin: 0;
+      background-color: #121212;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      animation: fadeOutWhite 1s ease 3s forwards;
-    }
-
-    .intro img {
-      width: 280px;
-      opacity: 0;
-      animation: logoFadeIn 1.5s ease 0.5s forwards;
-    }
-
-    .intro::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: white;
-      opacity: 0;
-      animation: whiteFadeIn 1s ease-in-out 2.5s forwards;
-      z-index: -1;
-    }
-
-    @keyframes logoFadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to   { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes whiteFadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-
-    @keyframes fadeOutWhite {
-      to { opacity: 0; visibility: hidden; }
-    }
-
-    .flash {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: white;
-      opacity: 0;
-      z-index: 9998;
-      pointer-events: none;
-      transition: opacity 1s ease;
-    }
-
-    .flash.show { opacity: 1; }
-
-    .hero {
-      position: relative;
-      height: 100vh;
-      overflow: hidden;
-      color: white;
-      text-align: center;
-    }
-
-    .background-video {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      z-index: -2;
-    }
-
-    .overlay {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: -1;
-    }
-
-    .top-nav {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      background: rgba(20, 20, 20, 0.85);
-      padding: 20px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 2;
-    }
-
-    .logo img { height: 70px; }
-
-    .menu-wrapper {
-      position: relative;
-    }
-
-    .menu {
-      cursor: pointer;
-      color: white;
-      font-weight: bold;
-      user-select: none;
-    }
-
-    .book-btn {
-      background: rgba(255,255,255,0.2);
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      color: white;
-      font-weight: 600;
-    }
-
-    .book-btn:hover {
-      background: rgba(255,255,255,0.35);
-    }
-
-    .dropdown {
-      display: none;
-      position: absolute;
-      top: 40px;
-      right: 0;
-      background: rgba(0,0,0,0.95);
-      border-radius: 6px;
-      padding: 15px;
-      min-width: 160px;
       flex-direction: column;
-      gap: 12px;
-      z-index: 3;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
     }
-
-    .dropdown a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
+    h1 {
+      margin-bottom: 10px;
+      font-weight: 700;
+      font-size: 2rem;
+      text-align: center;
+      color: #00bfa5;
+      text-shadow: 0 0 8px #00bfa5;
     }
-
-    .dropdown a:hover {
-      color: #ffd700;
-    }
-
-    .hero-text {
-      position: absolute;
-      bottom: 20%;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
-    }
-
-    .hero-logo {
-      max-height: 320px;
-      width: auto;
-      max-width: 95%;
-      filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.5));
-    }
-
-    .skip-btn {
-      position: absolute;
-      bottom: 25px;
+    #player {
       width: 100%;
+      max-width: 800px;
+      aspect-ratio: 16 / 9;
+      box-shadow: 0 0 20px #00bfa5;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 15px;
+      background: #000;
+    }
+    #info {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #ccc;
+      text-align: center;
+      min-height: 1.5em;
+      user-select: none;
+      margin-bottom: 10px;
+    }
+    #nextBtn {
+      background: #00bfa5;
+      color: #121212;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 24px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-bottom: 20px;
+      transition: background 0.2s;
+    }
+    #nextBtn:hover {
+      background: #009e88;
+    }
+    footer {
+      margin-top: auto;
+      font-size: 0.9rem;
+      color: #555;
       text-align: center;
     }
-
-    .skip-btn a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      opacity: 0.85;
+    @media (max-width: 600px) {
+      h1 { font-size: 1.3rem; }
+      #player { max-width: 100vw; }
     }
   </style>
 </head>
 <body>
+  <h1>Luis DJ Mix</h1>
+  <div id="player"></div>
+  <div id="info" aria-live="polite">Cargando...</div>
+  <button id="nextBtn" type="button">Siguiente</button>
+  <footer>Playlist creada por ChatGPT para Luis &copy; 2025</footer>
 
-  <div class="intro" role="dialog" aria-label="Intro de bienvenida">
-    <img src="https://i.imgur.com/D3fNV92.png" alt="Logo de Odkryj Teneryfę">
-  </div>
+  <!-- YouTube IFrame API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script>
+    // Lista de videos con título y ID YouTube (IDs reales y corregidos)
+    const videos = [
+      { title: "Teo Lucadamo – Porque Tengo Calor", id: "tgFTvX4bRiU" },
+      { title: "SZA – Good Days", id: "zP50Ewh31E4" },
+      { title: "Childish Gambino – Feels Like Summer", id: "F1B9Fk_SgI0" },
+      { title: "Steve Lacy – Bad Habit", id: "V1Pl8CzNzCw" },
+      { title: "Kali Uchis – Melting", id: "6lnqe1urLVo" },
+      { title: "Mac Miller – Dang! (feat. Anderson .Paak)", id: "LR3GQfryp9M" },
+      { title: "Anderson .Paak – Am I Wrong", id: "2kDL9xAqKwo" },
+      { title: "Tame Impala – Borderline", id: "Vb6bZp2UjNw" },
+      { title: "Rawayana – Funky Fiesta", id: "0Kv1V7kXj8X" },
+      { title: "Danny Ocean – Me Rehúso", id: "kJQP7kiw5Fk" },
+      { title: "Elena Rose – Bayamón", id: "3uWwKzW51hTQ" },
+      { title: "Simón Grossmann – Agüitaecoco", id: "2gmcXqwPU8r" },
+      { title: "Cultura Profética – Ilegal", id: "2KhZErJzZfu" },
+      { title: "Vicente García – Candela", id: "3WJj6whVvDO" },
+      { title: "Monsieur Periné – Bailar Contigo", id: "1yQ3LhWuOvI" },
+      { title: "Buscabulla – Ta Que Tiembla", id: "5NznTbZSkWK" },
+      { title: "Nathy Peluso – Delito", id: "0kwsEUmML86" },
+      { title: "Tokischa – Linda (con Rosalía)", id: "3Gpyq7xtsXT" },
+      { title: "Karol G – Ojos Ferrari", id: "4O0J5gDqwdp" },
+      { title: "Rosalía – Despechá", id: "1v7qP2vz9i9" },
+      { title: "Bomba Estéreo – To My Love", id: "7KTzX4PTP2P" },
+      { title: "Marshmello & Manuel Turizo – El Merengue", id: "5qEQ7qQCKNL" },
+      { title: "Major Lazer – Get Free", id: "ytLzxl4-w9U" },
+      { title: "Omar Apollo – Invincible", id: "3rNUVrfZxVm" },
+      { title: "Bad Bunny & Bomba Estéreo – Ojitos Lindos", id: "5QO79kh1wai" },
+      { title: "J Balvin & Tokischa – Perra", id: "7DD4LqBL0Sh" },
+      { title: "SG Lewis – Chemicals", id: "3B3s7ajX37W" },
+      { title: "Tyler, The Creator – See You Again", id: "TGgcC5xg9YI" }
+    ];
 
-  <div class="flash" id="flash" aria-hidden="true"></div>
+    let currentIndex = 0;
+    let player;
+    const infoDiv = document.getElementById("info");
+    const nextBtn = document.getElementById("nextBtn");
 
-  <header class="hero" id="home">
-    <video id="bgVideo" autoplay muted playsinline class="background-video" aria-hidden="true">
-      <source id="videoSource" src="https://cdn.pixabay.com/video/2020/02/19/32606-393989992_large.mp4" type="video/mp4">
-    </video>
-    <div class="overlay"></div>
+    // Llama la API de YouTube cuando está lista
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player("player", {
+        width: "100%",
+        height: "100%",
+        videoId: videos[currentIndex].id,
+        playerVars: {
+          autoplay: 1,
+          controls: 1,
+          rel: 0,
+          modestbranding: 1,
+          disablekb: 1,
+          loop: 0,
+          fs: 1
+        },
+        events: {
+          onReady: onPlayerReady,
+          onStateChange: onPlayerStateChange
+        }
+      });
+    }
 
-    <nav class="top-nav" role="navigation" aria-label="Nawigacja główna">
-      <div class="logo">
-        <img src="https://i.imgur.com/D3fNV92.png" alt="Logo strony">
-      </div>
-      <div class="menu-wrapper">
-        <div class="menu" onclick="toggleMenu()" aria-haspopup="true" aria-controls="dropdownMenu">MENU ☰</div>
-        <div id="dropdownMenu" class="dropdown" role="menu">
-          <a href="#home">Strona główna</a>
-          <a href="#blog">Blog</a>
-          <a href="#booking">Wyszukiwarka</a>
-          <a href="#contact">Kontakt</a>
-        </div>
-      </div>
-      <a href="#booking" class="book-btn">REZERWUJ TERAZ →</a>
-    </nav>
+    // Cuando el player está listo
+    function onPlayerReady(event) {
+      event.target.playVideo();
+      updateInfo();
+    }
 
-    <div class="hero-text">
-      <img src="https://i.imgur.com/e2PNeOR.png" alt="Logo główne" class="hero-logo" loading="lazy">
-    </div>
+    // Detecta cambios de estado (por ejemplo, video terminó)
+    function onPlayerStateChange(event) {
+      if (event.data === YT.PlayerState.ENDED) {
+        nextVideo();
+      }
+    }
 
-    <div class="skip-btn">
-      <a href="#main" onclick="document.getElementById('main').scrollIntoView({behavior:'smooth'})">POMIŃ</a>
-    </div>
-  </header>
-<!-- PROMO BARRA + HOVER -->
-<style>
-  .promo-header {
-    background: #f7f7f7;
-    padding: 30px 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-    border-bottom: 1px solid #ddd;
-    font-family: 'Montserrat', sans-serif;
-    transition: background 0.4s ease;
-  }
+    // Cambia al siguiente video en la lista
+    function nextVideo() {
+      currentIndex++;
+      if (currentIndex >= videos.length) currentIndex = 0;
+      player.loadVideoById(videos[currentIndex].id);
+      updateInfo();
+    }
 
-  .promo-text {
-    font-size: 1.8rem;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    color: #1a1a1a;
-    transition: color 0.4s ease;
-  }
+    // Actualiza el texto con la canción actual
+    function updateInfo() {
+      infoDiv.textContent = `Ahora sonando: ${videos[currentIndex].title} (${currentIndex + 1} de ${videos.length})`;
+    }
 
-  .promo-text .icon {
-    height: 34px;
-    width: 34px;
-    transition: filter 0.4s ease;
-  }
-
-  .promo-text .modern {
-    font-weight: 600;
-  }
-
-  .promo-text .elegant {
-    font-family: 'Merriweather', serif;
-    font-style: italic;
-    font-size: 1rem;
-    color: #333;
-    transition: color 0.4s ease;
-  }
-
-  .promo-header img.logo {
-    max-height: 100px;
-    transition: filter 0.4s ease;
-  }
-
-  .promo-header:hover {
-    background: #111;
-  }
-
-  .promo-header:hover .promo-text,
-  .promo-header:hover .promo-text .elegant {
-    color: #fff;
-  }
-
-  .promo-header:hover .promo-text .icon,
-  .promo-header:hover img.logo {
-    filter: brightness(0) invert(1);
-  }
-</style>
-
-<!-- BARRA PROMOCIONAL -->
-<div class="promo-header">
-  <div class="promo-text">
-    <img src="https://cdn-icons-png.flaticon.com/512/31/31069.png" alt="Ikona samolotu" class="icon">
-    <span class="modern">Vuelos i hotele</span>
-    <span class="elegant">na Teneryfie w najlepszych cenach!</span>
-  </div>
-  <div>
-    <img src="https://i.imgur.com/BrgPgL9.png" alt="Logo Isla Mágica" class="logo">
-  </div>
-</div>
-
-<!-- WIDGET TRAVEL PAYOUTS -->
-<div class="widget-container" style="padding: 50px 5%; background: #fff; text-align: center;">
-  <script async src="https://c111.travelpayouts.com/content?currency=pln&trs=423668&shmarker=638051&from_name=PL&to_name=TFS&locale=pl&powered_by=true&limit=4&primary_color=1E2020ff&results_background_color=ffffff&form_background_color=ffffff&promo_id=3411" charset="utf-8"></script>
-</div>
-
-<!-- REKOMENDACJE -->
-<section id="rekomendacje" style="padding: 80px 20px; background: #fff;">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    <h2 style="text-align: center; font-size: 2.3rem; margin-bottom: 50px;">Polecane miejsca na Teneryfie</h2>
-    <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
-
-      <article style="background: #fff; border-radius: 8px; overflow: hidden; max-width: 350px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-        <img src="https://static-resources.mirai.com/wp-content/uploads/sites/1738/20230626095434/Pueblo-de-Masca.jpg" alt="Masca" style="width: 100%; height: 220px; object-fit: cover; filter: brightness(95%);">
-        <div style="padding: 20px;">
-          <h3>Masca – ukryta perełka</h3>
-          <p>Malownicza wioska w górach Teneryfy, idealna na piesze wędrówki i odkrywanie natury.</p>
-        </div>
-      </article>
-
-      <article style="background: #fff; border-radius: 8px; overflow: hidden; max-width: 350px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/680598718.jpg?k=f77b0abfc4971c94fd10cc815e7671d24f9214485e488fb46aa2487f38d2337c&o=&hp=1" alt="Gran Tacande" style="width: 100%; height: 220px; object-fit: cover; filter: brightness(95%);">
-        <div style="padding: 20px;">
-          <h3>Dream Hotel Gran Tacande</h3>
-          <p>Luksusowy hotel z widokiem na ocean, SPA i restauracje gourmet w Costa Adeje.</p>
-        </div>
-      </article>
-
-      <article style="background: #fff; border-radius: 8px; overflow: hidden; max-width: 350px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-        <img src="https://richiperez.com/wp-content/uploads/2024/08/que-ver-en-san-cristobal-de-la-laguna-tenerife-en-un-dia-richi-perez.jpg" alt="La Laguna" style="width: 100%; height: 220px; object-fit: cover; filter: brightness(95%);">
-        <div style="padding: 20px;">
-          <h3>La Laguna – kolonialna duma</h3>
-          <p>Miasto wpisane na listę UNESCO, z piękną architekturą i historyczną atmosferą.</p>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer style="background: #111; color: #eee; text-align: center; padding: 30px 10px; font-size: 0.9rem;">
-  <p>&copy; 2024 Isla Mágica. Wszelkie prawa zastrzeżone.</p>
-  <p>Obserwuj nas na Instagramie: <a href="https://www.instagram.com/islamagica.pl" target="_blank" style="color: #fff;">@islamagica.pl</a></p>
-</footer>
-
-<!-- VIDEO SCRIPT -->
-<script>
-  const videos = [
-    "https://cdn.pixabay.com/video/2020/02/19/32606-393989992_large.mp4",
-    "https://cdn.pixabay.com/video/2023/08/29/178321-860527288_large.mp4",
-    "https://cdn.pixabay.com/video/2024/05/28/214078_large.mp4"
-  ];
-  const video = document.getElementById('bgVideo');
-  const source = document.getElementById('videoSource');
-  const flash = document.getElementById('flash');
-  let index = 0;
-
-  function playNextVideo() {
-    flash.classList.add('show');
-    setTimeout(() => {
-      index = (index + 1) % videos.length;
-      source.src = videos[index];
-      video.load();
-      flash.classList.remove('show');
-    }, 300);
-  }
-
-  video.addEventListener('loadeddata', () => {
-    setTimeout(playNextVideo, 10000);
-  });
-
-  setInterval(playNextVideo, 10000);
-</script>
-
+    // Botón siguiente
+    nextBtn.onclick = nextVideo;
+  </script>
 </body>
 </html>
