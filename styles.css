@@ -1,0 +1,236 @@
+:root {
+  --azul-marino: #0a2342;
+  --blanco: #ffffff;
+  --turquesa: #1de9b6;
+  --dorado: #ffd700;
+  --gris: #f4f6f8;
+  --sombra: 0 6px 24px rgba(10,35,66,0.09);
+  --fuente-principal: 'Montserrat', sans-serif;
+  --fuente-secundaria: 'Montserrat Alternates', 'Calistoga', cursive;
+  --fuente-resultados: 'Calibri', 'Montserrat', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente-principal);
+  background: linear-gradient(120deg, var(--azul-marino) 60%, var(--turquesa) 100%);
+  min-height: 100vh;
+  color: var(--azul-marino);
+}
+
+.hero {
+  text-align: center;
+  padding: 3.5rem 1rem 2.5rem 1rem;
+  background: var(--blanco);
+  box-shadow: var(--sombra);
+  border-radius: 0 0 36px 36px;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInDown 1.2s cubic-bezier(.4,0,.2,1);
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+  opacity: 0.23;
+  z-index: 0;
+  animation: bgZoom 18s infinite alternate ease-in-out;
+}
+
+.logo {
+  width: 90px;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+  animation: logoSlide 1s cubic-bezier(.4,0,.2,1);
+}
+
+.main-title {
+  font-family: var(--fuente-principal);
+  font-size: 2.7rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: var(--azul-marino);
+  margin: 0 0 0.2rem 0;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+}
+
+.subtitle {
+  font-family: var(--fuente-secundaria);
+  font-size: 1.3rem;
+  color: var(--turquesa);
+  margin-bottom: 0.7rem;
+  position: relative;
+  z-index: 2;
+  animation: fadeIn 1.4s 0.5s backwards;
+}
+
+.icon-plane img {
+  width: 54px;
+  margin: 0.5rem auto 1rem auto;
+  display: block;
+  animation: planeFloat 2s infinite alternate ease-in-out;
+  position: relative;
+  z-index: 2;
+}
+
+.search-form {
+  margin: 1.5rem auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  justify-content: center;
+}
+
+.inputs input,
+.inputs select {
+  font-family: var(--fuente-secundaria);
+  font-size: 1.05rem;
+  border: 1.5px solid var(--turquesa);
+  border-radius: 10px;
+  padding: 0.7rem 1.1rem;
+  outline: none;
+  background: var(--gris);
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(10,35,66,0.04);
+}
+
+.inputs input:focus,
+.inputs select:focus {
+  border: 2px solid var(--dorado);
+  box-shadow: 0 0 0 2px var(--turquesa);
+}
+
+.btn-search {
+  font-family: var(--fuente-principal);
+  font-weight: 900;
+  background: linear-gradient(90deg, var(--turquesa) 70%, var(--dorado) 100%);
+  color: var(--azul-marino);
+  border: none;
+  border-radius: 24px;
+  padding: 0.9rem 2.4rem;
+  font-size: 1.14rem;
+  cursor: pointer;
+  box-shadow: var(--sombra);
+  transition: background 0.2s, color 0.2s, transform 0.13s;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 2px #fff8;
+}
+
+.btn-search:hover,
+.btn-search:focus {
+  background: linear-gradient(90deg, var(--dorado) 70%, var(--turquesa) 100%);
+  color: var(--azul-marino);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.results {
+  margin: 2.5rem auto 0 auto;
+  max-width: 800px;
+  padding: 0 1rem;
+  min-height: 220px;
+}
+
+.vuelo-card {
+  background: var(--blanco);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(10,35,66,0.13);
+  margin-bottom: 2rem;
+  padding: 2rem 1.6rem;
+  font-family: var(--fuente-resultados);
+  font-size: 1.13rem;
+  color: var(--azul-marino);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  animation: fadeIn 0.8s cubic-bezier(.4,0,.2,1);
+  border-left: 7px solid var(--turquesa);
+  position: relative;
+  overflow: hidden;
+}
+
+.vuelo-card::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; width: 60px; height: 100%;
+  background: linear-gradient(120deg, var(--turquesa) 0%, var(--dorado) 100%);
+  opacity: 0.08;
+  z-index: 0;
+}
+
+.vuelo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--fuente-secundaria);
+  font-weight: bold;
+  font-size: 1.23rem;
+  position: relative;
+  z-index: 2;
+}
+
+.vuelo-precio {
+  color: var(--turquesa);
+  font-size: 1.75rem;
+  font-family: var(--fuente-principal);
+  font-weight: 900;
+  text-shadow: 0 1px 2px #fff8;
+}
+
+.vuelo-detalles {
+  font-size: 1.05rem;
+  color: #444;
+  font-family: var(--fuente-resultados);
+  z-index: 2;
+  position: relative;
+}
+
+@media (max-width: 700px) {
+  .inputs {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .results {
+    padding: 0 0.2rem;
+  }
+  .vuelo-card {
+    padding: 1.1rem 0.7rem;
+  }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-40px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes logoSlide {
+  from { opacity: 0; transform: translateY(-60px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes planeFloat {
+  from { transform: translateY(0);}
+  to { transform: translateY(-18px);}
+}
+
+@keyframes bgZoom {
+  from { transform: scale(1);}
+  to { transform: scale(1.07);}
+}
