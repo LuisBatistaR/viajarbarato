@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>viajarbarato – Vuelos de lujo</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Montserrat+Alternates:wght@700&family=Calistoga&family=Calibri:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <img src="assets/logo.svg" alt="viajarbarato logo" class="logo" />
+    <h1 class="main-title">viajarbarato</h1>
+    <div class="subtitle">Descubre el mundo con estilo</div>
+    <div class="icon-plane">
+      <img src="assets/avion-icon.svg" alt="Avión" />
+    </div>
+    <form id="form-vuelos" class="search-form">
+      <div class="inputs">
+        <input type="text" name="origen" placeholder="Origen (ej: MAD)" required />
+        <input type="text" name="destino" placeholder="Destino (ej: BCN)" required />
+        <input type="date" name="fecha" required />
+        <input type="number" name="adultos" min="1" max="9" value="1" required />
+        <select name="clase">
+          <option value="ECONOMY">Económica</option>
+          <option value="PREMIUM_ECONOMY">Premium</option>
+          <option value="BUSINESS">Business</option>
+          <option value="FIRST">First</option>
+        </select>
+        <select name="escalas">
+          <option value="todas">Todas</option>
+          <option value="directo">Solo directos</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-search">Buscar vuelos</button>
+    </form>
+  </div>
+  <div id="resultados" class="results"></div>
+  <script src="app.js"></script>
+</body>
+</html>
