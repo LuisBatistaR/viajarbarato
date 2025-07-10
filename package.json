@@ -1,7 +1,7 @@
 {
   "name": "viajarbarato",
-  "version": "1.0.0",
-  "description": "Buscador moderno de vuelos baratos con Node.js, Express y Amadeus API.",
+  "version": "2.0.0",
+  "description": "Buscador de vuelos premium inspirado en Expedia/Delta, Node.js, Express y Amadeus API.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
